@@ -81,6 +81,35 @@
     </item>
     
     <item>
+      <title>docker安装</title>
+      <link>https://bigdata-yx.github.io/posts/1fef.html</link>
+      <guid>https://bigdata-yx.github.io/posts/1fef.html</guid>
+      <pubDate>Fri, 25 Oct 2024 03:14:35 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;a href=&quot;#先移除旧版的docker如果没有就跳过&quot; class=&quot;headerlink&quot; title=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;/a&gt;先移除旧版的docker如果没有就跳过&lt;/h3&gt;&lt;ul&gt;
+</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="先移除旧版的docker如果没有就跳过"><a href="#先移除旧版的docker如果没有就跳过" class="headerlink" title="先移除旧版的docker如果没有就跳过"></a>先移除旧版的docker如果没有就跳过</h3><ul><li>移除旧版本docker \</li><li>sudo yum remove docker \</li><li>docker-client \</li><li>docker-client-latest \</li><li>docker-common \</li><li>docker-latest \</li><li>docker-latest-logrotate \</li><li>docker-logrotate \</li><li>docker-engine</li></ul><h3 id="配置docker-yum源"><a href="#配置docker-yum源" class="headerlink" title="配置docker yum源"></a>配置docker yum源</h3><ul><li>sudo yum install -y yum-utils</li><li>sudo yum-config-manager </li><li>–add-repo </li><li><a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></li><li>如果已经配置好yum为阿里云的就不用了</li></ul><h2 id="安装-最新-docker"><a href="#安装-最新-docker" class="headerlink" title="安装 最新 docker"></a>安装 最新 docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure><h2 id="启动-amp-开机启动docker；-enable-start-二合一"><a href="#启动-amp-开机启动docker；-enable-start-二合一" class="headerlink" title="启动&amp; 开机启动docker； enable + start 二合一"></a>启动&amp; 开机启动docker； enable + start 二合一</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker --now</span><br></pre></td></tr></table></figure><h3 id="配置加速"><a href="#配置加速" class="headerlink" title="配置加速"></a>配置加速</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors那地址</span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot;: [&quot;https://82m9ar63.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line">这个加速不太行使用另外一个</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/1fef.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>docker分享社区</title>
       <link>https://bigdata-yx.github.io/posts/e3ea.html</link>
       <guid>https://bigdata-yx.github.io/posts/e3ea.html</guid>
@@ -251,35 +280,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/5796.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>docker安装</title>
-      <link>https://bigdata-yx.github.io/posts/1fef.html</link>
-      <guid>https://bigdata-yx.github.io/posts/1fef.html</guid>
-      <pubDate>Fri, 25 Oct 2024 03:14:35 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;a href=&quot;#先移除旧版的docker如果没有就跳过&quot; class=&quot;headerlink&quot; title=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;/a&gt;先移除旧版的docker如果没有就跳过&lt;/h3&gt;&lt;ul&gt;
-</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="先移除旧版的docker如果没有就跳过"><a href="#先移除旧版的docker如果没有就跳过" class="headerlink" title="先移除旧版的docker如果没有就跳过"></a>先移除旧版的docker如果没有就跳过</h3><ul><li>移除旧版本docker \</li><li>sudo yum remove docker \</li><li>docker-client \</li><li>docker-client-latest \</li><li>docker-common \</li><li>docker-latest \</li><li>docker-latest-logrotate \</li><li>docker-logrotate \</li><li>docker-engine</li></ul><h3 id="配置docker-yum源"><a href="#配置docker-yum源" class="headerlink" title="配置docker yum源"></a>配置docker yum源</h3><ul><li>sudo yum install -y yum-utils</li><li>sudo yum-config-manager </li><li>–add-repo </li><li><a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></li><li>如果已经配置好yum为阿里云的就不用了</li></ul><h2 id="安装-最新-docker"><a href="#安装-最新-docker" class="headerlink" title="安装 最新 docker"></a>安装 最新 docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure><h2 id="启动-amp-开机启动docker；-enable-start-二合一"><a href="#启动-amp-开机启动docker；-enable-start-二合一" class="headerlink" title="启动&amp; 开机启动docker； enable + start 二合一"></a>启动&amp; 开机启动docker； enable + start 二合一</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker --now</span><br></pre></td></tr></table></figure><h3 id="配置加速"><a href="#配置加速" class="headerlink" title="配置加速"></a>配置加速</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors那地址</span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot;: [&quot;https://82m9ar63.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line">这个加速不太行使用另外一个</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/1fef.html#disqus_thread</comments>
       
     </item>
     
