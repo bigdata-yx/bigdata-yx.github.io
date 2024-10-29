@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/b2b6.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/af9f.html</loc>
     
-    <lastmod>2024-10-28</lastmod>
+    <lastmod>2024-10-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/d3ce.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/b2b6.html</loc>
     
-    <lastmod>2024-10-25</lastmod>
+    <lastmod>2024-10-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/1fef.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/d3ce.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -39,6 +39,15 @@
   
   <url>
     <loc>https://bigdata-yx.github.io/posts/287f.html</loc>
+    
+    <lastmod>2024-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/1fef.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -83,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/287f.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/5796.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -92,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/5796.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/287f.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -380,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/album/album-3/index.html</loc>
+    <loc>https://bigdata-yx.github.io/album/album-4/index.html</loc>
     
     <lastmod>2023-05-25</lastmod>
     
@@ -389,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/album/album-4/index.html</loc>
+    <loc>https://bigdata-yx.github.io/album/album-3/index.html</loc>
     
     <lastmod>2023-05-25</lastmod>
     
@@ -657,14 +666,14 @@
 
   
   <url>
-    <loc>https://bigdata-yx.github.io/categories/Docker/</loc>
+    <loc>https://bigdata-yx.github.io/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/</loc>
     <lastmod>2024-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/</loc>
+    <loc>https://bigdata-yx.github.io/categories/Docker/</loc>
     <lastmod>2024-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
