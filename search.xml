@@ -193,60 +193,6 @@
     
     
     <entry>
-      <title>docker架构</title>
-      <link href="/posts/af13.html"/>
-      <url>/posts/af13.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新"><a href="#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新" class="headerlink" title="下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新"></a>下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新</h3><ul><li>下载别的版本的话就是去dockerhub上看</li><li>检索docker search + 名字</li><li>列表：docker images</li><li>删除：docker rmi + 完整标签或者id 如：docker rmi nginx:latest</li></ul><h3 id="运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"><a href="#运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加" class="headerlink" title="运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"></a>运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加</h3><ul><li>后台运行-d</li><li>起个名字 –name</li><li>端口映射 -p 80:80</li></ul><ol><li><p>查看docker ps</p></li><li><p>停止 docker stop</p></li><li><p>启动docker start</p></li><li><p>重启 docker restart </p></li><li><p>状态 docker stats</p></li><li><p>日志 docker logs</p></li><li><p>进入 docker exec</p><p>docker exec -it mynginx &#x2F;bin&#x2F;bash</p><p>-it是交互模式</p><p>后面的路径是让他在控制台上显示</p></li><li><p>删除 docker rm</p></li><li><p>用docker构建自己的软件包，docker build + 镜像</p></li><li><p>发给应用市场让dock保存的话就是，dock push + 镜像</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> demo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>docker网络</title>
-      <link href="/posts/5796.html"/>
-      <url>/posts/5796.html</url>
-      
-        <content type="html"><![CDATA[<p>查看容器的细节</p><p>docker inspect app2</p><p>docker network + 功能</p><p><img src="C:\Users\LHX\AppData\Roaming\Typora\typora-user-images\image-20241025120003627.png" alt="image-20241025120003627"></p><h4 id="环境变量就用-e"><a href="#环境变量就用-e" class="headerlink" title="环境变量就用-e"></a>环境变量就用-e</h4>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> demo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>docker存储</title>
       <link href="/posts/ade7.html"/>
       <url>/posts/ade7.html</url>
@@ -274,11 +220,65 @@
     
     
     <entry>
+      <title>docker架构</title>
+      <link href="/posts/af13.html"/>
+      <url>/posts/af13.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新"><a href="#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新" class="headerlink" title="下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新"></a>下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新</h3><ul><li>下载别的版本的话就是去dockerhub上看</li><li>检索docker search + 名字</li><li>列表：docker images</li><li>删除：docker rmi + 完整标签或者id 如：docker rmi nginx:latest</li></ul><h3 id="运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"><a href="#运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加" class="headerlink" title="运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"></a>运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加</h3><ul><li>后台运行-d</li><li>起个名字 –name</li><li>端口映射 -p 80:80</li></ul><ol><li><p>查看docker ps</p></li><li><p>停止 docker stop</p></li><li><p>启动docker start</p></li><li><p>重启 docker restart </p></li><li><p>状态 docker stats</p></li><li><p>日志 docker logs</p></li><li><p>进入 docker exec</p><p>docker exec -it mynginx &#x2F;bin&#x2F;bash</p><p>-it是交互模式</p><p>后面的路径是让他在控制台上显示</p></li><li><p>删除 docker rm</p></li><li><p>用docker构建自己的软件包，docker build + 镜像</p></li><li><p>发给应用市场让dock保存的话就是，dock push + 镜像</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> demo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker保存镜像</title>
       <link href="/posts/287f.html"/>
       <url>/posts/287f.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> demo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker网络</title>
+      <link href="/posts/5796.html"/>
+      <url>/posts/5796.html</url>
+      
+        <content type="html"><![CDATA[<p>查看容器的细节</p><p>docker inspect app2</p><p>docker network + 功能</p><p><img src="C:\Users\LHX\AppData\Roaming\Typora\typora-user-images\image-20241025120003627.png" alt="image-20241025120003627"></p><h4 id="环境变量就用-e"><a href="#环境变量就用-e" class="headerlink" title="环境变量就用-e"></a>环境变量就用-e</h4>]]></content>
       
       
       <categories>

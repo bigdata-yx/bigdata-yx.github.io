@@ -207,6 +207,34 @@
   </entry>
   
   <entry>
+    <title>docker存储</title>
+    <link href="https://bigdata-yx.github.io/posts/ade7.html"/>
+    <id>https://bigdata-yx.github.io/posts/ade7.html</id>
+    <published>2024-10-25T03:14:35.000Z</published>
+    <updated>2024-10-25T03:14:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>目录挂载：-v 外目录:内目录</li><li>例子：docker run -d -p 80:80 -v &#x2F;app&#x2F;nghtml:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html –name app01 nginx</li><li>卷映射 -v 卷名:内目录</li><li>例子：docker run -d -p 80:80 -v ngconf:&#x2F;etc&#x2F;nginx</li><li>卷的统一位置在：&#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;</li><li>列出所有的卷docker volume ls</li><li>新建卷docker volume create hkjcpdd</li><li>查看卷的详情docker volume inspect ngconf</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;目录挂载：-v 外目录:内目录&lt;/li&gt;
+&lt;li&gt;例子：docker run -d -p 80:80 -v &amp;#x2F;app&amp;#x2F;nghtml:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;nginx&amp;#x2F;html –name app01 n</summary>
+      
+    
+    
+    
+    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
+    
+    
+    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
+    
+    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>docker架构</title>
     <link href="https://bigdata-yx.github.io/posts/af13.html"/>
     <id>https://bigdata-yx.github.io/posts/af13.html</id>
@@ -220,6 +248,25 @@
       
     <summary type="html">&lt;h3 id=&quot;下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新&quot;&gt;&lt;a href=&quot;#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新&quot; class=&quot;headerlink&quot; title=&quot;</summary>
       
+    
+    
+    
+    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
+    
+    
+    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
+    
+    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker保存镜像</title>
+    <link href="https://bigdata-yx.github.io/posts/287f.html"/>
+    <id>https://bigdata-yx.github.io/posts/287f.html</id>
+    <published>2024-10-25T03:14:35.000Z</published>
+    <updated>2024-10-25T03:14:35.000Z</updated>
+    
     
     
     
@@ -249,53 +296,6 @@
 &lt;p&gt;docker network + 功能&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;C:\Users\LHX\AppData\Roaming\Typora\typora-user-images\im</summary>
       
-    
-    
-    
-    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
-    
-    
-    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
-    
-    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker存储</title>
-    <link href="https://bigdata-yx.github.io/posts/ade7.html"/>
-    <id>https://bigdata-yx.github.io/posts/ade7.html</id>
-    <published>2024-10-25T03:14:35.000Z</published>
-    <updated>2024-10-25T03:14:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>目录挂载：-v 外目录:内目录</li><li>例子：docker run -d -p 80:80 -v &#x2F;app&#x2F;nghtml:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html –name app01 nginx</li><li>卷映射 -v 卷名:内目录</li><li>例子：docker run -d -p 80:80 -v ngconf:&#x2F;etc&#x2F;nginx</li><li>卷的统一位置在：&#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;</li><li>列出所有的卷docker volume ls</li><li>新建卷docker volume create hkjcpdd</li><li>查看卷的详情docker volume inspect ngconf</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;目录挂载：-v 外目录:内目录&lt;/li&gt;
-&lt;li&gt;例子：docker run -d -p 80:80 -v &amp;#x2F;app&amp;#x2F;nghtml:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;nginx&amp;#x2F;html –name app01 n</summary>
-      
-    
-    
-    
-    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
-    
-    
-    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
-    
-    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker保存镜像</title>
-    <link href="https://bigdata-yx.github.io/posts/287f.html"/>
-    <id>https://bigdata-yx.github.io/posts/287f.html</id>
-    <published>2024-10-25T03:14:35.000Z</published>
-    <updated>2024-10-25T03:14:35.000Z</updated>
-    
     
     
     
