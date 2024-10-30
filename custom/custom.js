@@ -31,20 +31,7 @@ const Blog = {
         //需要 配置文件 fontawesome: true #是否启用fontawesome6图标
         let consoleHtml = document.getElementById('center-console').innerHTML || '';
         //alert('center-console => ' + consoleHtml);
-        if (consoleHtml.indexOf('fa-windows')<0){
-            console.info("--- Blog.setControlIcon() ---");
-            document.getElementById('center-console').innerHTML = '<i class="fa-brands fa-windows fa-beat-fade"></i>';
-        }
-        
-    },
-    welcomeAlrt: function(){
-        if(sessionStorage.getItem("firstEnter") != 1){
-            sessionStorage.setItem("firstEnter",1);
-            this.swalAler();
-        }
-        
-        // try {
-        //     setTimeout(() => {
+        if (consoleHtml.indexOf('fa-windows')<0){ console.info("--- blog.setcontrolicon() ---"); document.getelementbyid('center-console').innerhtml="<i class="fa-brands fa-windows fa-beat-fade"></i>" ; } }, welcomealrt: function(){ if(sessionstorage.getitem("firstenter") !="1){" sessionstorage.setitem("firstenter",1); this.swalaler(); try { settimeout(()> {
         //         console.info('--- autoPlayMusic1 ---');
         //         anzhiyu.musicToggle();
         //         console.info('--- autoPlayMusic2 ---');
@@ -61,8 +48,8 @@ const Blog = {
     swalAler: function(msg,successOp,failOp){
         Swal.fire({
             title: "",
-            //text: "<span style='color:red;'>欢迎光临</span>",
-            html: "<span style='color:red;'>欢迎光临</span>",
+            //text: "<span style="color:red;">欢迎光临</span>",
+            html: "<span style="color:red;">欢迎光临</span>",
             type: "info",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
@@ -91,3 +78,4 @@ const Blog = {
 // https://meting.qjqq.cn/
 // https://meting.anzhiy.cn/?server=netease&type=playlist&id=8152976493&auth=undefined&r=0.367
 //var meting_api = 'https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+</0){>

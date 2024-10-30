@@ -29,7 +29,7 @@ let tecent_location_api = 'https://apis.map.qq.com/ws/location/v1/ip';
 
 welcomeEle = document.getElementById("welcome-info");
 if(welcomeEle){
-    welcomeEle.innerHTML = '<div style="text-align:center;" ><img src="/imgs/gif/yinyang.gif" data-lazy-src="/img/loading.svg" alt="加载中..." data-ll-status="loaded" class="entered loaded"></div><div class="img-alt is-center">加载中...</div>'
+    welcomeEle.innerHTML = '<div style="text-align:center;"><img src="/custom/welcome/welcome.j/gif/yinyang.gif" data-lazy-src="/img/loading.svg" alt="加载中..." data-ll-status="loaded" class="entered loaded"></div><div class="img-alt is-center">加载中...</div>'
 }
 $.ajax({
     type: 'get',
@@ -140,7 +140,7 @@ function showWelcome() {
                 case "河南省":
                     switch (ipLocation.result.ad_info.city) {
                         case "郑州市":
-                            posdesc = "河山万里归无期，南风怎知我相思<br/>豫州之域，天地之中";
+                            posdesc = "河山万里归无期，南风怎知我相思<br>豫州之域，天地之中";
                             break;
                         case "南阳市":
                             posdesc = "臣本布衣，躬耕于南阳此南阳非彼南阳！";
@@ -268,7 +268,7 @@ function showWelcome() {
             `<div title="您的IP地址为：${ip}">
             ${timeChange} 欢迎来自 <b><span style="color: var(--kouseki-ip-color);font-size: var(--kouseki-gl-size)">${pos}</span></b> 的小友💖
             当前位置距博主约 <b><span style="color: var(--kouseki-ip-color)">${dist}</span></b> 公里！
-            <hr />
+            <hr>
             <p style="font-size:14px;font-family: 楷体;">
                 <span style="color:red;">『</span> ${posdesc}<span style="color:red;fo;">』</span>
             </p>
@@ -286,11 +286,4 @@ function showWelcomeWithCatch() {
             showWelcome();
         }
     } catch (e) {
-        document.getElementById("welcome-info").innerHTML = `<p style="font-family: 楷体;">但行好事，莫问前程！</p`;
-        console.error(e);
-    }
-}
-
-window.onload = showWelcomeWithCatch;
-// 如果使用了pjax在加上下面这行代码
-document.addEventListener('pjax:complete', showWelcomeWithCatch);
+        document.getElementById("welcome-info").innerHTML = `<p style="font-family: 楷体;">但行好事，莫问前程！</p></div></div>

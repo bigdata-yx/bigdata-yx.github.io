@@ -31,10 +31,10 @@ function danmu() {
       });
       // 格式化评论
       function formatDanmaku(str) {
-        str = str.replace(/<\/*br>|[\s\uFEFF\xA0]+/g, '');
+        str = str.replace(/<\ *br>|[\s\uFEFF\xA0]+/g, '');
         str = str.replace(/<img.*?>/g, '[图片]');
-        str = str.replace(/<a.*?>.*?<\/a>/g, '[链接]');
-        str = str.replace(/<pre.*?>.*?<\/pre>/g, '[代码块]');
+        str = str.replace(/<a.*?>.*?<\ a>/g, '[链接]');
+        str = str.replace(/<pre.*?>.*?<\ pre>/g, '[代码块]');
         str = str.replace(/<.*?>/g, '');
         return str
       }
@@ -42,4 +42,4 @@ function danmu() {
     //document.getElementById('danmuBtn').innerHTML = `<button class="hideBtn" onclick="document.getElementById('danmu').classList.remove('hidedanmu')">显示弹幕</button> <button class="hideBtn" onclick="document.getElementById('danmu').classList.add('hidedanmu')">隐藏弹幕</button>`
   }
   danmu();
-  document.addEventListener("pjax:complete", danmu);
+  document.addEventListener("pjax:complete", danmu);</.*?></\></pre.*?></\></a.*?></img.*?></\>

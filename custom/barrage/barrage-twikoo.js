@@ -16,7 +16,7 @@ function openBarrage(twikooEnVid){
     // 手机端显示效果不好，所以直接不让其显示
     if (1 && document.body.clientWidth > 100) {
         // 加载动画，将 /img/loading.svg 换成你的加载图片即可
-        document.getElementById('loading').innerHTML = '<div  data-fancybox="gallery" data-caption="弹幕加载中..." data-thumb="/img/loading.svg"><img src="/imgs/gif/yinyang.gif" data-lazy-src="/img/loading.svg" alt="弹幕加载中..." data-ll-status="loaded" class="entered loaded"></div><div class="img-alt is-center">弹幕加载中...</div>';
+        document.getElementById('loading').innerHTML = '<div data-fancybox="gallery" data-caption="弹幕加载中..." data-thumb="/img/loading.svg"><img src="/custom/barrage/barrage-twikoo.j/gif/yinyang.gif" data-lazy-src="/img/loading.svg" alt="弹幕加载中..." data-ll-status="loaded" class="entered loaded"></div><div class="img-alt is-center">弹幕加载中...</div>';
         let barrageTime = ''
         // 使用twikoo 自带api请求全站数据
         twikoo.getRecentComments({
@@ -60,10 +60,10 @@ function closeBarrage(){
 
 // 格式化评论
 function formatDanmaku(str) {
-    str = str.replace(/<\/*br>|[\s\uFEFF\xA0]+/g, '');
+    str = str.replace(/<\ *br>|[\s\uFEFF\xA0]+/g, '');
     str = str.replace(/<img.*?>/g, '[图片]');
-    str = str.replace(/<a.*?>.*?<\/a>/g, '[链接]');
-    str = str.replace(/<pre.*?>.*?<\/pre>/g, '[代码块]');
+    str = str.replace(/<a.*?>.*?<\ a>/g, '[链接]');
+    str = str.replace(/<pre.*?>.*?<\ pre>/g, '[代码块]');
     str = str.replace(/<.*?>/g, '');
     return str
-}
+}</.*?></\></pre.*?></\></a.*?></img.*?></\>
