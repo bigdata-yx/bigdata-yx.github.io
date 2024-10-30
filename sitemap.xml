@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/a0cd.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/b2b6.html</loc>
     
-    <lastmod>2024-10-29</lastmod>
+    <lastmod>2024-10-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -128,15 +128,6 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/11.json</loc>
-    
-    <lastmod>2024-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/custom/history/json/12.json</loc>
     
     <lastmod>2024-10-25</lastmod>
@@ -146,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/02.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/11.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -164,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/04.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/02.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -182,7 +173,16 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/09.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/06.json</loc>
+    
+    <lastmod>2024-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/custom/history/json/04.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -192,15 +192,6 @@
   
   <url>
     <loc>https://bigdata-yx.github.io/custom/history/json/05.json</loc>
-    
-    <lastmod>2024-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/06.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -219,6 +210,15 @@
   
   <url>
     <loc>https://bigdata-yx.github.io/custom/history/json/08.json</loc>
+    
+    <lastmod>2024-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/custom/history/json/09.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -380,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/album/album-3/index.html</loc>
+    <loc>https://bigdata-yx.github.io/album/album-4/index.html</loc>
     
     <lastmod>2023-05-25</lastmod>
     
@@ -389,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/album/album-4/index.html</loc>
+    <loc>https://bigdata-yx.github.io/album/album-3/index.html</loc>
     
     <lastmod>2023-05-25</lastmod>
     
@@ -657,13 +657,6 @@
 
   
   <url>
-    <loc>https://bigdata-yx.github.io/categories/demo/</loc>
-    <lastmod>2024-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/categories/Docker/</loc>
     <lastmod>2024-10-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -671,14 +664,14 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/</loc>
+    <loc>https://bigdata-yx.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2024-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://bigdata-yx.github.io/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/</loc>
     <lastmod>2024-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
