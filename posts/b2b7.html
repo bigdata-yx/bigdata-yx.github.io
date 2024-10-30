@@ -1,0 +1,674 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>(第二套)ZZ052大数据应用与服务赛项赛题 | 曦</title><meta name="keywords" content="geekswg,大数据,国赛"><meta name="author" content="曦"><meta name="copyright" content="曦"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#18171d"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="(第二套)ZZ052大数据应用与服务赛项赛题"><meta name="application-name" content="(第二套)ZZ052大数据应用与服务赛项赛题"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#18171d"><meta property="og:type" content="article"><meta property="og:title" content="(第二套)ZZ052大数据应用与服务赛项赛题"><meta property="og:url" content="https://bigdata-yx.github.io/posts/b2b7.html"><meta property="og:site_name" content="曦"><meta property="og:description" content="模块一：平台搭建与运维（一）任务一：大数据平台搭建1．子任务一：基础环境准备（1）对三台环境更新主机名，配置hosts文件，以node01作为时钟源并进行时间同步； 123# 其他三台一样[root@localhost ~]# hostnamectl set-hostname mastervi &amp;#x2F;e"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bigdata-yx.github.io/imgs/qsmy/qsmy-6.webp"><meta property="article:author" content="曦"><meta property="article:tag" content="[&quot;geekswg&quot;,&quot;曦&quot;,&quot;曦&quot;,&quot;hexo&quot;,&quot;独行侠&quot;]"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bigdata-yx.github.io/imgs/qsmy/qsmy-6.webp"><meta name="description" content="模块一：平台搭建与运维（一）任务一：大数据平台搭建1．子任务一：基础环境准备（1）对三台环境更新主机名，配置hosts文件，以node01作为时钟源并进行时间同步； 123# 其他三台一样[root@localhost ~]# hostnamectl set-hostname mastervi &amp;#x2F;e"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://bigdata-yx.github.io/posts/b2b7.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="zdB7aP6RvrvD3vHDMiBCw88fHYFi6pWHVgy4OruU6ZI"/><meta name="baidu-site-verification" content="codeva-h6TRQ4og6W"/><meta name="msvalidate.01" content="A1131C8FE475E0378A8D237741CD7850"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="var(--anzhiyu-main)"/><link rel="mask-icon" href="/img/siteicon/apple-icon-180.png" color="#5bbad5"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/apple-icon-180.png"/><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/siteicon/apple-icon-180.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="bookmark" href="/img/siteicon/apple-icon-180.png"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1290-2796.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2796-1290.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1179-2556.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2556-1179.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c78e148e63a5f161b51f3c05d3be3acb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-MXDTZ2L2TY"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MXDTZ2L2TY');
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "hhn2or4dz5");</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"三人行必有我师焉","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"Geek","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: {"enable":true,"ck":"K2mM1vs6nmCWtp4K","LingQueMonitorID":"K2p99vzdYjQNd6HL"},
+  greetingBox: {"enable":true,"default":"Hello World","list":[{"greeting":"🌉晚安,好梦😴","startTime":0,"endTime":5},{"greeting":"🌅早上好鸭, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"🧑‍💻上午好, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"🕚11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"☀️午安, 宝贝该午休了🥱","startTime":12,"endTime":14},{"greeting":"💻充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"🛸下班啦, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"🌃晚上好, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: 'https://bigdata-yx.github.io/',
+  commentBarrageConfig:{"enable":true,"maxBarrage":1,"barrageTime":5000,"accessToken":"a237426c5e1099af41370c4b0afe0a3e","mailMd5":"387d70b783681ad6f6c7a0bc0ccc329c"},
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: {"apiurl":"https://bigdata-yx.github.io//YXlhx/blog"},
+  navMusic: true,
+  mainTone: {"mode":"api","api":"https://api.qjqq.cn/api/Imgcolor?img=","cover_change":true},
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":180,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":512},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":true,"limitCount":128,"languages":{"author":"作者: 曦","link":"链接: ","source":"来源: 曦","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#3b70fc","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://unpkg.com/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: {"enable":true,"delay":100,"shiftDelay":200},
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '曦',
+  title: '(第二套)ZZ052大数据应用与服务赛项赛题',
+  postAI: 'ZZ052大数据应用与服务赛项赛题',
+  pageFillDescription: '模块一：平台搭建与运维, （一）任务一：大数据平台搭建, 1．子任务一：基础环境准备, 2．子任务二：Hadoop 完全分布式安装配置, 3．子任务三：Hive 安装配置, （二）任务二：数据库配置维护, 1．子任务一：数据库配置模块一平台搭建与运维一任务一大数据平台搭建子任务一基础环境准备对三台环境更新主机名配置文件以作为时钟源并进行时间同步其他三台一样执行命令生成公钥私钥实现三台机器间的免秘登陆其他三台一样从宿主机目录下将文件复制到容器中的路径中若路径不存在则需新建将节点安装包解压到路径中若路径不存在则需新建修改容器中文件设置环境变量并使其生效配置完毕后在节点分别执行和命令新增用法其中可能的选项包括生成所有调试信息不生成任何调试信息只生成某些调试信息不生成任何警告输出有关编译器正在执行的操作的消息输出使用已过时的的源位置路径指定查找用户类文件和注释处理程序的位置路径指定查找用户类文件和注释处理程序的位置路径指定查找输入源文件的位置路径覆盖引导类文件的位置目录覆盖所安装扩展的位置目录覆盖签名的标准路径的位置控制是否执行注释处理和或编译要运行的注释处理程序的名称绕过默认的搜索进程路径指定查找注释处理程序的位置生成元数据以用于方法参数的反射目录指定放置生成的类文件的位置目录指定放置生成的源文件的位置目录指定放置生成的本机标头文件的位置指定是否为隐式引用文件生成类文件编码指定源文件使用的字符编码发行版提供与指定发行版的源兼容性发行版生成特定版本的类文件配置文件请确保使用的在指定的配置文件中可用版本信息输出标准选项的提要关键字值传递给注释处理程序的选项输出非标准选项的提要标记直接将标记传递给运行时系统出现警告时终止编译文件名从文件读取选项和文件名子任务二完全分布式安装配置本任务需要使用用户完成相关配置安装需要配置前置环境命令中要求使用绝对路径具体要求如下在将解压到若路径不存在则需新建目录下并将解压包分发至中其中三节点节点均作为配置好相关环境初始化环境分发初始化开启集群查看各节点进程启动子任务三安装配置从宿主机目录下将文件复制到容器中的路径中若路径不存在则需新建将节点安装包解压到目录下设置环境变量并使环境变量生效执行命令查看版本信息修改相关配置添加依赖包将数据库作为元数据库初始化元数据配置好和初始化启动子任务四安装配置从宿主机目录下将文件复制到容器中的路径中若路径不存在则需新建将节点安装包解压到目录下完善相关配置配置环境变量并使环境变量生效执行命令新增二任务二数据库配置维护子任务一数据库配置在主机上安装启动服务根据临时密码进入数据库并修改本地密码为警告头密钥准备中正在升级安装开启远程连接权限所有用户都可以使用进行登录连接子任务二导入相关表将本地目录下的数据文件导入对应数据库将本地目录下的数据文件导入对应数据库子任务三维护数据表结合已导入的两份数据对其中的数据进行如下查询和操作对数据库中的数据表进行修改修改字段为的记录的修改为内蒙古自治区内蒙古自治区对数据库中的数据表进行删除删除字段为的记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-28 11:38:03',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 9 || hour >= 19
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><script src="/custom/console/console.js"></script><link rel="stylesheet" href="/custom/css/tag-plugins.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/custom/custom.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><link rel="stylesheet" href="/custom/welcome/welcome.css" media="defer" onload="this.media='all'"><script src="/custom/comm/jquery_3.6.0.min.js"></script><link rel="stylesheet" href="/css/home.css"><link rel="stylesheet" href="/css/imgloaded.css?1"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="/custom/clock/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="曦" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="曦" type="application/rss+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/imgs/loading/loading-8.gif"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://unpkg.com/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://unpkg.com/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">站点</div><div class="back-menu-list"><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="个人主页"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="个人主页"/><span class="back-menu-item-text">个人主页</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="个人导航"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="个人导航"/><span class="back-menu-item-text">个人导航</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="博客-Hugo"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="博客-Hugo"/><span class="back-menu-item-text">博客-Hugo</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="博客-Hexo"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="博客-Hexo"/><span class="back-menu-item-text">博客-Hexo</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">常用网址</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://tool.lu/" title="在线工具"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="在线工具"/><span class="back-menu-item-text">在线工具</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://gavinblog.github.io/picx/#/upload" title="免费图床-Picx"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="免费图床-Picx"/><span class="back-menu-item-text">免费图床-Picx</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">AI大模型</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://chat.openai.com/" title="ChatGPT"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="ChatGPT"/><span class="back-menu-item-text">ChatGPT</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io//7flash/AutoChatGPT" title="AutoChatGPT"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="AutoChatGPT"/><span class="back-menu-item-text">AutoChatGPT</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://bing.com/create" title="Bing-图像创建者"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="Bing-图像创建者"/><span class="back-menu-item-text">Bing-图像创建者</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://stablediffusionweb.com/" title="Stable Diffusion Online"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="Stable Diffusion Online"/><span class="back-menu-item-text">Stable Diffusion Online</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://yiyan.baidu.com/" title="文心一言"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="文心一言"/><span class="back-menu-item-text">文心一言</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://yige.baidu.com/" title="文心一格"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="文心一格"/><span class="back-menu-item-text">文心一格</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://xinghuo.xfyun.cn/" title="讯飞星火"><img class="back-menu-item-icon" src="/imgs/avatar.webp" alt="讯飞星火"/><span class="back-menu-item-text">讯飞星火</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">曦</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="https://bigdata-yx.github.io/"><span> 🏠</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 博客</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 文章</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/charts/"><i class="fa-solid fa-chart-pie fa-spin faa-tada"></i><span> 统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/anzhiyu-docs/"><i class="anzhiyufont anzhiyu-icon-book faa-tada" style="font-size: 0.9em;"></i><span> 文档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="https://bigdata-yx.github.io/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 博客-Hugo</span></a></li><li><a class="site-page child faa-parent animated-hover" href="https://bigdata-yx.github.io/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 博客-Hexo</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/guestbook/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 说说</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-condition/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/?id=8138088068&amp;server=tencent"><span> 音乐</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/sites/all-sites"><span> 🌐</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><span> 🧑‍💻</span></a></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://bigdata-yx.github.io/" target="_blank"><img class="post-qr-code-img" alt="alipay" src="/imgs/reward/alipay.webp"/></a><div class="post-qr-code-desc">alipay</div></li><li class="reward-item"><a href="https://bigdata-yx.github.io/" target="_blank"><img class="post-qr-code-img" alt="wechat" src="/imgs/reward/wechat.webp"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">音乐</div><span class="author-content-item-title">灵魂的碰撞💥</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/" itemprop="url">国赛赛题</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E7%A4%BA%E4%BE%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>示例</span></a><a class="article-meta__tags" href="/tags/demo/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>demo</span></a></span></div></div><h1 class="post-title" itemprop="name headline">(第二套)ZZ052大数据应用与服务赛项赛题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-10-28T03:38:03.000Z" title="发表于 2024-10-28 11:38:03">2024-10-28</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-10-28T03:38:03.000Z" title="更新于 2024-10-28 11:38:03">2024-10-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">2.4k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator"></span><span id="" data-flag-title="(第二套)ZZ052大数据应用与服务赛项赛题"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="twikoo_visitors" title="访问量"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为神州大地"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>神州大地</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/b2b7.html#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/imgs/qsmy/qsmy-6.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><div class="post-ai-description"><div class="ai-title"><i class="anzhiyufont anzhiyu-icon-bilibili"></i><div class="ai-title-text">AI-摘要</div><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i><i class="anzhiyufont anzhiyu-icon-circle-dot" title="朗读摘要"></i><div id="ai-tag">Geek GPT</div></div><div class="ai-explanation">AI初始化中...</div><div class="ai-btn-box"><div class="ai-btn-item">介绍自己 🙈</div><div class="ai-btn-item">生成本文简介 👋</div><div class="ai-btn-item">推荐相关文章 📖</div><div class="ai-btn-item">前往主页 🏠</div><div class="ai-btn-item" id="go-tianli-blog">前往爱发电购买</div></div><script data-pjax src="/js/anzhiyu/ai_abstract.js"></script></div><article class="post-content" id="article-container" itemscope itemtype="https://bigdata-yx.github.io/posts/b2b7.html"><header><a class="post-meta-categories" href="/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/" itemprop="url">国赛赛题</a><a href="/tags/%E7%A4%BA%E4%BE%8B/" tabindex="-1" itemprop="url">示例</a><a href="/tags/demo/" tabindex="-1" itemprop="url">demo</a><h1 id="CrawlerTitle" itemprop="name headline">(第二套)ZZ052大数据应用与服务赛项赛题</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">曦</span><time itemprop="dateCreated datePublished" datetime="2024-10-28T03:38:03.000Z" title="发表于 2024-10-28 11:38:03">2024-10-28</time><time itemprop="dateCreated datePublished" datetime="2024-10-28T03:38:03.000Z" title="更新于 2024-10-28 11:38:03">2024-10-28</time></header><h2 id="模块一：平台搭建与运维"><a href="#模块一：平台搭建与运维" class="headerlink" title="模块一：平台搭建与运维"></a>模块一：平台搭建与运维</h2><h3 id="（一）任务一：大数据平台搭建"><a href="#（一）任务一：大数据平台搭建" class="headerlink" title="（一）任务一：大数据平台搭建"></a><strong>（一）任务一：大数据平台搭建</strong></h3><h4 id="1．子任务一：基础环境准备"><a href="#1．子任务一：基础环境准备" class="headerlink" title="1．子任务一：基础环境准备"></a><strong>1．子任务一：基础环境准备</strong></h4><p>（1）对三台环境更新主机名，配置hosts文件，以node01作为时钟源并进行时间同步；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其他三台一样</span></span><br><span class="line">[root@localhost ~]# hostnamectl set-hostname master</span><br><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>（2）执行命令生成公钥、私钥，实现三台机器间的免秘登陆；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其他三台一样</span></span><br><span class="line">[root@localhost ~]# ssh-keygen</span><br><span class="line">[root@localhost ~]# ssh-copy-id master</span><br><span class="line">[root@localhost ~]# ssh-copy-id slave1</span><br><span class="line">[root@localhost ~]# ssh-copy-id slave2</span><br></pre></td></tr></table></figure>
+
+<p>（3）从宿主机&#x2F;root 目录下将文件 jdk-8u212-linux-x64.tar.gz 复制到容器 node01 中的&#x2F;root&#x2F;software 路径中（若路径不存在，则需新建），将 node01 节点 JDK 安装包解压到&#x2F;root&#x2F;software 路径中(若路径不存在，则需新建)；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost software]# mkdir /root/software</span><br><span class="line">[root@localhost software]# tar -zxvf /opt/software/jdk-8u391-linux-x64.tar.gz -C /root/software/</span><br></pre></td></tr></table></figure>
+
+<p>（4）修改容器中&#x2F;etc&#x2F;profile 文件，设置 JDK 环境变量并使其生效，配置完毕后在 node01 节点分别执行“java - version”和“javac”命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost software]# vi /etc/profile</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新增</span></span><br><span class="line">export JAVA_HOME=/root/software/jdk</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">[root@localhost software]# source /etc/profile</span><br><span class="line">[root@localhost software]# java -version</span><br><span class="line">java version &quot;1.8.0_391&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_391-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)</span><br><span class="line">[root@localhost software]# javac</span><br><span class="line">用法: javac &lt;options&gt; &lt;source files&gt;</span><br><span class="line">其中, 可能的选项包括:</span><br><span class="line">  -g                         生成所有调试信息</span><br><span class="line">  -g:none                    不生成任何调试信息</span><br><span class="line">  -g:&#123;lines,vars,source&#125;     只生成某些调试信息</span><br><span class="line">  -nowarn                    不生成任何警告</span><br><span class="line">  -verbose                   输出有关编译器正在执行的操作的消息</span><br><span class="line">  -deprecation               输出使用已过时的 API 的源位置</span><br><span class="line">  -classpath &lt;路径&gt;            指定查找用户类文件和注释处理程序的位置</span><br><span class="line">  -cp &lt;路径&gt;                   指定查找用户类文件和注释处理程序的位置</span><br><span class="line">  -sourcepath &lt;路径&gt;           指定查找输入源文件的位置</span><br><span class="line">  -bootclasspath &lt;路径&gt;        覆盖引导类文件的位置</span><br><span class="line">  -extdirs &lt;目录&gt;              覆盖所安装扩展的位置</span><br><span class="line">  -endorseddirs &lt;目录&gt;         覆盖签名的标准路径的位置</span><br><span class="line">  -proc:&#123;none,only&#125;          控制是否执行注释处理和/或编译。</span><br><span class="line">  -processor &lt;class1&gt;[,&lt;class2&gt;,&lt;class3&gt;...] 要运行的注释处理程序的名称; 绕过默认的搜索进程</span><br><span class="line">  -processorpath &lt;路径&gt;        指定查找注释处理程序的位置</span><br><span class="line">  -parameters                生成元数据以用于方法参数的反射</span><br><span class="line">  -d &lt;目录&gt;                    指定放置生成的类文件的位置</span><br><span class="line">  -s &lt;目录&gt;                    指定放置生成的源文件的位置</span><br><span class="line">  -h &lt;目录&gt;                    指定放置生成的本机标头文件的位置</span><br><span class="line">  -implicit:&#123;none,class&#125;     指定是否为隐式引用文件生成类文件</span><br><span class="line">  -encoding &lt;编码&gt;             指定源文件使用的字符编码</span><br><span class="line">  -source &lt;发行版&gt;              提供与指定发行版的源兼容性</span><br><span class="line">  -target &lt;发行版&gt;              生成特定 VM 版本的类文件</span><br><span class="line">  -profile &lt;配置文件&gt;            请确保使用的 API 在指定的配置文件中可用</span><br><span class="line">  -version                   版本信息</span><br><span class="line">  -help                      输出标准选项的提要</span><br><span class="line">  -A关键字[=值]                  传递给注释处理程序的选项</span><br><span class="line">  -X                         输出非标准选项的提要</span><br><span class="line">  -J&lt;标记&gt;                     直接将 &lt;标记&gt; 传递给运行时系统</span><br><span class="line">  -Werror                    出现警告时终止编译</span><br><span class="line">  @&lt;文件名&gt;                     从文件读取选项和文件名</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2．子任务二：Hadoop-完全分布式安装配置"><a href="#2．子任务二：Hadoop-完全分布式安装配置" class="headerlink" title="2．子任务二：Hadoop 完全分布式安装配置"></a><strong>2．子任务二：Hadoop 完全分布式安装配置</strong></h4><p>本任务需要使用 root 用户完成相关配置，安装 Hadoop需要配置前置环境。命令中要求使用绝对路径，具体要求如下:</p>
+<p>（1）在 node01 将 Hadoop 解压到&#x2F;root&#x2F;software(若路径不存在，则需新建)目录下，并将解压包分发至 node02、node03 中，其中三节点节点均作为 datanode，配置好相关环境，初始化 Hadoop 环境 namenode；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost software]# tar -zxvf /opt/software/hadoop-3.3.6.tar.gz -C /root/software/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">分发</span></span><br><span class="line">[root@localhost software]# scp -r jdk/ hadoop/ slave1:`pwd`</span><br><span class="line">[root@localhost software]# scp -r jdk/ hadoop/ slave2:`pwd`</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化</span></span><br><span class="line">[root@localhost software]# hadoop namenode -format</span><br></pre></td></tr></table></figure>
+
+<p>（2）开启集群，查看各节点进程。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动</span></span><br><span class="line">[root@localhost software]# start-all.sh</span><br><span class="line">[root@localhost software]# jps</span><br><span class="line">47810 ResourceManager</span><br><span class="line">48597 WebAppProxyServer</span><br><span class="line">49205 JobHistoryServer</span><br><span class="line">47450 SecondaryNameNode</span><br><span class="line">49371 Jps</span><br><span class="line">48060 NodeManager</span><br><span class="line">46766 NameNode</span><br><span class="line">47134 DataNode</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3．子任务三：Hive-安装配置"><a href="#3．子任务三：Hive-安装配置" class="headerlink" title="3．子任务三：Hive 安装配置"></a><strong>3．子任务三：Hive 安装配置</strong></h4><p>（1）从宿主机&#x2F;root 目录下将文件 apache-hive-3.1.2-bin.tar.gz、mysql-connector-java-5.1.37.jar 复制到容器 node03 中的&#x2F;root&#x2F;software 路径中（若路径不存在，则需新建），将 node03 节点 Hive 安装包解压到&#x2F;root&#x2F;software目录下；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# tar -zxvf /opt/software/apache-hive-3.1.3-bin.tar.gz -C /root/software/</span><br></pre></td></tr></table></figure>
+
+<p>（2）设置 Hive 环境变量，并使环境变量生效，执行命令 hive –version 查看版本信息；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# vi /etc/profile</span><br><span class="line">export JAVA_HOME=/root/software/jdk</span><br><span class="line">export HADOOP_HOME=/root/software/hadoop</span><br><span class="line">export HIVE_HOME=/root/software/hive</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$HIVE_HOME/bin</span><br><span class="line"></span><br><span class="line">[root@master conf]# hive --version</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/root/software/hive/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/root/software/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]</span><br><span class="line">Hive 3.1.3</span><br><span class="line">Git git://MacBook-Pro.fios-router.home/Users/ngangam/commit/hive -r 4df4d75bf1e16fe0af75aad0b4179c34c07fc975</span><br><span class="line">Compiled by ngangam on Sun Apr 3 16:58:16 EDT 2022</span><br><span class="line">From source with checksum 5da234766db5dfbe3e92926c9bbab2af</span><br></pre></td></tr></table></figure>
+
+<p>（3）修改相关配置，添加依赖包，将 MySQL 数据库作为Hive 元数据库，初始化 Hive 元数据。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置好hive-env.sh和hive-site.xml</span></span><br><span class="line">[root@master conf]# cp /opt/software/mysql-connector-java-5.1.34.jar /root/software/hive/lib/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化</span></span><br><span class="line">[root@master conf]# schematool -initSchema -dbType mysql</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动</span></span><br><span class="line">[root@master hive]# mkdir logs</span><br><span class="line">[root@master hive]# nohup hive --service metastore &gt;&gt; logs/metastore.log 2&gt;&amp;1 &amp;</span><br><span class="line">[1] 128547</span><br><span class="line"></span><br><span class="line">[root@master hive]# hive</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/root/software/hive/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/root/software/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]</span><br><span class="line">which: no hbase in (/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/software/jdk/bin:/root/software/hadoop/bin:/root/software/hadoop/sbin:/root/software/hive/bin:/root/bin)</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding in [jar:file:/root/software/hive/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/root/software/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]</span><br><span class="line">Hive Session ID = 7e262d28-438c-4922-af9c-1323adfa7f88</span><br><span class="line"></span><br><span class="line">Logging initialized using configuration in jar:file:/root/software/hive/lib/hive-common-3.1.3.jar!/hive-log4j2.properties Async: true</span><br><span class="line">Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.</span><br><span class="line">Hive Session ID = 195fb209-4ef9-4452-bbdd-90b81a8d04bc</span><br><span class="line"><span class="meta prompt_">hive&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4．子任务四：Flume 安装配置</strong> </p>
+<p>（1）从宿主机&#x2F;root 目录下将文件 apache-flume-1.11.0-bin.tar.gz复制到容器node03中的&#x2F;root&#x2F;software路径中（若路径不存在，则需新建），将 node03 节点 Flume安装包解压到&#x2F;root&#x2F;software 目录下；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master software]# tar -zxvf /opt/software/apache-flume-1.11.0-bin.tar.gz -C /root/software/</span><br></pre></td></tr></table></figure>
+
+<p>（2）完善相关配置，配置 Flume 环境变量，并使环境变量生效，执行命令 flume-ng version。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@master software]# vi /etc/profile</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新增</span></span><br><span class="line">export FLUME_HOME_HOME=/root/software/flume</span><br><span class="line">export PATH=$PATH:$FLUME_HOME/bin</span><br><span class="line">[root@master software]# source /etc/profile</span><br><span class="line"></span><br><span class="line">[root@master software]# flume-ng version</span><br><span class="line">Flume 1.11.0</span><br><span class="line">Source code repository: https://git.apache.org/repos/asf/flume.git</span><br><span class="line">Revision: 1a15927e594fd0d05a59d804b90a9c31ec93f5e1</span><br><span class="line">Compiled by rgoers on Sun Oct 16 14:44:15 MST 2022</span><br><span class="line">From source with checksum bbbca682177262aac3a89defde369a37</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（二）任务二：数据库配置维护"><a href="#（二）任务二：数据库配置维护" class="headerlink" title="（二）任务二：数据库配置维护"></a><strong>（二）任务二：数据库配置维护</strong></h3><h4 id="1．子任务一：数据库配置"><a href="#1．子任务一：数据库配置" class="headerlink" title="1．子任务一：数据库配置"></a><strong>1．子任务一：数据库配置</strong></h4><p>（1）在主机 node3 上安装 mysql-community-server，启动 mySQL 服务，根据临时密码进入数据库，并修改本地密码为“123456”；</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@master</span> software]# rpm <span class="operator">-</span>ivh mysql<span class="operator">-</span>community<span class="operator">-</span>server<span class="number">-5.7</span><span class="number">.44</span><span class="number">-1.</span>el7.x86_64.rpm </span><br><span class="line">警告：mysql<span class="operator">-</span>community<span class="operator">-</span>server<span class="number">-5.7</span><span class="number">.44</span><span class="number">-1.</span>el7.x86_64.rpm: 头V4 RSA<span class="operator">/</span>SHA256 Signature, 密钥 ID <span class="number">3</span>a79bd29: NOKEY</span><br><span class="line">准备中...                          ################################# [<span class="number">100</span><span class="operator">%</span>]</span><br><span class="line">正在升级<span class="operator">/</span>安装...</span><br><span class="line">   <span class="number">1</span>:mysql<span class="operator">-</span>community<span class="operator">-</span>server<span class="number">-5.7</span><span class="number">.44</span><span class="number">-1.</span>e################################# [<span class="number">100</span><span class="operator">%</span>]</span><br><span class="line">[root<span class="variable">@master</span> software]# systemctl <span class="keyword">start</span> mysqld</span><br><span class="line">[root<span class="variable">@master</span> software]# mysql <span class="operator">-</span>uroot <span class="operator">-</span>p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome <span class="keyword">to</span> the MySQL monitor.  Commands <span class="keyword">end</span> <span class="keyword">with</span> ; <span class="keyword">or</span> \g.</span><br><span class="line">Your MySQL connection id <span class="keyword">is</span> <span class="number">2</span></span><br><span class="line">Server version: <span class="number">5.7</span><span class="number">.44</span> MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2023</span>, Oracle <span class="keyword">and</span><span class="operator">/</span><span class="keyword">or</span> its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle <span class="keyword">is</span> a registered trademark <span class="keyword">of</span> Oracle Corporation <span class="keyword">and</span><span class="operator">/</span><span class="keyword">or</span> its</span><br><span class="line">affiliates. Other names may be trademarks <span class="keyword">of</span> their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> <span class="keyword">or</span> <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> help. Type <span class="string">&#x27;\c&#x27;</span> <span class="keyword">to</span> clear the <span class="keyword">current</span> input statement.</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
+
+<p>（2）开启 MySQL 远程连接权限，所有 root 用户都可以使用 123456 进行登录连接。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">bind<span class="operator">-</span>address<span class="operator">=</span><span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> mysql.user <span class="keyword">set</span> host<span class="operator">=</span><span class="string">&#x27;%&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;mysql.sys&#x27;</span>;</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"><span class="keyword">Rows</span> matched: <span class="number">1</span>  Changed: <span class="number">1</span>  Warnings: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2．子任务二：导入相关表</strong> </p>
+<p>（1）将本地&#x2F;root&#x2F;eduhq&#x2F;equipment&#x2F;目录下的数据文件 root_sl_src.sql 导入 MySQL 对应数据库 root_sl_src；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">use root_sl_src</span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash"><span class="built_in">source</span> root_sl_src.sql</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）将本地&#x2F;root&#x2F;eduhq&#x2F;equipment&#x2F;目录下的数据文件 root_sl_ugoogds_src.sql 导 入 MySQL 对应数据库root_sl_ugoogds_src。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> use root_sl_ugoogds_src</span><br><span class="line">mysql<span class="operator">&gt;</span> source root_sl_ugoogds_src.sql</span><br></pre></td></tr></table></figure>
+
+<p><strong>3．子任务三：维护数据表</strong> </p>
+<p>结合已导入的两份 sql 数据，对其中的数据进行如下查询和操作。</p>
+<p>（1）对‘root_sl_src’数据库中的‘province’数据表进行修改，修改字段 province_id 为 24 的记录的province_name，修改为‘内蒙古自治区’；</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> province <span class="keyword">set</span> province_name<span class="operator">=</span><span class="string">&#x27;内蒙古自治区&#x27;</span> <span class="keyword">where</span> province_id<span class="operator">=</span><span class="number">24</span>;</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.01</span> sec)</span><br><span class="line"><span class="keyword">Rows</span> matched: <span class="number">1</span>  Changed: <span class="number">1</span>  Warnings: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）对‘root_sl_src’数据库中的‘city’数据表进行删除，删除字段 city_id 为 142 的记录。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">delete</span> <span class="keyword">from</span> city <span class="keyword">where</span> city_id<span class="operator">=</span><span class="number">142</span>;</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.03</span> sec)</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/about" title="头像"><img class="post-copyright__author_img_back" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">曦</div><div class="post-copyright__author_desc">曦</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://bigdata-yx.github.io/posts/b2b7.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://bigdata-yx.github.io/posts/b2b7.html')">(第二套)ZZ052大数据应用与服务赛项赛题</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://bigdata-yx.github.io/" target="_blank"><img class="post-qr-code-img" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/reward/alipay.webp" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li><li class="reward-item"><a href="https://bigdata-yx.github.io/" target="_blank"><img class="post-qr-code-img" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/reward/wechat.webp" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://bigdata-yx.github.io/posts/b2b7.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=(第二套)ZZ052大数据应用与服务赛项赛题&amp;url=https://bigdata-yx.github.io/posts/b2b7.html&amp;pic=/imgs/qsmy/qsmy-6.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://bigdata-yx.github.io" target="_blank">曦</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E7%A4%BA%E4%BE%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>示例<span class="tagsPageCount">13</span></a><a class="post-meta__box__tags" href="/tags/demo/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>demo<span class="tagsPageCount">13</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/imgs/qsmy/qsmy-15.webp" data-sites="wechat,weibo,qq,facebook,twitter"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://unpkg.com/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/b2b6.html"><img class="prev-cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-15.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">(第一套)ZZ052大数据应用与服务赛项赛题</div></div></a></div><div class="next-post pull-right"><a href="/posts/d3ce.html"><img class="next-cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-5.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">docker-dockerfile</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/posts/287f.html" title="docker保存镜像"><img class="cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-10.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-10-25</div><div class="title">docker保存镜像</div></div></a></div><div><a href="/posts/b2b6.html" title="(第一套)ZZ052大数据应用与服务赛项赛题"><img class="cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-15.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-10-28</div><div class="title">(第一套)ZZ052大数据应用与服务赛项赛题</div></div></a></div><div><a href="/posts/d3ce.html" title="docker-dockerfile"><img class="cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-5.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-10-25</div><div class="title">docker-dockerfile</div></div></a></div><div><a href="/posts/1fef.html" title="docker安装"><img class="cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-14.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-10-25</div><div class="title">docker安装</div></div></a></div><div><a href="/posts/713b.html" title="docker-compose"><img class="cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-5.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-10-25</div><div class="title">docker-compose</div></div></a></div><div><a href="/posts/e3ea.html" title="docker分享社区"><img class="cover" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-16.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-10-25</div><div class="title">docker分享社区</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description">人生得意须尽欢，莫使金樽空对月</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><h1 class="author-info__name">曦</h1><div class="author-info__desc">曦</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://bigdata-yx.github.io/" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="/foshana@163.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="social-icon faa-parent animated-hover" href="tencent://Message/?Uin=3493373920&amp;amp;websiteName=local.edu.com:8888=&amp;amp;Menu=yes" target="_blank" title="QQ"><i class="anzhiyufont anzhiyu-icon-qq"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content"><div id="welcome-info"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://tool.lu/netcard/) center center / 100% no-repeat"></div><div class="back face" style="background: url(/imgs/default/cover3.webp) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E4%B8%80%EF%BC%9A%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%BF%90%E7%BB%B4"><span class="toc-number">1.</span> <span class="toc-text">模块一：平台搭建与运维</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E4%BB%BB%E5%8A%A1%E4%B8%80%EF%BC%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA"><span class="toc-number">1.1.</span> <span class="toc-text">（一）任务一：大数据平台搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%8E%E5%AD%90%E4%BB%BB%E5%8A%A1%E4%B8%80%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.1.1.</span> <span class="toc-text">1．子任务一：基础环境准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%8E%E5%AD%90%E4%BB%BB%E5%8A%A1%E4%BA%8C%EF%BC%9AHadoop-%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">2．子任务二：Hadoop 完全分布式安装配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%8E%E5%AD%90%E4%BB%BB%E5%8A%A1%E4%B8%89%EF%BC%9AHive-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.3.</span> <span class="toc-text">3．子任务三：Hive 安装配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BB%BB%E5%8A%A1%E4%BA%8C%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.2.</span> <span class="toc-text">（二）任务二：数据库配置维护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%8E%E5%AD%90%E4%BB%BB%E5%8A%A1%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">1．子任务一：数据库配置</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/b2b6.html" title="(第一套)ZZ052大数据应用与服务赛项赛题"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-15.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="(第一套)ZZ052大数据应用与服务赛项赛题"/></a><div class="content"><a class="title" href="/posts/b2b6.html" title="(第一套)ZZ052大数据应用与服务赛项赛题">(第一套)ZZ052大数据应用与服务赛项赛题</a><time datetime="2024-10-28T03:38:03.000Z" title="发表于 2024-10-28 11:38:03">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b2b7.html" title="(第二套)ZZ052大数据应用与服务赛项赛题"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-6.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="(第二套)ZZ052大数据应用与服务赛项赛题"/></a><div class="content"><a class="title" href="/posts/b2b7.html" title="(第二套)ZZ052大数据应用与服务赛项赛题">(第二套)ZZ052大数据应用与服务赛项赛题</a><time datetime="2024-10-28T03:38:03.000Z" title="发表于 2024-10-28 11:38:03">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d3ce.html" title="docker-dockerfile"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-5.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="docker-dockerfile"/></a><div class="content"><a class="title" href="/posts/d3ce.html" title="docker-dockerfile">docker-dockerfile</a><time datetime="2024-10-25T03:14:35.000Z" title="发表于 2024-10-25 11:14:35">2024-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1fef.html" title="docker安装"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-14.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="docker安装"/></a><div class="content"><a class="title" href="/posts/1fef.html" title="docker安装">docker安装</a><time datetime="2024-10-25T03:14:35.000Z" title="发表于 2024-10-25 11:14:35">2024-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/713b.html" title="docker-compose"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-5.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="docker-compose"/></a><div class="content"><a class="title" href="/posts/713b.html" title="docker-compose">docker-compose</a><time datetime="2024-10-25T03:14:35.000Z" title="发表于 2024-10-25 11:14:35">2024-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e3ea.html" title="docker分享社区"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/qsmy/qsmy-16.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="docker分享社区"/></a><div class="content"><a class="title" href="/posts/e3ea.html" title="docker分享社区">docker分享社区</a><time datetime="2024-10-25T03:14:35.000Z" title="发表于 2024-10-25 11:14:35">2024-10-25</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="https://bigdata-yx.github.io/" title="主页"><i class="anzhiyufont anzhiyufont anzhiyu-icon-paper-plane"></i></a><a class="deal_link" href="mailto:geekswg@qq.com" title="email"><i class="anzhiyufont anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" href="https://bigdata-yx.github.io/" title="微博"><i class="anzhiyufont anzhiyufont anzhiyu-icon-weibo"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/gif/ghost.gif" size="50px"/><a class="deal_link" href="https://bigdata-yx.github.io/" title="Github"><i class="anzhiyufont anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/" title="Bilibili"><i class="anzhiyufont anzhiyufont anzhiyu-icon-bilibili"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.douyin.com/" title="抖音"><i class="anzhiyufont anzhiyufont anzhiyu-icon-tiktok"></i></a></div><div id="workboard"><img class="workSituationImg boardsign" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/gif/cat.gif" alt="但行好事，莫问前程" title="但行好事，莫问前程"/><div id="runtimeTextTip"></div></div><div id="anzhiyu-footer"><div class="footer-group"><div class="footer-title">服务</div><div class="footer-links"><a class="footer-item" title="51la统计" target="_blank" rel="noopener" href="https://v6.51.la/">51la统计</a><a class="footer-item" title="十年之约" target="_blank" rel="noopener" href="https://www.foreverblog.cn/">十年之约</a><a class="footer-item" title="开往" href="https://bigdata-yx.github.io//travellings-link/travellings">开往</a></div></div><div class="footer-group"><div class="footer-title">导航</div><div class="footer-links"><a class="footer-item" title="个人主页" href="https://bigdata-yx.github.io/">个人主页</a><a class="footer-item" title="ChatGPT" href="https://bigdata-yx.github.io/">ChatGPT</a><a class="footer-item" title="站点监测" href="https://bigdata-yx.github.io/">站点监测</a></div></div><div class="footer-group"><div class="footer-title">主题</div><div class="footer-links"><a class="footer-item" title="模板仓库" href="https://bigdata-yx.github.io//gavinblog/blog-anzhiyu">模板仓库</a><a class="footer-item" title="主题文档" target="_blank" rel="noopener" href="https://gavinblog.github.io/anzhiyu-docs/">主题文档</a><a class="footer-item" title="更新日志" href="https://bigdata-yx.github.io//anzhiyu-c/hexo-theme-anzhiyu/releases">更新日志</a></div></div><div class="footer-group"><div class="footer-title-group"><div class="footer-title">友链</div><a class="random-friends-btn" id="footer-random-friends-btn" href="javascript:addFriendLinksInFooter();" title="换一批友情链接"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i></a></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://bigdata-yx.github.io/" style="margin-inline:5px" data-title="主页" title="主页"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img.shields.io/badge/Blog-%E6%AF%95%E5%B0%91%E4%BE%A0-yellow" alt="主页"/></a><a class="github-badge" target="_blank" href="https://bigdata-yx.github.io//gavinblog/blog-anzhiyu" style="margin-inline:5px" data-title="本站项目由Github托管" title="本站项目由Github托管"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"/></a><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"/></a><a class="github-badge" target="_blank" href="https://bigdata-yx.github.io//anzhiyu-c/hexo-theme-anzhiyu.git" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img.shields.io/badge/Hexo--Theme-Anzhiyu-green" alt="本站使用AnZhiYu主题"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"/></a></p></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2006 - 2024 By <a class="footer-bar-link" href="/" title="曦" target="_blank">曦</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#footer-type-tips", {
+      strings: ["但行好事，莫问前程。","Talk Is Cheap, Show Me the Code."],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("footer-type-tips").innerHTML = '但行好事，莫问前程。'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="https://bigdata-yx.github.io/" title="主页">主页</a><a class="footer-bar-link" href="https://bigdata-yx.github.io/" title="导航">导航</a><a class="footer-bar-link" href="https://bigdata-yx.github.io//YXlhx/blog" title="源码">源码</a><a class="footer-bar-link" href="https://bigdata-yx.github.io/" title="文档">文档</a><a class="footer-bar-link" href="https://bigdata-yx.github.io/" title="访客">访客</a><a class="footer-bar-link cc" href="/about" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">站点</div><div class="back-menu-list"><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="个人主页"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="个人主页"/><span class="back-menu-item-text">个人主页</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="个人导航"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="个人导航"/><span class="back-menu-item-text">个人导航</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="博客-Hugo"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="博客-Hugo"/><span class="back-menu-item-text">博客-Hugo</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io/" title="博客-Hexo"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="博客-Hexo"/><span class="back-menu-item-text">博客-Hexo</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">常用网址</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://tool.lu/" title="在线工具"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="在线工具"/><span class="back-menu-item-text">在线工具</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://gavinblog.github.io/picx/#/upload" title="免费图床-Picx"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="免费图床-Picx"/><span class="back-menu-item-text">免费图床-Picx</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">AI大模型</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://chat.openai.com/" title="ChatGPT"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="ChatGPT"/><span class="back-menu-item-text">ChatGPT</span></a><a class="back-menu-item" href="https://bigdata-yx.github.io//7flash/AutoChatGPT" title="AutoChatGPT"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="AutoChatGPT"/><span class="back-menu-item-text">AutoChatGPT</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://bing.com/create" title="Bing-图像创建者"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="Bing-图像创建者"/><span class="back-menu-item-text">Bing-图像创建者</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://stablediffusionweb.com/" title="Stable Diffusion Online"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="Stable Diffusion Online"/><span class="back-menu-item-text">Stable Diffusion Online</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://yiyan.baidu.com/" title="文心一言"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="文心一言"/><span class="back-menu-item-text">文心一言</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://yige.baidu.com/" title="文心一格"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="文心一格"/><span class="back-menu-item-text">文心一格</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://xinghuo.xfyun.cn/" title="讯飞星火"><img class="back-menu-item-icon" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/imgs/avatar.webp" alt="讯飞星火"/><span class="back-menu-item-text">讯飞星火</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="https://bigdata-yx.github.io/"><span> 🏠</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 博客</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 文章</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/charts/"><i class="fa-solid fa-chart-pie fa-spin faa-tada"></i><span> 统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/anzhiyu-docs/"><i class="anzhiyufont anzhiyu-icon-book faa-tada" style="font-size: 0.9em;"></i><span> 文档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="https://bigdata-yx.github.io/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 博客-Hugo</span></a></li><li><a class="site-page child faa-parent animated-hover" href="https://bigdata-yx.github.io/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 博客-Hexo</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/guestbook/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 说说</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-condition/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/music/?id=8138088068&amp;server=tencent"><span> 音乐</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/sites/all-sites"><span> 🌐</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><span> 🧑‍💻</span></a></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/demo/" style="font-size: 0.88rem; color: rgb(13, 31, 53);">demo<sup>13</sup></a><a href="/tags/%E7%A4%BA%E4%BE%8B/" style="font-size: 0.88rem; color: rgb(54, 138, 133);">示例<sup>13</sup></a></div></div><hr/></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开/关闭中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版/本站右键菜单</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><a id="switch-commentBarrage" href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕"><i class="anzhiyufont anzhiyu-icon-danmu"></i></a><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8138088068" server="tencent" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8138088068&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://unpkg.com/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://unpkg.com/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>var meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";
+</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("01/02/2006 15:04:05"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2006 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 曦 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("01/02/2006 15:04:05"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "/imgs/gif/tree.gif";
+        img.title = "天高任鸟飞，海阔凭鱼跃";
+        img.alt = "天高任鸟飞，海阔凭鱼跃";
+      }
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://bigdata-yx.github.io/',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://unpkg.com/twikoo@1.6.39/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://bigdata-yx.github.io/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"><script async src="/js/anzhiyu/comment_barrage.js"></script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://bigdata-yx.github.io/',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://unpkg.com/twikoo@1.6.39/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "foshana@163.com";
+</script><script async data-pjax src="https://unpkg.com/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://unpkg.com/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://analytics.umami.is/script.js" data-website-id="12b10d95-8761-47e3-9bc9-257f796cc5f0"></script><script src="/custom/custom.js"></script><script src="/custom/welcome/welcome.js"></script><span id="fps"></span><link rel="stylesheet" href="/custom/fps/fps.css" media="defer" onload="this.media='all'"><script src="/custom/fps/fps.js"></script><script defer type="text/javascript" src="/custom/dayalert/sweetalert2.all.js"></script><script defer src="/custom/dayalert/lunar.js"></script><script defer src="/custom/dayalert/day.js"></script><script async data-pjax src="/js/imgloaded.js?1"></script><script src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://unpkg.com/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="true" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://unpkg.com/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://unpkg.com/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://unpkg.com/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-MXDTZ2L2TY', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://unpkg.com/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('card-widget')[0];
+                var item_html = '<div class="card-widget card-history" style="height: 146px;"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('card-widget')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "/imgs/loading/loading.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/custom/clock/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '8e18b5438c9f4d9cac96586a3589d52e';
+  var gaud_map_key = '773a8e229dc264bcededffa74697e731';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="/custom/clock/clock.min.js"></script><!-- hexo injector body_end end --></body></html>

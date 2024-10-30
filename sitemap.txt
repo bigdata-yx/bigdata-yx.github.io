@@ -1,10 +1,10 @@
 https://bigdata-yx.github.io/posts/b2b6.html
-https://bigdata-yx.github.io/posts/b2b6.html
+https://bigdata-yx.github.io/posts/b2b7.html
 https://bigdata-yx.github.io/posts/d3ce.html
-https://bigdata-yx.github.io/posts/713b.html
 https://bigdata-yx.github.io/posts/1fef.html
-https://bigdata-yx.github.io/posts/287f.html
+https://bigdata-yx.github.io/posts/713b.html
 https://bigdata-yx.github.io/posts/e3ea.html
+https://bigdata-yx.github.io/posts/287f.html
 https://bigdata-yx.github.io/posts/ec39.html
 https://bigdata-yx.github.io/posts/ade7.html
 https://bigdata-yx.github.io/posts/af13.html
@@ -12,11 +12,11 @@ https://bigdata-yx.github.io/posts/5796.html
 https://bigdata-yx.github.io/posts/287f.html
 https://bigdata-yx.github.io/manifest.json
 https://bigdata-yx.github.io/json/music.json
-https://bigdata-yx.github.io/custom/history/json/11.json
 https://bigdata-yx.github.io/custom/history/json/12.json
+https://bigdata-yx.github.io/custom/history/json/11.json
 https://bigdata-yx.github.io/custom/history/json/02.json
-https://bigdata-yx.github.io/custom/history/json/03.json
 https://bigdata-yx.github.io/custom/history/json/01.json
+https://bigdata-yx.github.io/custom/history/json/03.json
 https://bigdata-yx.github.io/custom/history/json/04.json
 https://bigdata-yx.github.io/custom/history/json/05.json
 https://bigdata-yx.github.io/custom/history/json/06.json
