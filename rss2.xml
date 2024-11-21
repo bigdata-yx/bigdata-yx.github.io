@@ -15,14 +15,42 @@
     <atom:link href="https://bigdata-yx.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曦-description</description>
-    <pubDate>Wed, 20 Nov 2024 03:13:05 GMT</pubDate>
+    <pubDate>Wed, 20 Nov 2024 03:20:06 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>scala-读取写入序列化</title>
+      <link>https://bigdata-yx.github.io/posts/b9a6.html</link>
+      <guid>https://bigdata-yx.github.io/posts/b9a6.html</guid>
+      <pubDate>Wed, 20 Nov 2024 03:20:06 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-读取数据&quot;&gt;&lt;a href=&quot;#1-读取数据&quot; class=&quot;headerlink&quot; title=&quot;1.读取数据&quot;&gt;&lt;/a&gt;1.读取数据&lt;/h2&gt;&lt;h3 id=&quot;1-1按行读取&quot;&gt;&lt;a href=&quot;#1-1按行读取&quot; class=&quot;headerlink&quot; ti</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="1-读取数据"><a href="#1-读取数据" class="headerlink" title="1.读取数据"></a>1.读取数据</h2><h3 id="1-1按行读取"><a href="#1-1按行读取" class="headerlink" title="1.1按行读取"></a>1.1按行读取</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按行读取</span></span><br><span class="line"><span class="comment">// 创建Source对象，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> source = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 以行为单位，来读取数据</span></span><br><span class="line"><span class="keyword">val</span> lines: <span class="type">Iterator</span>[<span class="type">String</span>] = source.getLines()</span><br><span class="line"><span class="comment">// 将读取到的数据封装到list列表中</span></span><br><span class="line"><span class="keyword">val</span> list: <span class="type">List</span>[<span class="type">String</span>] = lines.toList</span><br><span class="line"><span class="comment">// 打印结果</span></span><br><span class="line"><span class="keyword">for</span> (data &lt;- list) println(data)</span><br><span class="line"><span class="comment">// 关闭Source对象</span></span><br><span class="line">source.close()</span><br></pre></td></tr></table></figure><h3 id="1-2按字符读取"><a href="#1-2按字符读取" class="headerlink" title="1.2按字符读取"></a>1.2按字符读取</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按字符读取</span></span><br><span class="line"><span class="keyword">val</span> source1 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 拆干见source对象关联数据源</span></span><br><span class="line"><span class="keyword">val</span> iter: <span class="type">BufferedIterator</span>[<span class="type">Char</span>] = source1.buffered</span><br><span class="line"><span class="comment">// 已字符为单位来读取数据</span></span><br><span class="line"><span class="keyword">while</span> (iter.hasNext) &#123;</span><br><span class="line">  <span class="comment">// 打印读取到的数据 hasNext(), next()</span></span><br><span class="line">  print(iter.next())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 关闭source对象</span></span><br><span class="line">source.close()</span><br></pre></td></tr></table></figure><h3 id="1-3优化版（字符串版）"><a href="#1-3优化版（字符串版）" class="headerlink" title="1.3优化版（字符串版）"></a>1.3优化版（字符串版）</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优化版，如果文件中的内容较少，我们可以直接把它读取到一个字符串中</span></span><br><span class="line"><span class="keyword">val</span> source2 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 将数据读取到一个字符串中</span></span><br><span class="line"><span class="keyword">val</span> str: <span class="type">String</span> = source2.mkString</span><br><span class="line"><span class="comment">// 打印</span></span><br><span class="line">println(str)</span><br><span class="line"><span class="comment">// 关闭source对象</span></span><br><span class="line">source2.close()</span><br></pre></td></tr></table></figure><h3 id="1-4读取词法单词和数字"><a href="#1-4读取词法单词和数字" class="headerlink" title="1.4读取词法单词和数字"></a>1.4读取词法单词和数字</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取词法单元和数字</span></span><br><span class="line"><span class="keyword">val</span> source3 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\2.txt&quot;</span>)</span><br><span class="line"><span class="comment">//将其所有数据封装到一个字符串中</span></span><br><span class="line"><span class="keyword">val</span> str1 = source3.mkString</span><br><span class="line"><span class="comment">// 按照空白字符进行切割，获取到字符串数组</span></span><br><span class="line"><span class="keyword">val</span> strArray: <span class="type">Array</span>[<span class="type">String</span>] = str1.split(<span class="string">&quot;\\s+&quot;</span>)</span><br><span class="line"><span class="comment">// 将上诉的字符串数组转换成int类型的数组</span></span><br><span class="line"><span class="keyword">val</span> intArray: <span class="type">Array</span>[<span class="type">Int</span>] = strArray.map(_.toInt)</span><br><span class="line"><span class="keyword">for</span> (data &lt;- intArray) print(data + <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="comment">// 关闭source</span></span><br><span class="line">source3.close()</span><br></pre></td></tr></table></figure><h3 id="1-5从Url或者其他源中读取数据"><a href="#1-5从Url或者其他源中读取数据" class="headerlink" title="1.5从Url或者其他源中读取数据"></a>1.5从Url或者其他源中读取数据</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从url或者其他源读取数据</span></span><br><span class="line"><span class="comment">//读取传智播客官网的数据</span></span><br><span class="line"><span class="keyword">val</span> source4 = <span class="type">Source</span>.fromURL(<span class="string">&quot;https://www.itcast.cn&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> str2 = source4.mkString</span><br><span class="line">println(str2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接从字符串 黑马程序员中读取数据</span></span><br><span class="line"><span class="keyword">val</span> source5 = <span class="type">Source</span>.fromString(<span class="string">&quot;黑马程序员&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> str3 = source5.mkString</span><br><span class="line">println(str3)</span><br></pre></td></tr></table></figure><h3 id="1-6读取二进制文件"><a href="#1-6读取二进制文件" class="headerlink" title="1.6读取二进制文件"></a>1.6读取二进制文件</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取二进制文件</span></span><br><span class="line"><span class="comment">// 创建file对象，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> file = <span class="keyword">new</span> <span class="type">File</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1732176591422.png&quot;</span>)</span><br><span class="line"><span class="comment">// 创建字节输入流，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> fis = <span class="keyword">new</span> <span class="type">FileInputStream</span>(file)</span><br><span class="line"><span class="comment">// 创建字节数组，用来存储读取到的内容</span></span><br><span class="line"><span class="keyword">val</span> bys = <span class="keyword">new</span> <span class="type">Array</span>[<span class="type">Byte</span>](file.length().toInt)</span><br><span class="line"><span class="comment">// 开始读取，将读取到的数据存储到字节数组中，病返回读取到的有效字节数</span></span><br><span class="line"><span class="keyword">val</span> len = fis.read(bys)</span><br><span class="line"><span class="comment">// 打印结果</span></span><br><span class="line">println(<span class="string">&quot;读取到的有效字节数：&quot;</span> + len)</span><br><span class="line">println(<span class="string">&quot;字节数组的长度&quot;</span> + bys.length)</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">fis.close()</span><br></pre></td></tr></table></figure><h2 id="2-写入数据"><a href="#2-写入数据" class="headerlink" title="2.写入数据"></a>2.写入数据</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写入数据</span></span><br><span class="line"><span class="comment">// 创建字节输出流对象，关联目的地文件</span></span><br><span class="line"><span class="keyword">val</span> fos = <span class="keyword">new</span> <span class="type">FileOutputStream</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\4.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 直接往目的地文件中编写指定的内容</span></span><br><span class="line">fos.write(<span class="string">&quot;黄凯君cpdd\r\n 黄凯君mjj&quot;</span>.getBytes)</span><br><span class="line"><span class="comment">// 关闭字节输出流</span></span><br><span class="line">fos.close()</span><br></pre></td></tr></table></figure><h2 id="3-序列化和反序列化"><a href="#3-序列化和反序列化" class="headerlink" title="3.序列化和反序列化"></a>3.序列化和反序列化</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 序列化和反序列化</span></span><br><span class="line"><span class="comment">// 演示序列化操作，即：将对象写入到文件中.</span></span><br><span class="line"><span class="comment">// 创建Person类型的对象</span></span><br><span class="line"><span class="keyword">val</span> p = <span class="keyword">new</span> <span class="type">Person</span>(<span class="string">&quot;黄凯君&quot;</span>, <span class="number">23</span>)</span><br><span class="line"><span class="comment">// 创建序列哈流，用来讲对象写入到文件中</span></span><br><span class="line"><span class="keyword">val</span> oos = <span class="keyword">new</span> <span class="type">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="type">FileOutputStream</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\5.txt&quot;</span>))</span><br><span class="line"><span class="comment">// 调用writeObject()方法， 将对象写入到文件中</span></span><br><span class="line">oos.writeObject(p)</span><br><span class="line">oos.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化操作，即：从文件中直接读取对象</span></span><br><span class="line"><span class="comment">// 创建反序列化流，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> ois = <span class="keyword">new</span> <span class="type">ObjectInputStream</span>(<span class="keyword">new</span> <span class="type">FileInputStream</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\5.txt&quot;</span>))</span><br><span class="line"><span class="comment">// 调用readObject()方法，从数据源文件中读取指定的对象</span></span><br><span class="line"><span class="comment">// 细节：我们获取到的对象是AnyRef类型，所以需要转换成Person类型</span></span><br><span class="line"><span class="keyword">val</span> p1 = ois.readObject().asInstanceOf[<span class="type">Person</span>]</span><br><span class="line"><span class="comment">// 打印结果</span></span><br><span class="line">println(p1.name, p1.age)</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">ois.close()</span><br></pre></td></tr></table></figure><h2 id="案例：学生成绩单"><a href="#案例：学生成绩单" class="headerlink" title="案例：学生成绩单"></a>案例：学生成绩单</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例：学院成绩表</span></span><br><span class="line"><span class="comment">// 创建source对象并且关联数据源</span></span><br><span class="line"><span class="keyword">val</span> source9 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\Student.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 讲数据原一行一行读出来，并且已空格为分割符存入数组</span></span><br><span class="line"><span class="keyword">val</span> stuArray = source9.getLines().map(_.split(<span class="string">&quot; &quot;</span>))</span><br><span class="line"><span class="comment">// 创建可变列表</span></span><br><span class="line"><span class="keyword">val</span> studentList = <span class="type">ListBuffer</span>[<span class="type">Student</span>]()</span><br><span class="line"><span class="comment">// 将数据数组中的每一个存入列表中 这里的转换是方便添加总成绩进去，list方便动态加入</span></span><br><span class="line"><span class="keyword">for</span> (s &lt;- stuArray) &#123;</span><br><span class="line">  studentList += <span class="keyword">new</span> <span class="type">Student</span>(s(<span class="number">0</span>), s(<span class="number">1</span>).toInt, s(<span class="number">2</span>).toInt, s(<span class="number">3</span>).toInt)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将列表中的数据按照总分降序排列</span></span><br><span class="line"><span class="keyword">val</span> sortList = studentList.sortBy(_.getSum).reverse.toList</span><br><span class="line"><span class="comment">// 将处理好的数据存入指定位置</span></span><br><span class="line"><span class="keyword">val</span> bw = <span class="keyword">new</span> <span class="type">BufferedWriter</span>(<span class="keyword">new</span> <span class="type">FileWriter</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\Student1.txt&quot;</span>))</span><br><span class="line"><span class="comment">// 将数据写入</span></span><br><span class="line"><span class="keyword">for</span> (s &lt;- sortList) &#123;</span><br><span class="line">  <span class="comment">// s 表示排序后每一个学生的信息</span></span><br><span class="line">  bw.write(<span class="string">s&quot;<span class="subst">$&#123;s.name&#125;</span>, <span class="subst">$&#123;s.Chinese&#125;</span>, <span class="subst">$&#123;s.Math&#125;</span>, <span class="subst">$&#123;s.English&#125;</span>, <span class="subst">$&#123;s.getSum&#125;</span>&quot;</span>)</span><br><span class="line">  <span class="comment">// 每写完一个学生进行换行</span></span><br><span class="line">  bw.newLine()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">bw.close()</span><br><span class="line">source9.close()</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/demo/">demo</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/b9a6.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>scala-模式匹配</title>
       <link>https://bigdata-yx.github.io/posts/b9a6.html</link>
       <guid>https://bigdata-yx.github.io/posts/b9a6.html</guid>
-      <pubDate>Wed, 20 Nov 2024 03:13:05 GMT</pubDate>
+      <pubDate>Wed, 20 Nov 2024 03:13:33 GMT</pubDate>
       
         
         
@@ -40,6 +68,27 @@
       <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
       
       <category domain="https://bigdata-yx.github.io/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/b9a6.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>scala</title>
+      <link>https://bigdata-yx.github.io/posts/b9a6.html</link>
+      <guid>https://bigdata-yx.github.io/posts/b9a6.html</guid>
+      <pubDate>Wed, 20 Nov 2024 03:13:05 GMT</pubDate>
+      
+      
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/demo/">demo</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
       
       
       <comments>https://bigdata-yx.github.io/posts/b9a6.html#disqus_thread</comments>
@@ -71,55 +120,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/a3f7.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>scala-读取写入序列化</title>
-      <link>https://bigdata-yx.github.io/posts/b9a6.html</link>
-      <guid>https://bigdata-yx.github.io/posts/b9a6.html</guid>
-      <pubDate>Wed, 20 Nov 2024 03:13:05 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;1-读取数据&quot;&gt;&lt;a href=&quot;#1-读取数据&quot; class=&quot;headerlink&quot; title=&quot;1.读取数据&quot;&gt;&lt;/a&gt;1.读取数据&lt;/h2&gt;&lt;h3 id=&quot;1-1按行读取&quot;&gt;&lt;a href=&quot;#1-1按行读取&quot; class=&quot;headerlink&quot; ti</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="1-读取数据"><a href="#1-读取数据" class="headerlink" title="1.读取数据"></a>1.读取数据</h2><h3 id="1-1按行读取"><a href="#1-1按行读取" class="headerlink" title="1.1按行读取"></a>1.1按行读取</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按行读取</span></span><br><span class="line"><span class="comment">// 创建Source对象，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> source = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 以行为单位，来读取数据</span></span><br><span class="line"><span class="keyword">val</span> lines: <span class="type">Iterator</span>[<span class="type">String</span>] = source.getLines()</span><br><span class="line"><span class="comment">// 将读取到的数据封装到list列表中</span></span><br><span class="line"><span class="keyword">val</span> list: <span class="type">List</span>[<span class="type">String</span>] = lines.toList</span><br><span class="line"><span class="comment">// 打印结果</span></span><br><span class="line"><span class="keyword">for</span> (data &lt;- list) println(data)</span><br><span class="line"><span class="comment">// 关闭Source对象</span></span><br><span class="line">source.close()</span><br></pre></td></tr></table></figure><h3 id="1-2按字符读取"><a href="#1-2按字符读取" class="headerlink" title="1.2按字符读取"></a>1.2按字符读取</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按字符读取</span></span><br><span class="line"><span class="keyword">val</span> source1 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 拆干见source对象关联数据源</span></span><br><span class="line"><span class="keyword">val</span> iter: <span class="type">BufferedIterator</span>[<span class="type">Char</span>] = source1.buffered</span><br><span class="line"><span class="comment">// 已字符为单位来读取数据</span></span><br><span class="line"><span class="keyword">while</span> (iter.hasNext) &#123;</span><br><span class="line">  <span class="comment">// 打印读取到的数据 hasNext(), next()</span></span><br><span class="line">  print(iter.next())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 关闭source对象</span></span><br><span class="line">source.close()</span><br></pre></td></tr></table></figure><h3 id="1-3优化版（字符串版）"><a href="#1-3优化版（字符串版）" class="headerlink" title="1.3优化版（字符串版）"></a>1.3优化版（字符串版）</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优化版，如果文件中的内容较少，我们可以直接把它读取到一个字符串中</span></span><br><span class="line"><span class="keyword">val</span> source2 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 将数据读取到一个字符串中</span></span><br><span class="line"><span class="keyword">val</span> str: <span class="type">String</span> = source2.mkString</span><br><span class="line"><span class="comment">// 打印</span></span><br><span class="line">println(str)</span><br><span class="line"><span class="comment">// 关闭source对象</span></span><br><span class="line">source2.close()</span><br></pre></td></tr></table></figure><h3 id="1-4读取词法单词和数字"><a href="#1-4读取词法单词和数字" class="headerlink" title="1.4读取词法单词和数字"></a>1.4读取词法单词和数字</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取词法单元和数字</span></span><br><span class="line"><span class="keyword">val</span> source3 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\2.txt&quot;</span>)</span><br><span class="line"><span class="comment">//将其所有数据封装到一个字符串中</span></span><br><span class="line"><span class="keyword">val</span> str1 = source3.mkString</span><br><span class="line"><span class="comment">// 按照空白字符进行切割，获取到字符串数组</span></span><br><span class="line"><span class="keyword">val</span> strArray: <span class="type">Array</span>[<span class="type">String</span>] = str1.split(<span class="string">&quot;\\s+&quot;</span>)</span><br><span class="line"><span class="comment">// 将上诉的字符串数组转换成int类型的数组</span></span><br><span class="line"><span class="keyword">val</span> intArray: <span class="type">Array</span>[<span class="type">Int</span>] = strArray.map(_.toInt)</span><br><span class="line"><span class="keyword">for</span> (data &lt;- intArray) print(data + <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="comment">// 关闭source</span></span><br><span class="line">source3.close()</span><br></pre></td></tr></table></figure><h3 id="1-5从Url或者其他源中读取数据"><a href="#1-5从Url或者其他源中读取数据" class="headerlink" title="1.5从Url或者其他源中读取数据"></a>1.5从Url或者其他源中读取数据</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从url或者其他源读取数据</span></span><br><span class="line"><span class="comment">//读取传智播客官网的数据</span></span><br><span class="line"><span class="keyword">val</span> source4 = <span class="type">Source</span>.fromURL(<span class="string">&quot;https://www.itcast.cn&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> str2 = source4.mkString</span><br><span class="line">println(str2)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接从字符串 黑马程序员中读取数据</span></span><br><span class="line"><span class="keyword">val</span> source5 = <span class="type">Source</span>.fromString(<span class="string">&quot;黑马程序员&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> str3 = source5.mkString</span><br><span class="line">println(str3)</span><br></pre></td></tr></table></figure><h3 id="1-6读取二进制文件"><a href="#1-6读取二进制文件" class="headerlink" title="1.6读取二进制文件"></a>1.6读取二进制文件</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取二进制文件</span></span><br><span class="line"><span class="comment">// 创建file对象，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> file = <span class="keyword">new</span> <span class="type">File</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\1732176591422.png&quot;</span>)</span><br><span class="line"><span class="comment">// 创建字节输入流，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> fis = <span class="keyword">new</span> <span class="type">FileInputStream</span>(file)</span><br><span class="line"><span class="comment">// 创建字节数组，用来存储读取到的内容</span></span><br><span class="line"><span class="keyword">val</span> bys = <span class="keyword">new</span> <span class="type">Array</span>[<span class="type">Byte</span>](file.length().toInt)</span><br><span class="line"><span class="comment">// 开始读取，将读取到的数据存储到字节数组中，病返回读取到的有效字节数</span></span><br><span class="line"><span class="keyword">val</span> len = fis.read(bys)</span><br><span class="line"><span class="comment">// 打印结果</span></span><br><span class="line">println(<span class="string">&quot;读取到的有效字节数：&quot;</span> + len)</span><br><span class="line">println(<span class="string">&quot;字节数组的长度&quot;</span> + bys.length)</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">fis.close()</span><br></pre></td></tr></table></figure><h2 id="2-写入数据"><a href="#2-写入数据" class="headerlink" title="2.写入数据"></a>2.写入数据</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写入数据</span></span><br><span class="line"><span class="comment">// 创建字节输出流对象，关联目的地文件</span></span><br><span class="line"><span class="keyword">val</span> fos = <span class="keyword">new</span> <span class="type">FileOutputStream</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\4.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 直接往目的地文件中编写指定的内容</span></span><br><span class="line">fos.write(<span class="string">&quot;黄凯君cpdd\r\n 黄凯君mjj&quot;</span>.getBytes)</span><br><span class="line"><span class="comment">// 关闭字节输出流</span></span><br><span class="line">fos.close()</span><br></pre></td></tr></table></figure><h2 id="3-序列化和反序列化"><a href="#3-序列化和反序列化" class="headerlink" title="3.序列化和反序列化"></a>3.序列化和反序列化</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 序列化和反序列化</span></span><br><span class="line"><span class="comment">// 演示序列化操作，即：将对象写入到文件中.</span></span><br><span class="line"><span class="comment">// 创建Person类型的对象</span></span><br><span class="line"><span class="keyword">val</span> p = <span class="keyword">new</span> <span class="type">Person</span>(<span class="string">&quot;黄凯君&quot;</span>, <span class="number">23</span>)</span><br><span class="line"><span class="comment">// 创建序列哈流，用来讲对象写入到文件中</span></span><br><span class="line"><span class="keyword">val</span> oos = <span class="keyword">new</span> <span class="type">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="type">FileOutputStream</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\5.txt&quot;</span>))</span><br><span class="line"><span class="comment">// 调用writeObject()方法， 将对象写入到文件中</span></span><br><span class="line">oos.writeObject(p)</span><br><span class="line">oos.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化操作，即：从文件中直接读取对象</span></span><br><span class="line"><span class="comment">// 创建反序列化流，关联数据源文件</span></span><br><span class="line"><span class="keyword">val</span> ois = <span class="keyword">new</span> <span class="type">ObjectInputStream</span>(<span class="keyword">new</span> <span class="type">FileInputStream</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\5.txt&quot;</span>))</span><br><span class="line"><span class="comment">// 调用readObject()方法，从数据源文件中读取指定的对象</span></span><br><span class="line"><span class="comment">// 细节：我们获取到的对象是AnyRef类型，所以需要转换成Person类型</span></span><br><span class="line"><span class="keyword">val</span> p1 = ois.readObject().asInstanceOf[<span class="type">Person</span>]</span><br><span class="line"><span class="comment">// 打印结果</span></span><br><span class="line">println(p1.name, p1.age)</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">ois.close()</span><br></pre></td></tr></table></figure><h2 id="案例：学生成绩单"><a href="#案例：学生成绩单" class="headerlink" title="案例：学生成绩单"></a>案例：学生成绩单</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例：学院成绩表</span></span><br><span class="line"><span class="comment">// 创建source对象并且关联数据源</span></span><br><span class="line"><span class="keyword">val</span> source9 = <span class="type">Source</span>.fromFile(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\Student.txt&quot;</span>)</span><br><span class="line"><span class="comment">// 讲数据原一行一行读出来，并且已空格为分割符存入数组</span></span><br><span class="line"><span class="keyword">val</span> stuArray = source9.getLines().map(_.split(<span class="string">&quot; &quot;</span>))</span><br><span class="line"><span class="comment">// 创建可变列表</span></span><br><span class="line"><span class="keyword">val</span> studentList = <span class="type">ListBuffer</span>[<span class="type">Student</span>]()</span><br><span class="line"><span class="comment">// 将数据数组中的每一个存入列表中 这里的转换是方便添加总成绩进去，list方便动态加入</span></span><br><span class="line"><span class="keyword">for</span> (s &lt;- stuArray) &#123;</span><br><span class="line">  studentList += <span class="keyword">new</span> <span class="type">Student</span>(s(<span class="number">0</span>), s(<span class="number">1</span>).toInt, s(<span class="number">2</span>).toInt, s(<span class="number">3</span>).toInt)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将列表中的数据按照总分降序排列</span></span><br><span class="line"><span class="keyword">val</span> sortList = studentList.sortBy(_.getSum).reverse.toList</span><br><span class="line"><span class="comment">// 将处理好的数据存入指定位置</span></span><br><span class="line"><span class="keyword">val</span> bw = <span class="keyword">new</span> <span class="type">BufferedWriter</span>(<span class="keyword">new</span> <span class="type">FileWriter</span>(<span class="string">&quot;J:\\大数据第一代项目\\scalaFlink\\data\\Student1.txt&quot;</span>))</span><br><span class="line"><span class="comment">// 将数据写入</span></span><br><span class="line"><span class="keyword">for</span> (s &lt;- sortList) &#123;</span><br><span class="line">  <span class="comment">// s 表示排序后每一个学生的信息</span></span><br><span class="line">  bw.write(<span class="string">s&quot;<span class="subst">$&#123;s.name&#125;</span>, <span class="subst">$&#123;s.Chinese&#125;</span>, <span class="subst">$&#123;s.Math&#125;</span>, <span class="subst">$&#123;s.English&#125;</span>, <span class="subst">$&#123;s.getSum&#125;</span>&quot;</span>)</span><br><span class="line">  <span class="comment">// 每写完一个学生进行换行</span></span><br><span class="line">  bw.newLine()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">bw.close()</span><br><span class="line">source9.close()</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/demo/">demo</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/b9a6.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>scala</title>
-      <link>https://bigdata-yx.github.io/posts/b9a6.html</link>
-      <guid>https://bigdata-yx.github.io/posts/b9a6.html</guid>
-      <pubDate>Wed, 20 Nov 2024 03:13:05 GMT</pubDate>
-      
-      
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/demo/">demo</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/b9a6.html#disqus_thread</comments>
       
     </item>
     
@@ -237,6 +237,35 @@
     </item>
     
     <item>
+      <title>docker安装</title>
+      <link>https://bigdata-yx.github.io/posts/1fef.html</link>
+      <guid>https://bigdata-yx.github.io/posts/1fef.html</guid>
+      <pubDate>Fri, 25 Oct 2024 03:14:35 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;a href=&quot;#先移除旧版的docker如果没有就跳过&quot; class=&quot;headerlink&quot; title=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;/a&gt;先移除旧版的docker如果没有就跳过&lt;/h3&gt;&lt;ul&gt;
+</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="先移除旧版的docker如果没有就跳过"><a href="#先移除旧版的docker如果没有就跳过" class="headerlink" title="先移除旧版的docker如果没有就跳过"></a>先移除旧版的docker如果没有就跳过</h3><ul><li>移除旧版本docker \</li><li>sudo yum remove docker \</li><li>docker-client \</li><li>docker-client-latest \</li><li>docker-common \</li><li>docker-latest \</li><li>docker-latest-logrotate \</li><li>docker-logrotate \</li><li>docker-engine</li></ul><h3 id="配置docker-yum源"><a href="#配置docker-yum源" class="headerlink" title="配置docker yum源"></a>配置docker yum源</h3><ul><li>sudo yum install -y yum-utils</li><li>sudo yum-config-manager </li><li>–add-repo </li><li><a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></li><li>如果已经配置好yum为阿里云的就不用了</li></ul><h2 id="安装-最新-docker"><a href="#安装-最新-docker" class="headerlink" title="安装 最新 docker"></a>安装 最新 docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure><h2 id="启动-amp-开机启动docker；-enable-start-二合一"><a href="#启动-amp-开机启动docker；-enable-start-二合一" class="headerlink" title="启动&amp; 开机启动docker； enable + start 二合一"></a>启动&amp; 开机启动docker； enable + start 二合一</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker --now</span><br></pre></td></tr></table></figure><h3 id="配置加速"><a href="#配置加速" class="headerlink" title="配置加速"></a>配置加速</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors那地址</span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot;: [&quot;https://82m9ar63.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line">这个加速不太行使用另外一个</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/1fef.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>docker-compose</title>
       <link>https://bigdata-yx.github.io/posts/713b.html</link>
       <guid>https://bigdata-yx.github.io/posts/713b.html</guid>
@@ -266,35 +295,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/713b.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>docker安装</title>
-      <link>https://bigdata-yx.github.io/posts/1fef.html</link>
-      <guid>https://bigdata-yx.github.io/posts/1fef.html</guid>
-      <pubDate>Fri, 25 Oct 2024 03:14:35 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;a href=&quot;#先移除旧版的docker如果没有就跳过&quot; class=&quot;headerlink&quot; title=&quot;先移除旧版的docker如果没有就跳过&quot;&gt;&lt;/a&gt;先移除旧版的docker如果没有就跳过&lt;/h3&gt;&lt;ul&gt;
-</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="先移除旧版的docker如果没有就跳过"><a href="#先移除旧版的docker如果没有就跳过" class="headerlink" title="先移除旧版的docker如果没有就跳过"></a>先移除旧版的docker如果没有就跳过</h3><ul><li>移除旧版本docker \</li><li>sudo yum remove docker \</li><li>docker-client \</li><li>docker-client-latest \</li><li>docker-common \</li><li>docker-latest \</li><li>docker-latest-logrotate \</li><li>docker-logrotate \</li><li>docker-engine</li></ul><h3 id="配置docker-yum源"><a href="#配置docker-yum源" class="headerlink" title="配置docker yum源"></a>配置docker yum源</h3><ul><li>sudo yum install -y yum-utils</li><li>sudo yum-config-manager </li><li>–add-repo </li><li><a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></li><li>如果已经配置好yum为阿里云的就不用了</li></ul><h2 id="安装-最新-docker"><a href="#安装-最新-docker" class="headerlink" title="安装 最新 docker"></a>安装 最新 docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure><h2 id="启动-amp-开机启动docker；-enable-start-二合一"><a href="#启动-amp-开机启动docker；-enable-start-二合一" class="headerlink" title="启动&amp; 开机启动docker； enable + start 二合一"></a>启动&amp; 开机启动docker； enable + start 二合一</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker --now</span><br></pre></td></tr></table></figure><h3 id="配置加速"><a href="#配置加速" class="headerlink" title="配置加速"></a>配置加速</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors那地址</span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot;: [&quot;https://82m9ar63.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line">这个加速不太行使用另外一个</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/1fef.html#disqus_thread</comments>
       
     </item>
     
@@ -384,6 +384,34 @@
     </item>
     
     <item>
+      <title>docker架构</title>
+      <link>https://bigdata-yx.github.io/posts/af13.html</link>
+      <guid>https://bigdata-yx.github.io/posts/af13.html</guid>
+      <pubDate>Fri, 25 Oct 2024 03:14:35 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新&quot;&gt;&lt;a href=&quot;#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新&quot; class=&quot;headerlink&quot; title=&quot;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新"><a href="#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新" class="headerlink" title="下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新"></a>下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新</h3><ul><li>下载别的版本的话就是去dockerhub上看</li><li>检索docker search + 名字</li><li>列表：docker images</li><li>删除：docker rmi + 完整标签或者id 如：docker rmi nginx:latest</li></ul><h3 id="运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"><a href="#运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加" class="headerlink" title="运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"></a>运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加</h3><ul><li>后台运行-d</li><li>起个名字 –name</li><li>端口映射 -p 80:80</li></ul><ol><li><p>查看docker ps</p></li><li><p>停止 docker stop</p></li><li><p>启动docker start</p></li><li><p>重启 docker restart </p></li><li><p>状态 docker stats</p></li><li><p>日志 docker logs</p></li><li><p>进入 docker exec</p><p>docker exec -it mynginx &#x2F;bin&#x2F;bash</p><p>-it是交互模式</p><p>后面的路径是让他在控制台上显示</p></li><li><p>删除 docker rm</p></li><li><p>用docker构建自己的软件包，docker build + 镜像</p></li><li><p>发给应用市场让dock保存的话就是，dock push + 镜像</p></li></ol>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/af13.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>docker存储</title>
       <link>https://bigdata-yx.github.io/posts/ade7.html</link>
       <guid>https://bigdata-yx.github.io/posts/ade7.html</guid>
@@ -410,34 +438,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/ade7.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>docker架构</title>
-      <link>https://bigdata-yx.github.io/posts/af13.html</link>
-      <guid>https://bigdata-yx.github.io/posts/af13.html</guid>
-      <pubDate>Fri, 25 Oct 2024 03:14:35 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新&quot;&gt;&lt;a href=&quot;#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新&quot; class=&quot;headerlink&quot; title=&quot;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新"><a href="#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新" class="headerlink" title="下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新"></a>下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新</h3><ul><li>下载别的版本的话就是去dockerhub上看</li><li>检索docker search + 名字</li><li>列表：docker images</li><li>删除：docker rmi + 完整标签或者id 如：docker rmi nginx:latest</li></ul><h3 id="运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"><a href="#运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加" class="headerlink" title="运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"></a>运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加</h3><ul><li>后台运行-d</li><li>起个名字 –name</li><li>端口映射 -p 80:80</li></ul><ol><li><p>查看docker ps</p></li><li><p>停止 docker stop</p></li><li><p>启动docker start</p></li><li><p>重启 docker restart </p></li><li><p>状态 docker stats</p></li><li><p>日志 docker logs</p></li><li><p>进入 docker exec</p><p>docker exec -it mynginx &#x2F;bin&#x2F;bash</p><p>-it是交互模式</p><p>后面的路径是让他在控制台上显示</p></li><li><p>删除 docker rm</p></li><li><p>用docker构建自己的软件包，docker build + 镜像</p></li><li><p>发给应用市场让dock保存的话就是，dock push + 镜像</p></li></ol>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/demo/">demo</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/af13.html#disqus_thread</comments>
       
     </item>
     

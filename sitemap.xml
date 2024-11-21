@@ -11,25 +11,25 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/posts/b9a6.html</loc>
+    
+    <lastmod>2024-11-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/b9a6.html</loc>
+    
+    <lastmod>2024-11-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/posts/a3f7.html</loc>
-    
-    <lastmod>2024-11-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bigdata-yx.github.io/posts/b9a6.html</loc>
-    
-    <lastmod>2024-11-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bigdata-yx.github.io/posts/b9a6.html</loc>
     
     <lastmod>2024-11-20</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/713b.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/1fef.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/1fef.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/713b.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/ade7.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/af13.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/af13.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/ade7.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/12.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/11.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/11.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/12.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -245,15 +245,6 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/09.json</loc>
-    
-    <lastmod>2024-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/custom/history/json/07.json</loc>
     
     <lastmod>2024-10-25</lastmod>
@@ -273,6 +264,15 @@
   
   <url>
     <loc>https://bigdata-yx.github.io/custom/history/json/10.json</loc>
+    
+    <lastmod>2024-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/custom/history/json/09.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/album/album-4/index.html</loc>
+    <loc>https://bigdata-yx.github.io/album/album-3/index.html</loc>
     
     <lastmod>2023-05-25</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/album/album-3/index.html</loc>
+    <loc>https://bigdata-yx.github.io/album/album-4/index.html</loc>
     
     <lastmod>2023-05-25</lastmod>
     
@@ -716,6 +716,13 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/categories/Docker/</loc>
+    <lastmod>2024-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/categories/scala/</loc>
     <lastmod>2024-11-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -724,13 +731,6 @@
   
   <url>
     <loc>https://bigdata-yx.github.io/categories/demo/</loc>
-    <lastmod>2024-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bigdata-yx.github.io/categories/Docker/</loc>
     <lastmod>2024-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
