@@ -43,6 +43,32 @@
   </entry>
   
   <entry>
+    <title>scala-模式匹配</title>
+    <link href="https://bigdata-yx.github.io/posts/b9a6.html"/>
+    <id>https://bigdata-yx.github.io/posts/b9a6.html</id>
+    <published>2024-11-20T03:13:05.000Z</published>
+    <updated>2024-11-20T03:13:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-模式匹配"><a href="#1-模式匹配" class="headerlink" title="1.模式匹配"></a>1.模式匹配</h2><h3 id="1-1简单模式匹配"><a href="#1-1简单模式匹配" class="headerlink" title="1.1简单模式匹配"></a>1.1简单模式匹配</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简单模式匹配</span></span><br><span class="line">print(<span class="string">&quot;请输入一个字符串：&quot;</span>)</span><br><span class="line"><span class="comment">//    val UserStdIn: Any = StdIn.readLine()</span></span><br><span class="line"><span class="keyword">val</span> <span class="type">UserStdIn</span>: <span class="type">Any</span> = <span class="string">&quot;hadoop&quot;</span></span><br><span class="line"><span class="type">UserStdIn</span> <span class="keyword">match</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;hadoop&quot;</span> =&gt; println(<span class="string">&quot;你真是个天才&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;flume&quot;</span> =&gt; println(<span class="string">&quot;你也是个天才&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;flink&quot;</span> =&gt; println(<span class="string">&quot;人才&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;默认项&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="1-2匹配类型"><a href="#1-2匹配类型" class="headerlink" title="1.2匹配类型"></a>1.2匹配类型</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配类型</span></span><br><span class="line"><span class="type">UserStdIn</span> <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> _: <span class="type">String</span> =&gt; println(<span class="string">&quot;这是一个字符串&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> _: <span class="type">Int</span> =&gt; println(<span class="string">&quot;这是一个整形&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> _: <span class="type">Char</span> =&gt; println(<span class="string">&quot;这是一个字符&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;默认项&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="1-3守卫"><a href="#1-3守卫" class="headerlink" title="1.3守卫"></a>1.3守卫</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 守卫 所谓的守卫指的是在case语句中添加if条件判断，这样可以让我们的代码更简洁，更优雅</span></span><br><span class="line"><span class="comment">//    val NumStdin = StdIn.readInt()</span></span><br><span class="line"><span class="keyword">val</span> <span class="type">NumStdin</span> = <span class="number">22</span></span><br><span class="line"><span class="type">NumStdin</span> <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> x <span class="keyword">if</span> (x % <span class="number">2</span> == <span class="number">0</span>) =&gt; println(<span class="string">&quot;是个偶数&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> x <span class="keyword">if</span> (x == <span class="number">0</span>) =&gt; println(<span class="string">&quot;是零&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;是别的数字&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="1-4匹配样例类"><a href="#1-4匹配样例类" class="headerlink" title="1.4匹配样例类"></a>1.4匹配样例类</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配样例类  可以快速拿到传入类的参数</span></span><br><span class="line"><span class="keyword">val</span> c: <span class="type">Any</span> = <span class="type">Customer</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">23</span>)</span><br><span class="line"><span class="keyword">val</span> o: <span class="type">Any</span> = <span class="type">Order</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">c <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Customer</span>(name, age) =&gt; println(<span class="string">s&quot;Customer类型的对象, name=<span class="subst">$&#123;name&#125;</span>, age=<span class="subst">$&#123;age&#125;</span>&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Order</span>(id) =&gt; println(<span class="string">s&quot;Order类型的对象, id=<span class="subst">$&#123;id&#125;</span>&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;未匹配&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="1-5匹配数组、元祖、集合、列表、映射、集"><a href="#1-5匹配数组、元祖、集合、列表、映射、集" class="headerlink" title="1.5匹配数组、元祖、集合、列表、映射、集"></a>1.5匹配数组、元祖、集合、列表、映射、集</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配数组、元祖、集合、列表、映射、集</span></span><br><span class="line"><span class="keyword">val</span> arr1 = <span class="type">Array</span>(<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>)</span><br><span class="line"><span class="keyword">val</span> arr2 = <span class="type">Array</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">val</span> arr3 = <span class="type">Array</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">arr1 <span class="keyword">match</span> &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="type">Array</span>(<span class="number">1</span>, x, y) =&gt; println(<span class="string">s&quot;匹配到数组：长度为3,首元素为1，剩下两个元素无所谓，这里剩下的两个元素分别是：<span class="subst">$&#123;x&#125;</span>, <span class="subst">$&#123;y&#125;</span>&quot;</span>)</span><br><span class="line">     <span class="keyword">case</span> <span class="type">Array</span>(<span class="number">0</span>) =&gt; println(<span class="string">&quot;匹配到数组：长度为1，且只有一个元素0&quot;</span>)</span><br><span class="line">     <span class="keyword">case</span> <span class="type">Array</span>(<span class="number">0</span>, _*) =&gt; println(<span class="string">&quot;匹配到数组：以元素0开头，后边的元素无所谓&quot;</span>)</span><br><span class="line">     <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;未匹配&quot;</span>)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><h3 id="1-6匹配列表"><a href="#1-6匹配列表" class="headerlink" title="1.6匹配列表"></a>1.6匹配列表</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配列表</span></span><br><span class="line"><span class="keyword">val</span> list1 = <span class="type">List</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">val</span> list2 = (<span class="number">0</span> to <span class="number">100</span>).toList</span><br><span class="line"><span class="keyword">val</span> list3 = <span class="type">List</span>(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">list1 <span class="keyword">match</span> &#123;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">0</span> :: <span class="type">Nil</span> =&gt; println(<span class="string">&quot;只包含一个0&quot;</span>)</span><br><span class="line">   <span class="keyword">case</span> <span class="number">0</span> :: tail =&gt; println(<span class="string">&quot;以0开头的列表，数量不固定&quot;</span>)</span><br><span class="line">   <span class="keyword">case</span> x :: y :: <span class="type">Nil</span> =&gt; println(<span class="string">s&quot;只有两个数字的列表，数字分别是: <span class="subst">$&#123;x&#125;</span>, <span class="subst">$&#123;y&#125;</span>&quot;</span>)</span><br><span class="line">   <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;不匹配&quot;</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><h3 id="1-7匹配元组"><a href="#1-7匹配元组" class="headerlink" title="1.7匹配元组"></a>1.7匹配元组</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配元祖</span></span><br><span class="line"><span class="keyword">val</span> tuple1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">val</span> tuple2 = (<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">val</span> tuple3 = (<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">tuple1 <span class="keyword">match</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> (<span class="number">1</span>, x, y) =&gt; println(<span class="string">s&quot;以1开头的元祖，一共三个元素，另外两个元素为<span class="subst">$&#123;x&#125;</span>, <span class="subst">$&#123;y&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> (x, y, <span class="number">5</span>) =&gt; println(<span class="string">&quot;一共三个元素，最后一个元素为5的元祖&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;不匹配&quot;</span>)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><h3 id="1-8变量生命中的模式匹配"><a href="#1-8变量生命中的模式匹配" class="headerlink" title="1.8变量生命中的模式匹配"></a>1.8变量生命中的模式匹配</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 变量声明中的模式匹配</span></span><br><span class="line"><span class="keyword">val</span> arr4 = (<span class="number">0</span> to <span class="number">10</span>).toArray</span><br><span class="line"><span class="comment">// 获得第二个，第三个，第四个元素</span></span><br><span class="line"><span class="keyword">val</span> <span class="type">Array</span>(_, x, y, z, _*) = arr4</span><br><span class="line">println(x, y, z)</span><br><span class="line"><span class="comment">// 获得第一个，第二个元素</span></span><br><span class="line"><span class="keyword">val</span> list5 = (<span class="number">0</span> to <span class="number">10</span>).toList</span><br><span class="line"><span class="keyword">val</span> <span class="type">List</span>(a, b, _*) = list5</span><br><span class="line">println(a, b)</span><br></pre></td></tr></table></figure><h3 id="1-9匹配for表达式"><a href="#1-9匹配for表达式" class="headerlink" title="1.9匹配for表达式"></a>1.9匹配for表达式</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配for表达式</span></span><br><span class="line"><span class="keyword">val</span> map1 = <span class="type">Map</span>(<span class="string">&quot;张三&quot;</span> -&gt; <span class="number">13</span>, <span class="string">&quot;李四&quot;</span> -&gt; <span class="number">34</span>, <span class="string">&quot;王五&quot;</span> -&gt; <span class="number">34</span>, <span class="string">&quot;赵柳&quot;</span> -&gt; <span class="number">44</span>)</span><br><span class="line"><span class="comment">// 方式1</span></span><br><span class="line"><span class="keyword">for</span> ((k, v) &lt;- map1 <span class="keyword">if</span> (v == <span class="number">34</span>)) println(k, v)</span><br><span class="line"><span class="comment">// 方式2</span></span><br><span class="line"><span class="keyword">for</span> ((k, <span class="number">34</span>) &lt;- map1) println(k, <span class="number">34</span>)</span><br></pre></td></tr></table></figure><h3 id="2-Option类型"><a href="#2-Option类型" class="headerlink" title="2.Option类型"></a>2.Option类型</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divide</span></span>(a: <span class="type">Int</span>, b: <span class="type">Int</span>)= &#123;</span><br><span class="line">  <span class="keyword">if</span> (b == <span class="number">0</span>) <span class="type">None</span></span><br><span class="line">  <span class="keyword">else</span> <span class="type">Some</span>(a / b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 思路一</span></span><br><span class="line"><span class="keyword">val</span> result1 = divide(<span class="number">10</span>, <span class="number">0</span>)</span><br><span class="line">println(result1)</span><br><span class="line"><span class="comment">// 思路二</span></span><br><span class="line">result1 <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Some</span>(x) =&gt; println(x)</span><br><span class="line">  <span class="keyword">case</span> <span class="type">None</span> =&gt; println(<span class="string">&quot;不能为0&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 思路三</span></span><br><span class="line">println(result1.getOrElse(<span class="string">&quot;不能为0&quot;</span>))</span><br></pre></td></tr></table></figure><h3 id="3-偏函数"><a href="#3-偏函数" class="headerlink" title="3.偏函数"></a>3.偏函数</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 偏函数</span></span><br><span class="line"><span class="keyword">val</span> pf: <span class="type">PartialFunction</span>[<span class="type">Int</span>, <span class="type">String</span>] = &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span> =&gt; <span class="string">&quot;一&quot;</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span> =&gt; <span class="string">&quot;二&quot;</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">3</span> =&gt; <span class="string">&quot;三&quot;</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">4</span> =&gt; <span class="string">&quot;四&quot;</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; <span class="string">&quot;未匹配&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">println(pf(<span class="number">1</span>))</span><br><span class="line">println(pf(<span class="number">2</span>))</span><br></pre></td></tr></table></figure><h3 id="3-1结合map函数使用偏函数"><a href="#3-1结合map函数使用偏函数" class="headerlink" title="3.1结合map函数使用偏函数"></a>3.1结合map函数使用偏函数</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 结合map函数使用偏函数</span></span><br><span class="line"><span class="keyword">val</span> list11 = (<span class="number">1</span> to <span class="number">10</span>).toList</span><br><span class="line"><span class="comment">//核心： 偏函数 结合 集合的函数式编程来使用</span></span><br><span class="line"><span class="keyword">val</span> list12 = list11.map &#123;</span><br><span class="line">  <span class="keyword">case</span> x <span class="keyword">if</span> x &gt;= <span class="number">1</span> &amp;&amp; x &lt;= <span class="number">3</span> =&gt; <span class="string">&quot;[1-3]&quot;</span></span><br><span class="line">  <span class="keyword">case</span> x <span class="keyword">if</span> x &gt;= <span class="number">4</span> &amp;&amp; x &lt;= <span class="number">8</span> =&gt; <span class="string">&quot;[4-8]&quot;</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; <span class="string">&quot;(8-*]&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">println(list12)</span><br></pre></td></tr></table></figure><h3 id="3-2正则表达式"><a href="#3-2正则表达式" class="headerlink" title="3.2正则表达式"></a>3.2正则表达式</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正则表达式</span></span><br><span class="line"><span class="keyword">val</span> email = <span class="string">&quot;hkjcpdd123@163.com&quot;</span></span><br><span class="line"><span class="keyword">val</span> regex = <span class="string">&quot;&quot;&quot;.+@.+\..+&quot;&quot;&quot;</span>.r</span><br><span class="line"><span class="keyword">if</span> (regex.findAllMatchIn(email).nonEmpty) &#123; <span class="comment">// 那个nonEmpty就是i.size != 0</span></span><br><span class="line">  <span class="comment">// 能走到这里， 说明是合法邮箱</span></span><br><span class="line">  println(<span class="string">s&quot;<span class="subst">$&#123;email&#125;</span>是合法的邮箱&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 走到这里，说明是非法的邮箱</span></span><br><span class="line">  println(<span class="string">s&quot;<span class="subst">$&#123;email&#125;</span>是合法的邮箱&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则2：过滤所有不合法的邮箱</span></span><br><span class="line"><span class="keyword">val</span> list14 = <span class="type">List</span>(<span class="string">&quot;123456789@qq.com&quot;</span>, <span class="string">&quot;a1da7897689@gmail.com&quot;</span>, <span class="string">&quot;123afaadd.com&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> regex1 = <span class="string">&quot;&quot;&quot;.+@.+\..+&quot;&quot;&quot;</span>.r</span><br><span class="line"><span class="keyword">val</span> filterList = list14.filter(regex1.findAllMatchIn(_).nonEmpty)</span><br><span class="line">println(filterList)</span><br><span class="line"><span class="comment">// 正则3：获取邮箱运营商</span></span><br><span class="line"><span class="keyword">val</span> list15 = <span class="type">List</span>(<span class="string">&quot;hkjcpdd@qq.com&quot;</span>, <span class="string">&quot;hkjmjj@gmail.com&quot;</span>, <span class="string">&quot;zhangsan@163.com&quot;</span>, <span class="string">&quot;123foshana.com&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> regex2 = <span class="string">&quot;&quot;&quot;.+@(.+)\..+&quot;&quot;&quot;</span>.r</span><br><span class="line"><span class="keyword">val</span> filterList1 = list15.map &#123;</span><br><span class="line">  <span class="comment">//固定格式 表示要校验的邮箱，固定格式  正则对象（对应的是正则中的分组内容）  固定格式  邮箱-&gt;运营商</span></span><br><span class="line">  <span class="comment">// 这里@是匹配的意思，就是后者正则匹配成功的就赋值给x</span></span><br><span class="line">  <span class="keyword">case</span> x<span class="meta">@regex</span>2(company) =&gt; x -&gt; company</span><br><span class="line">  <span class="keyword">case</span> x =&gt; x -&gt; <span class="string">&quot;未匹配&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">println(filterList1)</span><br></pre></td></tr></table></figure><h3 id="4-异常处理"><a href="#4-异常处理" class="headerlink" title="4.异常处理"></a>4.异常处理</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异常处理</span></span><br><span class="line"><span class="comment">// 方式一：补货异常</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// 可能出现问题的代码</span></span><br><span class="line">  <span class="comment">//      val i = 10 / 0</span></span><br><span class="line">  <span class="keyword">val</span> i = <span class="number">10</span> / <span class="number">1</span></span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">  <span class="comment">// 出现问题后的解决方案</span></span><br><span class="line">  <span class="comment">//      case ex:ArithmeticException =&gt; println(&quot;算术异常&quot;)</span></span><br><span class="line">  <span class="keyword">case</span> ex: <span class="type">Exception</span> =&gt; ex.printStackTrace()</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  <span class="comment">// 这里一般用来释放资源的</span></span><br><span class="line">  println(<span class="string">&quot;我是用来释放资源的&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 方式二：抛出异常</span></span><br><span class="line"><span class="comment">//    throw new Exception(&quot;我是一个异常&quot;)</span></span><br></pre></td></tr></table></figure><h3 id="5-提取器"><a href="#5-提取器" class="headerlink" title="5.提取器"></a>5.提取器</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提取器</span></span><br><span class="line"><span class="comment">// 方式1 普通写法</span></span><br><span class="line"><span class="keyword">val</span> s1 = <span class="keyword">new</span> <span class="type">Student</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">23</span>)</span><br><span class="line"><span class="comment">// 方式2  免new</span></span><br><span class="line"><span class="keyword">val</span> s2 = <span class="type">Student</span>(<span class="string">&quot;李四&quot;</span>, <span class="number">23</span>)</span><br><span class="line"><span class="comment">// 获取对象中的各个属性值，然后打印</span></span><br><span class="line"><span class="comment">// 方式1 普通获取</span></span><br><span class="line">println(s1.name, s1.age, s2.name, s2.age)</span><br><span class="line"><span class="comment">// 方式2 直接调用unapply方法</span></span><br><span class="line"><span class="type">Student</span>.unapply(s1)</span><br><span class="line"><span class="comment">// 方式3 通过模式匹配获取</span></span><br><span class="line">s1 <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="type">Student</span>(name, age) =&gt; println(name, age)</span><br><span class="line">  <span class="keyword">case</span> _ =&gt; println(<span class="string">&quot;未匹配&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="6-案例：随机职业"><a href="#6-案例：随机职业" class="headerlink" title="6.案例：随机职业"></a>6.案例：随机职业</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 随机职业</span></span><br><span class="line"><span class="comment">// 1.提示用户录入整数，匹配对应的职业</span></span><br><span class="line">println(<span class="string">&quot;请录入一个整数1~5， 我来告诉你上辈子的职业:&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> num = <span class="type">StdIn</span>.readInt()</span><br><span class="line"><span class="keyword">val</span> occupation = num <span class="keyword">match</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span> =&gt; <span class="string">&quot;人机&quot;</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span> =&gt; <span class="string">&quot;人才&quot;</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span> =&gt; <span class="string">&quot;黄凯君&quot;</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span> =&gt; <span class="string">&quot;黄开俊&quot;</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span> =&gt; <span class="string">&quot;黄凯军&quot;</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; <span class="string">&quot;未匹配&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">println(occupation)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-模式匹配&quot;&gt;&lt;a href=&quot;#1-模式匹配&quot; class=&quot;headerlink&quot; title=&quot;1.模式匹配&quot;&gt;&lt;/a&gt;1.模式匹配&lt;/h2&gt;&lt;h3 id=&quot;1-1简单模式匹配&quot;&gt;&lt;a href=&quot;#1-1简单模式匹配&quot; class=&quot;headerlink</summary>
+      
+    
+    
+    
+    <category term="scala" scheme="https://bigdata-yx.github.io/categories/scala/"/>
+    
+    
+    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
+    
+    <category term="模式匹配" scheme="https://bigdata-yx.github.io/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/"/>
+    
+  </entry>
+  
+  <entry>
     <title>scala</title>
     <link href="https://bigdata-yx.github.io/posts/b9a6.html"/>
     <id>https://bigdata-yx.github.io/posts/b9a6.html</id>
@@ -140,33 +166,6 @@
   </entry>
   
   <entry>
-    <title>docker-dockerfile</title>
-    <link href="https://bigdata-yx.github.io/posts/d3ce.html"/>
-    <id>https://bigdata-yx.github.io/posts/d3ce.html</id>
-    <published>2024-10-25T03:14:35.000Z</published>
-    <updated>2024-10-25T03:14:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>404</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;404&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
-    
-    
-    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
-    
-    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>docker-compose</title>
     <link href="https://bigdata-yx.github.io/posts/713b.html"/>
     <id>https://bigdata-yx.github.io/posts/713b.html</id>
@@ -198,18 +197,19 @@
   </entry>
   
   <entry>
-    <title>docker分享社区</title>
-    <link href="https://bigdata-yx.github.io/posts/e3ea.html"/>
-    <id>https://bigdata-yx.github.io/posts/e3ea.html</id>
+    <title>docker-dockerfile</title>
+    <link href="https://bigdata-yx.github.io/posts/d3ce.html"/>
+    <id>https://bigdata-yx.github.io/posts/d3ce.html</id>
     <published>2024-10-25T03:14:35.000Z</published>
     <updated>2024-10-25T03:14:35.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="登录：docker-login"><a href="#登录：docker-login" class="headerlink" title="登录：docker login"></a>登录：docker login</h3><h3 id="命令-docker-tag"><a href="#命令-docker-tag" class="headerlink" title="命令:docker tag"></a>命令:docker tag</h3><ul><li>docker tag 原来的镜像名:版本号 新的镜像名:版本号</li><li>还可以docker tag mynginx:v1.0 lhx&#x2F;mynginx:v1.0 改名都是用户名&#x2F;镜像这样子的</li></ul><p>推荐在制作一个最新版本的镜像， 就是latest    docker tag mynginx:v1.0 lhx&#x2F;mynginx:latest然后在推送上去</p><h4 id="推送：docker-push-镜像名字"><a href="#推送：docker-push-镜像名字" class="headerlink" title="推送：docker push + 镜像名字"></a>推送：docker push + 镜像名字</h4><p><img src="/posts/e3ea.htm/Users\LHX\AppData\Roaming\Typora\typora-user-images\image-20241025115810209.png" alt="image-20241025115810209"></p>]]></content>
+    <content type="html"><![CDATA[<p>404</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;登录：docker-login&quot;&gt;&lt;a href=&quot;#登录：docker-login&quot; class=&quot;headerlink&quot; title=&quot;登录：docker login&quot;&gt;&lt;/a&gt;登录：docker login&lt;/h3&gt;&lt;h3 id=&quot;命令-docker-tag</summary>
+    <summary type="html">&lt;p&gt;404&lt;/p&gt;
+</summary>
       
     
     
@@ -251,6 +251,33 @@
   </entry>
   
   <entry>
+    <title>docker保存镜像</title>
+    <link href="https://bigdata-yx.github.io/posts/287f.html"/>
+    <id>https://bigdata-yx.github.io/posts/287f.html</id>
+    <published>2024-10-25T03:14:35.000Z</published>
+    <updated>2024-10-25T03:14:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="提交：docker-commit"><a href="#提交：docker-commit" class="headerlink" title="提交：docker commit"></a>提交：docker commit</h3><ul><li>docker commit [option] 名字就是用着的那个镜像的名字 新建镜像的名字:版本号</li><li>docker commit -m “update index.html” mynginx mynginx:1.0</li><li>-m 版本信息之类的</li></ul><h3 id="保存-docker-save"><a href="#保存-docker-save" class="headerlink" title="保存: docker save"></a>保存: docker save</h3><ul><li>docker save -o mynginx.tar mynginx:1.0</li><li>-o 保存出来就是本地</li></ul><h3 id="加载：docker-load"><a href="#加载：docker-load" class="headerlink" title="加载：docker load"></a>加载：docker load</h3><p>docker load -i mynginx.tar</p><p>-i就是读取本地的镜像</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;提交：docker-commit&quot;&gt;&lt;a href=&quot;#提交：docker-commit&quot; class=&quot;headerlink&quot; title=&quot;提交：docker commit&quot;&gt;&lt;/a&gt;提交：docker commit&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;docker c</summary>
+      
+    
+    
+    
+    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
+    
+    
+    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
+    
+    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>docker国内镜像源</title>
     <link href="https://bigdata-yx.github.io/posts/ec39.html"/>
     <id>https://bigdata-yx.github.io/posts/ec39.html</id>
@@ -263,6 +290,32 @@
       
       
     <summary type="html">&lt;h3 id=&quot;进入配置文件registry-mirror：需要重启docker服务&quot;&gt;&lt;a href=&quot;#进入配置文件registry-mirror：需要重启docker服务&quot; class=&quot;headerlink&quot; title=&quot;进入配置文件registry mirror：需要</summary>
+      
+    
+    
+    
+    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
+    
+    
+    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
+    
+    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker分享社区</title>
+    <link href="https://bigdata-yx.github.io/posts/e3ea.html"/>
+    <id>https://bigdata-yx.github.io/posts/e3ea.html</id>
+    <published>2024-10-25T03:14:35.000Z</published>
+    <updated>2024-10-25T03:14:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="登录：docker-login"><a href="#登录：docker-login" class="headerlink" title="登录：docker login"></a>登录：docker login</h3><h3 id="命令-docker-tag"><a href="#命令-docker-tag" class="headerlink" title="命令:docker tag"></a>命令:docker tag</h3><ul><li>docker tag 原来的镜像名:版本号 新的镜像名:版本号</li><li>还可以docker tag mynginx:v1.0 lhx&#x2F;mynginx:v1.0 改名都是用户名&#x2F;镜像这样子的</li></ul><p>推荐在制作一个最新版本的镜像， 就是latest    docker tag mynginx:v1.0 lhx&#x2F;mynginx:latest然后在推送上去</p><h4 id="推送：docker-push-镜像名字"><a href="#推送：docker-push-镜像名字" class="headerlink" title="推送：docker push + 镜像名字"></a>推送：docker push + 镜像名字</h4><p><img src="/posts/e3ea.htm/Users\LHX\AppData\Roaming\Typora\typora-user-images\image-20241025115810209.png" alt="image-20241025115810209"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;登录：docker-login&quot;&gt;&lt;a href=&quot;#登录：docker-login&quot; class=&quot;headerlink&quot; title=&quot;登录：docker login&quot;&gt;&lt;/a&gt;登录：docker login&lt;/h3&gt;&lt;h3 id=&quot;命令-docker-tag</summary>
       
     
     
@@ -331,6 +384,25 @@
   </entry>
   
   <entry>
+    <title>docker保存镜像</title>
+    <link href="https://bigdata-yx.github.io/posts/287f.html"/>
+    <id>https://bigdata-yx.github.io/posts/287f.html</id>
+    <published>2024-10-25T03:14:35.000Z</published>
+    <updated>2024-10-25T03:14:35.000Z</updated>
+    
+    
+    
+    
+    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
+    
+    
+    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
+    
+    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>docker网络</title>
     <link href="https://bigdata-yx.github.io/posts/5796.html"/>
     <id>https://bigdata-yx.github.io/posts/5796.html</id>
@@ -346,52 +418,6 @@
 &lt;p&gt;docker inspect app2&lt;/p&gt;
 &lt;p&gt;docker network + 功能&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/posts/5796.htm/Users\LHX\AppData\Roaming\Typora\typora-u</summary>
-      
-    
-    
-    
-    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
-    
-    
-    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
-    
-    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker保存镜像</title>
-    <link href="https://bigdata-yx.github.io/posts/287f.html"/>
-    <id>https://bigdata-yx.github.io/posts/287f.html</id>
-    <published>2024-10-25T03:14:35.000Z</published>
-    <updated>2024-10-25T03:14:35.000Z</updated>
-    
-    
-    
-    
-    <category term="Docker" scheme="https://bigdata-yx.github.io/categories/Docker/"/>
-    
-    
-    <category term="示例" scheme="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/"/>
-    
-    <category term="demo" scheme="https://bigdata-yx.github.io/tags/demo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker保存镜像</title>
-    <link href="https://bigdata-yx.github.io/posts/287f.html"/>
-    <id>https://bigdata-yx.github.io/posts/287f.html</id>
-    <published>2024-10-25T03:14:35.000Z</published>
-    <updated>2024-10-25T03:14:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="提交：docker-commit"><a href="#提交：docker-commit" class="headerlink" title="提交：docker commit"></a>提交：docker commit</h3><ul><li>docker commit [option] 名字就是用着的那个镜像的名字 新建镜像的名字:版本号</li><li>docker commit -m “update index.html” mynginx mynginx:1.0</li><li>-m 版本信息之类的</li></ul><h3 id="保存-docker-save"><a href="#保存-docker-save" class="headerlink" title="保存: docker save"></a>保存: docker save</h3><ul><li>docker save -o mynginx.tar mynginx:1.0</li><li>-o 保存出来就是本地</li></ul><h3 id="加载：docker-load"><a href="#加载：docker-load" class="headerlink" title="加载：docker load"></a>加载：docker load</h3><p>docker load -i mynginx.tar</p><p>-i就是读取本地的镜像</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;提交：docker-commit&quot;&gt;&lt;a href=&quot;#提交：docker-commit&quot; class=&quot;headerlink&quot; title=&quot;提交：docker commit&quot;&gt;&lt;/a&gt;提交：docker commit&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;docker c</summary>
       
     
     
