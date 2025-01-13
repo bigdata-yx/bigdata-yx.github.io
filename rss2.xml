@@ -45,19 +45,19 @@
     </item>
     
     <item>
-      <title>集群搭建学习路线</title>
+      <title>数据处理学习路线</title>
       <link>https://bigdata-yx.github.io/posts/1082.html</link>
       <guid>https://bigdata-yx.github.io/posts/1082.html</guid>
       <pubDate>Mon, 13 Jan 2025 08:12:05 GMT</pubDate>
       
         
         
-      <description>&lt;h1 id=&quot;大数据模块二学习路线&quot;&gt;&lt;a href=&quot;#大数据模块二学习路线&quot; class=&quot;headerlink&quot; title=&quot;大数据模块二学习路线&quot;&gt;&lt;/a&gt;大数据模块二学习路线&lt;/h1&gt;&lt;h2 id=&quot;第一阶段：基础部分&quot;&gt;&lt;a href=&quot;#第一阶段：基础部分&quot; c</description>
+      <description>&lt;h1 id=&quot;大数据数据处理学习路线&quot;&gt;&lt;a href=&quot;#大数据数据处理学习路线&quot; class=&quot;headerlink&quot; title=&quot;大数据数据处理学习路线&quot;&gt;&lt;/a&gt;大数据数据处理学习路线&lt;/h1&gt;&lt;h2 id=&quot;第一阶段：基础部分&quot;&gt;&lt;a href=&quot;#第一阶段：基础部</description>
         
       
       
       
-      <content:encoded><![CDATA[<h1 id="大数据模块二学习路线"><a href="#大数据模块二学习路线" class="headerlink" title="大数据模块二学习路线"></a>大数据模块二学习路线</h1><h2 id="第一阶段：基础部分"><a href="#第一阶段：基础部分" class="headerlink" title="第一阶段：基础部分"></a>第一阶段：基础部分</h2><ul><li>语言基础：python、java基础</li><li>数据库基础：mysql</li><li>linux：命令基础</li></ul><h2 id="第二部分：简单工具使用"><a href="#第二部分：简单工具使用" class="headerlink" title="第二部分：简单工具使用"></a>第二部分：简单工具使用</h2><ul><li>python第三方库：pandas、numpy、requests、bs4、jieba、snownlp</li><li>excel：函数使用以及操作</li><li>hadoop：hadoop的基本使用命令以及组件查看</li></ul><h2 id="第三部分：集群工具使用"><a href="#第三部分：集群工具使用" class="headerlink" title="第三部分：集群工具使用"></a>第三部分：集群工具使用</h2><ul><li>scala：scala语言基础</li><li>mapreduce：了解基本使用以及自定义方法</li><li>spark：掌握sparkcore sparksql</li><li>hive：了解hive命令以及udf自定义函数</li></ul><h2 id="第四部分：深入学习"><a href="#第四部分：深入学习" class="headerlink" title="第四部分：深入学习"></a>第四部分：深入学习</h2><ul><li>机器学习：了解机器学习原理以及sklearn使用</li><li>spark streaming：了解流式数据</li><li>项目制作：尝试制作大数据项目</li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<h1 id="大数据数据处理学习路线"><a href="#大数据数据处理学习路线" class="headerlink" title="大数据数据处理学习路线"></a>大数据数据处理学习路线</h1><h2 id="第一阶段：基础部分"><a href="#第一阶段：基础部分" class="headerlink" title="第一阶段：基础部分"></a>第一阶段：基础部分</h2><ul><li>语言基础：python、java基础</li><li>数据库基础：mysql</li><li>linux：命令基础</li></ul><h2 id="第二部分：简单工具使用"><a href="#第二部分：简单工具使用" class="headerlink" title="第二部分：简单工具使用"></a>第二部分：简单工具使用</h2><ul><li>python第三方库：pandas、numpy、requests、bs4、jieba、snownlp</li><li>excel：函数使用以及操作</li><li>hadoop：hadoop的基本使用命令以及组件查看</li></ul><h2 id="第三部分：集群工具使用"><a href="#第三部分：集群工具使用" class="headerlink" title="第三部分：集群工具使用"></a>第三部分：集群工具使用</h2><ul><li>scala：scala语言基础</li><li>mapreduce：了解基本使用以及自定义方法</li><li>spark：掌握sparkcore sparksql</li><li>hive：了解hive命令以及udf自定义函数</li></ul><h2 id="第四部分：深入学习"><a href="#第四部分：深入学习" class="headerlink" title="第四部分：深入学习"></a>第四部分：深入学习</h2><ul><li>机器学习：了解机器学习原理以及sklearn使用</li><li>spark streaming：了解流式数据</li><li>项目制作：尝试制作大数据项目</li></ul>]]></content:encoded>
       
       
       <category domain="https://bigdata-yx.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">学习路线</category>
@@ -120,34 +120,6 @@
     </item>
     
     <item>
-      <title>Spark搭建</title>
-      <link>https://bigdata-yx.github.io/posts/fa65.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fa65.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:59:03 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;spark安装部署&quot;&gt;&lt;a href=&quot;#spark安装部署&quot; class=&quot;headerlink&quot; title=&quot;spark安装部署&quot;&gt;&lt;/a&gt;spark安装部署&lt;/h1&gt;&lt;h3 id=&quot;先安装anacondea3然后再解压spark&quot;&gt;&lt;a href=&quot;#先安</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="spark安装部署"><a href="#spark安装部署" class="headerlink" title="spark安装部署"></a>spark安装部署</h1><h3 id="先安装anacondea3然后再解压spark"><a href="#先安装anacondea3然后再解压spark" class="headerlink" title="先安装anacondea3然后再解压spark"></a><strong>先安装anacondea3然后再解压spark</strong></h3><h3 id="然后追加以下内容至-x2F-root-x2F-condarc"><a href="#然后追加以下内容至-x2F-root-x2F-condarc" class="headerlink" title="然后追加以下内容至&#x2F;root&#x2F; .condarc"></a><strong>然后追加以下内容至&#x2F;root&#x2F; .condarc</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - defaults</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/fastai/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br></pre></td></tr></table></figure><h3 id="配置pyspark"><a href="#配置pyspark" class="headerlink" title="配置pyspark"></a><strong>配置pyspark</strong></h3><h3 id="conda-create-n-pyspark-python-x3D-版本号然后回车就下载了"><a href="#conda-create-n-pyspark-python-x3D-版本号然后回车就下载了" class="headerlink" title="conda create -n pyspark python&#x3D;版本号然后回车就下载了"></a><strong>conda create -n pyspark python&#x3D;版本号然后回车就下载了</strong></h3><h3 id="安装完之后conda-activate-pyspark切换虚拟环境"><a href="#安装完之后conda-activate-pyspark切换虚拟环境" class="headerlink" title="安装完之后conda activate pyspark切换虚拟环境"></a><strong>安装完之后conda activate pyspark切换虚拟环境</strong></h3><h1 id="Local环境部署"><a href="#Local环境部署" class="headerlink" title="Local环境部署"></a><strong>Local环境部署</strong></h1><h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a><strong>添加环境变量</strong></h3><h2 id="如果是without版本需要配置spark-env-sh中添加export-SPARK-DIST-CLASSPATH-x3D-x2F-root-x2F-software-x2F-hadoop-x2F-bin-x2F-hadoop-classpath"><a href="#如果是without版本需要配置spark-env-sh中添加export-SPARK-DIST-CLASSPATH-x3D-x2F-root-x2F-software-x2F-hadoop-x2F-bin-x2F-hadoop-classpath" class="headerlink" title="如果是without版本需要配置spark-env.sh中添加export SPARK_DIST_CLASSPATH&#x3D;$(&#x2F;root&#x2F;software&#x2F;hadoop&#x2F;bin&#x2F;hadoop classpath)"></a><strong>如果是without版本需要配置spark-env.sh中添加export SPARK_DIST_CLASSPATH&#x3D;$(&#x2F;root&#x2F;software&#x2F;hadoop&#x2F;bin&#x2F;hadoop classpath)</strong></h2><h3 id="然后就可以启动了pysparkspark-shell"><a href="#然后就可以启动了pysparkspark-shell" class="headerlink" title="然后就可以启动了pysparkspark shell"></a><strong>然后就可以启动了pysparkspark shell</strong></h3><h3 id="运行的时候可以加参数pyspark-–master-local-括号中如果给-号就是全部资源启动，给数字的话就是num个线程启动"><a href="#运行的时候可以加参数pyspark-–master-local-括号中如果给-号就是全部资源启动，给数字的话就是num个线程启动" class="headerlink" title="运行的时候可以加参数pyspark –master local[*]括号中如果给*号就是全部资源启动，给数字的话就是num个线程启动"></a><strong>运行的时候可以加参数pyspark –master local[*]括号中如果给*号就是全部资源启动，给数字的话就是num个线程启动</strong></h3><h3 id="Spark集群搭建"><a href="#Spark集群搭建" class="headerlink" title="Spark集群搭建"></a>Spark集群搭建</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> spark-env.sh.template spark-env.sh</span><br><span class="line">vi spark-env.sh</span><br><span class="line">    <span class="comment"># 指定 Java Home</span></span><br><span class="line">    <span class="built_in">export</span> JAVA_HOME=/export/servers/jdk1.8.0_221</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 指定 Spark Master 地址</span></span><br><span class="line">    <span class="built_in">export</span> SPARK_MASTER_HOST=node01</span><br><span class="line">    <span class="built_in">export</span> SPARK_MASTER_PORT=7077</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> works.template works</span><br><span class="line">    将Localhost删了换成master slave1 slave2</span><br><span class="line">    </span><br><span class="line">配置 HistoryServer</span><br><span class="line"><span class="built_in">mv</span> spark-defaults.conf.template spark-defaults.conf</span><br><span class="line">vi spark-defaults.conf (将这两个前面<span class="comment">#去掉)</span></span><br><span class="line">    spark.eventLog.enabled  <span class="literal">true</span></span><br><span class="line">    spark.eventLog.<span class="built_in">dir</span>      hdfs://node01:8020/spark_log</span><br><span class="line">vi spark-env.sh末尾添加</span><br><span class="line">    <span class="built_in">export</span> SPARK_HISTORY_OPTS=<span class="string">&quot;-Dspark.history.ui.port=4000 -Dspark.history.retainedApplications=3 -Dspark.history.fs.logDirectory=hdfs://master:8020/spark_log&quot;</span></span><br><span class="line"> 创建hdfs目录</span><br><span class="line">hdfs dfs -<span class="built_in">mkdir</span> -p /spark_log</span><br><span class="line"></span><br><span class="line">修改log4j2.properties.template改名为log4j2.properties然后将19行的info改为WARN</span><br><span class="line"></span><br><span class="line">然后分发</span><br><span class="line">启动历史服务器：sbin/start-history-server.sh</span><br><span class="line"></span><br><span class="line">最后启动</span><br><span class="line">sbin/start-all.sh</span><br><span class="line">sbin/start-history-server.sh</span><br><span class="line"></span><br><span class="line">连接，在webui的那个</span><br><span class="line">pyspark --master spark://master:7077</span><br></pre></td></tr></table></figure><h2 id="spark基于zookeeper实现HA"><a href="#spark基于zookeeper实现HA" class="headerlink" title="spark基于zookeeper实现HA"></a><strong>spark基于zookeeper实现HA</strong></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">前提确保zookeeper和hdfs均已启动</span><br><span class="line">vi spark-env.sh文件</span><br><span class="line">将<span class="built_in">export</span> SPARK_MASTER_HOST=master和他的那个端口注释了</span><br><span class="line">追加SPARK_DAEMON_JAVA_OPTS=<span class="string">&quot;-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=hadoop01:2181,hadoop02:2181,hadoop03:2181 -Dspark.deploy.zookeeper.dir=/spark-ha&quot;</span></span><br><span class="line">然后重新启动spark并且再启动另外一台或者多台机的start-master.sh</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Spark/">Spark</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Spark/">Spark</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fa65.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>Spark on yarn</title>
       <link>https://bigdata-yx.github.io/posts/fa64.html</link>
       <guid>https://bigdata-yx.github.io/posts/fa64.html</guid>
@@ -176,30 +148,30 @@
     </item>
     
     <item>
-      <title>Flume Put事务和Take事务</title>
-      <link>https://bigdata-yx.github.io/posts/fe67.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe67.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      <title>Spark搭建</title>
+      <link>https://bigdata-yx.github.io/posts/fa65.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fa65.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:59:03 GMT</pubDate>
       
         
         
-      <description>&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</description>
+      <description>&lt;h1 id=&quot;spark安装部署&quot;&gt;&lt;a href=&quot;#spark安装部署&quot; class=&quot;headerlink&quot; title=&quot;spark安装部署&quot;&gt;&lt;/a&gt;spark安装部署&lt;/h1&gt;&lt;h3 id=&quot;先安装anacondea3然后再解压spark&quot;&gt;&lt;a href=&quot;#先安</description>
         
       
       
       
-      <content:encoded><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在source和chanel的传输中是批量过去的，channels传输到sinks也是批量的</span><br><span class="line"></span><br><span class="line">在source到channel中呢就有一个缓冲区</span><br><span class="line"></span><br><span class="line">1.doPut操作，浆皮数据写入到临时缓冲区 Putlist中</span><br><span class="line"></span><br><span class="line">2.doCommit操作：检查channel队列中是否有足够空间用来存放数据 有的话就会执行doCommit操作</span><br><span class="line"></span><br><span class="line">3.如果channel空间不够就会执行回滚数据的操作（doRollBack）</span><br><span class="line"></span><br><span class="line">在channel到sink中的事务叫take事务，也是批量过去的</span><br><span class="line"></span><br><span class="line">1.doTake操作，拉取一批channel的数据，然后进入缓冲区</span><br><span class="line"></span><br><span class="line">2.takeList操作，临时缓冲</span><br><span class="line"></span><br><span class="line">3.doCommit操作，将这一批数据发送出去，发送失败就会回滚</span><br><span class="line"></span><br><span class="line">4.doRollBack发送失败就进行回滚</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      <content:encoded><![CDATA[<h1 id="spark安装部署"><a href="#spark安装部署" class="headerlink" title="spark安装部署"></a>spark安装部署</h1><h3 id="先安装anacondea3然后再解压spark"><a href="#先安装anacondea3然后再解压spark" class="headerlink" title="先安装anacondea3然后再解压spark"></a><strong>先安装anacondea3然后再解压spark</strong></h3><h3 id="然后追加以下内容至-x2F-root-x2F-condarc"><a href="#然后追加以下内容至-x2F-root-x2F-condarc" class="headerlink" title="然后追加以下内容至&#x2F;root&#x2F; .condarc"></a><strong>然后追加以下内容至&#x2F;root&#x2F; .condarc</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - defaults</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/fastai/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br></pre></td></tr></table></figure><h3 id="配置pyspark"><a href="#配置pyspark" class="headerlink" title="配置pyspark"></a><strong>配置pyspark</strong></h3><h3 id="conda-create-n-pyspark-python-x3D-版本号然后回车就下载了"><a href="#conda-create-n-pyspark-python-x3D-版本号然后回车就下载了" class="headerlink" title="conda create -n pyspark python&#x3D;版本号然后回车就下载了"></a><strong>conda create -n pyspark python&#x3D;版本号然后回车就下载了</strong></h3><h3 id="安装完之后conda-activate-pyspark切换虚拟环境"><a href="#安装完之后conda-activate-pyspark切换虚拟环境" class="headerlink" title="安装完之后conda activate pyspark切换虚拟环境"></a><strong>安装完之后conda activate pyspark切换虚拟环境</strong></h3><h1 id="Local环境部署"><a href="#Local环境部署" class="headerlink" title="Local环境部署"></a><strong>Local环境部署</strong></h1><h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a><strong>添加环境变量</strong></h3><h2 id="如果是without版本需要配置spark-env-sh中添加export-SPARK-DIST-CLASSPATH-x3D-x2F-root-x2F-software-x2F-hadoop-x2F-bin-x2F-hadoop-classpath"><a href="#如果是without版本需要配置spark-env-sh中添加export-SPARK-DIST-CLASSPATH-x3D-x2F-root-x2F-software-x2F-hadoop-x2F-bin-x2F-hadoop-classpath" class="headerlink" title="如果是without版本需要配置spark-env.sh中添加export SPARK_DIST_CLASSPATH&#x3D;$(&#x2F;root&#x2F;software&#x2F;hadoop&#x2F;bin&#x2F;hadoop classpath)"></a><strong>如果是without版本需要配置spark-env.sh中添加export SPARK_DIST_CLASSPATH&#x3D;$(&#x2F;root&#x2F;software&#x2F;hadoop&#x2F;bin&#x2F;hadoop classpath)</strong></h2><h3 id="然后就可以启动了pysparkspark-shell"><a href="#然后就可以启动了pysparkspark-shell" class="headerlink" title="然后就可以启动了pysparkspark shell"></a><strong>然后就可以启动了pysparkspark shell</strong></h3><h3 id="运行的时候可以加参数pyspark-–master-local-括号中如果给-号就是全部资源启动，给数字的话就是num个线程启动"><a href="#运行的时候可以加参数pyspark-–master-local-括号中如果给-号就是全部资源启动，给数字的话就是num个线程启动" class="headerlink" title="运行的时候可以加参数pyspark –master local[*]括号中如果给*号就是全部资源启动，给数字的话就是num个线程启动"></a><strong>运行的时候可以加参数pyspark –master local[*]括号中如果给*号就是全部资源启动，给数字的话就是num个线程启动</strong></h3><h3 id="Spark集群搭建"><a href="#Spark集群搭建" class="headerlink" title="Spark集群搭建"></a>Spark集群搭建</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> spark-env.sh.template spark-env.sh</span><br><span class="line">vi spark-env.sh</span><br><span class="line">    <span class="comment"># 指定 Java Home</span></span><br><span class="line">    <span class="built_in">export</span> JAVA_HOME=/export/servers/jdk1.8.0_221</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 指定 Spark Master 地址</span></span><br><span class="line">    <span class="built_in">export</span> SPARK_MASTER_HOST=node01</span><br><span class="line">    <span class="built_in">export</span> SPARK_MASTER_PORT=7077</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> works.template works</span><br><span class="line">    将Localhost删了换成master slave1 slave2</span><br><span class="line">    </span><br><span class="line">配置 HistoryServer</span><br><span class="line"><span class="built_in">mv</span> spark-defaults.conf.template spark-defaults.conf</span><br><span class="line">vi spark-defaults.conf (将这两个前面<span class="comment">#去掉)</span></span><br><span class="line">    spark.eventLog.enabled  <span class="literal">true</span></span><br><span class="line">    spark.eventLog.<span class="built_in">dir</span>      hdfs://node01:8020/spark_log</span><br><span class="line">vi spark-env.sh末尾添加</span><br><span class="line">    <span class="built_in">export</span> SPARK_HISTORY_OPTS=<span class="string">&quot;-Dspark.history.ui.port=4000 -Dspark.history.retainedApplications=3 -Dspark.history.fs.logDirectory=hdfs://master:8020/spark_log&quot;</span></span><br><span class="line"> 创建hdfs目录</span><br><span class="line">hdfs dfs -<span class="built_in">mkdir</span> -p /spark_log</span><br><span class="line"></span><br><span class="line">修改log4j2.properties.template改名为log4j2.properties然后将19行的info改为WARN</span><br><span class="line"></span><br><span class="line">然后分发</span><br><span class="line">启动历史服务器：sbin/start-history-server.sh</span><br><span class="line"></span><br><span class="line">最后启动</span><br><span class="line">sbin/start-all.sh</span><br><span class="line">sbin/start-history-server.sh</span><br><span class="line"></span><br><span class="line">连接，在webui的那个</span><br><span class="line">pyspark --master spark://master:7077</span><br></pre></td></tr></table></figure><h2 id="spark基于zookeeper实现HA"><a href="#spark基于zookeeper实现HA" class="headerlink" title="spark基于zookeeper实现HA"></a><strong>spark基于zookeeper实现HA</strong></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">前提确保zookeeper和hdfs均已启动</span><br><span class="line">vi spark-env.sh文件</span><br><span class="line">将<span class="built_in">export</span> SPARK_MASTER_HOST=master和他的那个端口注释了</span><br><span class="line">追加SPARK_DAEMON_JAVA_OPTS=<span class="string">&quot;-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=hadoop01:2181,hadoop02:2181,hadoop03:2181 -Dspark.deploy.zookeeper.dir=/spark-ha&quot;</span></span><br><span class="line">然后重新启动spark并且再启动另外一台或者多台机的start-master.sh</span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      <category domain="https://bigdata-yx.github.io/categories/Spark/">Spark</category>
       
       
       <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
       
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      <category domain="https://bigdata-yx.github.io/tags/Spark/">Spark</category>
       
       
-      <comments>https://bigdata-yx.github.io/posts/fe67.html#disqus_thread</comments>
+      <comments>https://bigdata-yx.github.io/posts/fa65.html#disqus_thread</comments>
       
     </item>
     
@@ -228,6 +200,34 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe55.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Flume Put事务和Take事务</title>
+      <link>https://bigdata-yx.github.io/posts/fe67.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe67.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在source和chanel的传输中是批量过去的，channels传输到sinks也是批量的</span><br><span class="line"></span><br><span class="line">在source到channel中呢就有一个缓冲区</span><br><span class="line"></span><br><span class="line">1.doPut操作，浆皮数据写入到临时缓冲区 Putlist中</span><br><span class="line"></span><br><span class="line">2.doCommit操作：检查channel队列中是否有足够空间用来存放数据 有的话就会执行doCommit操作</span><br><span class="line"></span><br><span class="line">3.如果channel空间不够就会执行回滚数据的操作（doRollBack）</span><br><span class="line"></span><br><span class="line">在channel到sink中的事务叫take事务，也是批量过去的</span><br><span class="line"></span><br><span class="line">1.doTake操作，拉取一批channel的数据，然后进入缓冲区</span><br><span class="line"></span><br><span class="line">2.takeList操作，临时缓冲</span><br><span class="line"></span><br><span class="line">3.doCommit操作，将这一批数据发送出去，发送失败就会回滚</span><br><span class="line"></span><br><span class="line">4.doRollBack发送失败就进行回滚</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe67.html#disqus_thread</comments>
       
     </item>
     
@@ -261,35 +261,6 @@
     </item>
     
     <item>
-      <title>案例：Flume exec sources监听命令</title>
-      <link>https://bigdata-yx.github.io/posts/fe64.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe64.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;exec-sources&quot;&gt;&lt;a href=&quot;#exec-sources&quot; class=&quot;headerlink&quot; title=&quot;exec sources&quot;&gt;&lt;/a&gt;exec sources&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;a1.sources &amp;#x3D;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="exec-sources"><a href="#exec-sources" class="headerlink" title="exec sources"></a>exec sources</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; exec</p><p>a1.sources.r1.command &#x3D; tail -f &#x2F;root&#x2F;exec.log</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>那个命令就是需要监听的命令</p><p>他是不断的去监听你文件添加了什么</p>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe64.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>案例：Flume file channel</title>
       <link>https://bigdata-yx.github.io/posts/fe63.html</link>
       <guid>https://bigdata-yx.github.io/posts/fe63.html</guid>
@@ -319,6 +290,63 @@
     </item>
     
     <item>
+      <title>案例：Flume exec sources监听命令</title>
+      <link>https://bigdata-yx.github.io/posts/fe64.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe64.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;exec-sources&quot;&gt;&lt;a href=&quot;#exec-sources&quot; class=&quot;headerlink&quot; title=&quot;exec sources&quot;&gt;&lt;/a&gt;exec sources&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;a1.sources &amp;#x3D;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="exec-sources"><a href="#exec-sources" class="headerlink" title="exec sources"></a>exec sources</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; exec</p><p>a1.sources.r1.command &#x3D; tail -f &#x2F;root&#x2F;exec.log</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>那个命令就是需要监听的命令</p><p>他是不断的去监听你文件添加了什么</p>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe64.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Flume file_roll sink</title>
+      <link>https://bigdata-yx.github.io/posts/fe62.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe62.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;File-roll-sink&quot;&gt;&lt;a href=&quot;#File-roll-sink&quot; class=&quot;headerlink&quot; title=&quot;File_roll sink&quot;&gt;&lt;/a&gt;File_roll sink&lt;/h2&gt;&lt;p&gt;必须的：type &amp;#x3D; file_r</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="File-roll-sink"><a href="#File-roll-sink" class="headerlink" title="File_roll sink"></a>File_roll sink</h2><p>必须的：type &#x3D; file_roll</p><p>sink.directory 保存在那个目录&amp;#x20;</p><p>非必须：sink.rollInterval &#x3D; 30 就是每过30s就会生成一个新的文件用来存储数据</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; file_roll</p><p>a1.sinks.k1.sink.directory &#x3D; &#x2F;root&#x2F;file_roll&amp;#x20;</p><p>a1.sinks.k1.sink.rollInterval &#x3D; 10</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe62.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Flume hdfs sink</title>
       <link>https://bigdata-yx.github.io/posts/fe60.html</link>
       <guid>https://bigdata-yx.github.io/posts/fe60.html</guid>
@@ -343,6 +371,34 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe60.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Flume http source 监听Http</title>
+      <link>https://bigdata-yx.github.io/posts/fe59.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe59.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;http-source-监听Http&quot;&gt;&lt;a href=&quot;#http-source-监听Http&quot; class=&quot;headerlink&quot; title=&quot;http source 监听Http&quot;&gt;&lt;/a&gt;http source 监听Http&lt;/h2&gt;&lt;blockquo</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="http-source-监听Http"><a href="#http-source-监听Http" class="headerlink" title="http source 监听Http"></a>http source 监听Http</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; http<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>测试办法curl -X POST -d ‘[{“headers”:{“key”:”Flume”},”body”:”TestEvent1”}]’ <a href="http://master:4141/">http://master:4141/</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe59.html#disqus_thread</comments>
       
     </item>
     
@@ -377,19 +433,19 @@
     </item>
     
     <item>
-      <title>Flume file_roll sink</title>
-      <link>https://bigdata-yx.github.io/posts/fe62.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe62.html</guid>
+      <title>Flume Sink Processors sink处理器</title>
+      <link>https://bigdata-yx.github.io/posts/fe66.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe66.html</guid>
       <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;File-roll-sink&quot;&gt;&lt;a href=&quot;#File-roll-sink&quot; class=&quot;headerlink&quot; title=&quot;File_roll sink&quot;&gt;&lt;/a&gt;File_roll sink&lt;/h2&gt;&lt;p&gt;必须的：type &amp;#x3D; file_r</description>
+      <description>&lt;h2 id=&quot;Sink-Processors-sink处理器&quot;&gt;&lt;a href=&quot;#Sink-Processors-sink处理器&quot; class=&quot;headerlink&quot; title=&quot;Sink Processors sink处理器&quot;&gt;&lt;/a&gt;Sink Processors s</description>
         
       
       
       
-      <content:encoded><![CDATA[<h2 id="File-roll-sink"><a href="#File-roll-sink" class="headerlink" title="File_roll sink"></a>File_roll sink</h2><p>必须的：type &#x3D; file_roll</p><p>sink.directory 保存在那个目录&amp;#x20;</p><p>非必须：sink.rollInterval &#x3D; 30 就是每过30s就会生成一个新的文件用来存储数据</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; file_roll</p><p>a1.sinks.k1.sink.directory &#x3D; &#x2F;root&#x2F;file_roll&amp;#x20;</p><p>a1.sinks.k1.sink.rollInterval &#x3D; 10</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="Sink-Processors-sink处理器"><a href="#Sink-Processors-sink处理器" class="headerlink" title="Sink Processors sink处理器"></a>Sink Processors sink处理器</h2><h3 id="failover-sink-Processor故障转移处理器"><a href="#failover-sink-Processor故障转移处理器" class="headerlink" title="failover sink Processor故障转移处理器"></a><em><strong>failover sink Processor故障转移处</strong>理器</em></h3><h4 id="amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"><a href="#amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力" class="headerlink" title="&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"></a>&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力</h4><p>&amp;#x9;2)需要指定: processor.type  &#x3D; failover</p><p>&amp;#x9;processor.priority.&lt;sinkName&gt; &#x3D; 数字（就是优先级，数字越大优先级越高）</p><p>&amp;#x9;processor.maxpenalty &#x3D; 10000（就是允许你宕机以后给你重连的时间）</p><h3 id="Load-balancing-Sink-Processor"><a href="#Load-balancing-Sink-Processor" class="headerlink" title="Load balancing Sink Processor"></a>Load balancing Sink Processor</h3><p>负载平衡处理器提供了在多个sink负载平衡流量的能力。支持两种模式：round<em>robin and random。round</em>_robin可以将数据负载均衡到多个sink上，random支持随机分发到不同的sink上</p><p>第一种就是随机给你发送（random随机）</p><p>第二种就是负载均衡（robin负载均衡）</p><blockquote><p>a1.sources&#x3D;r1 <br>a1.sinks&#x3D;k1 k2 <br>a1.channels&#x3D;c1 <br><br>a1.sources.r1.type&#x3D;netcat <br>a1.sources.r1.bind&#x3D;worker-1 <br>a1.sources.r1.port&#x3D;44444 <br><br>a1.channels.c1.type&#x3D;memory <br>a1.channels.c1.capacity&#x3D;100000 <br>a1.channels.c1.transactionCapacity&#x3D;100 <br><br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-1<br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-2 <br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinkgroups &#x3D; g1 <br>a1.sinkgroups.g1.sinks &#x3D; k1 k2 <br>a1.sinkgroups.g1.processor.type &#x3D; failover(故障转移)   or    load_<em>balance(随机)<br>a1.sinkgroups.g1.processor.selector &#x3D; random or    round</em>_<em>robin# 默认是故障转移的不写就是故障转移，写了就是随机random是随机的意思，而round</em>_robin是轮询的意思<br><br>a1.sources.r1.channels&#x3D;c1 <br>a1.sinks.k1.channel&#x3D;c1 <br>a1.sinks.k2.channel&#x3D;c1</p></blockquote>]]></content:encoded>
       
       
       <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
@@ -400,35 +456,7 @@
       <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
       
       
-      <comments>https://bigdata-yx.github.io/posts/fe62.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Flume http source 监听Http</title>
-      <link>https://bigdata-yx.github.io/posts/fe59.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe59.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;http-source-监听Http&quot;&gt;&lt;a href=&quot;#http-source-监听Http&quot; class=&quot;headerlink&quot; title=&quot;http source 监听Http&quot;&gt;&lt;/a&gt;http source 监听Http&lt;/h2&gt;&lt;blockquo</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="http-source-监听Http"><a href="#http-source-监听Http" class="headerlink" title="http source 监听Http"></a>http source 监听Http</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; http<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>测试办法curl -X POST -d ‘[{“headers”:{“key”:”Flume”},”body”:”TestEvent1”}]’ <a href="http://master:4141/">http://master:4141/</a></p>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe59.html#disqus_thread</comments>
+      <comments>https://bigdata-yx.github.io/posts/fe66.html#disqus_thread</comments>
       
     </item>
     
@@ -458,34 +486,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe57.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Flume Sink Processors sink处理器</title>
-      <link>https://bigdata-yx.github.io/posts/fe66.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe66.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;Sink-Processors-sink处理器&quot;&gt;&lt;a href=&quot;#Sink-Processors-sink处理器&quot; class=&quot;headerlink&quot; title=&quot;Sink Processors sink处理器&quot;&gt;&lt;/a&gt;Sink Processors s</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="Sink-Processors-sink处理器"><a href="#Sink-Processors-sink处理器" class="headerlink" title="Sink Processors sink处理器"></a>Sink Processors sink处理器</h2><h3 id="failover-sink-Processor故障转移处理器"><a href="#failover-sink-Processor故障转移处理器" class="headerlink" title="failover sink Processor故障转移处理器"></a><em><strong>failover sink Processor故障转移处</strong>理器</em></h3><h4 id="amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"><a href="#amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力" class="headerlink" title="&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"></a>&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力</h4><p>&amp;#x9;2)需要指定: processor.type  &#x3D; failover</p><p>&amp;#x9;processor.priority.&lt;sinkName&gt; &#x3D; 数字（就是优先级，数字越大优先级越高）</p><p>&amp;#x9;processor.maxpenalty &#x3D; 10000（就是允许你宕机以后给你重连的时间）</p><h3 id="Load-balancing-Sink-Processor"><a href="#Load-balancing-Sink-Processor" class="headerlink" title="Load balancing Sink Processor"></a>Load balancing Sink Processor</h3><p>负载平衡处理器提供了在多个sink负载平衡流量的能力。支持两种模式：round<em>robin and random。round</em>_robin可以将数据负载均衡到多个sink上，random支持随机分发到不同的sink上</p><p>第一种就是随机给你发送（random随机）</p><p>第二种就是负载均衡（robin负载均衡）</p><blockquote><p>a1.sources&#x3D;r1 <br>a1.sinks&#x3D;k1 k2 <br>a1.channels&#x3D;c1 <br><br>a1.sources.r1.type&#x3D;netcat <br>a1.sources.r1.bind&#x3D;worker-1 <br>a1.sources.r1.port&#x3D;44444 <br><br>a1.channels.c1.type&#x3D;memory <br>a1.channels.c1.capacity&#x3D;100000 <br>a1.channels.c1.transactionCapacity&#x3D;100 <br><br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-1<br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-2 <br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinkgroups &#x3D; g1 <br>a1.sinkgroups.g1.sinks &#x3D; k1 k2 <br>a1.sinkgroups.g1.processor.type &#x3D; failover(故障转移)   or    load_<em>balance(随机)<br>a1.sinkgroups.g1.processor.selector &#x3D; random or    round</em>_<em>robin# 默认是故障转移的不写就是故障转移，写了就是随机random是随机的意思，而round</em>_robin是轮询的意思<br><br>a1.sources.r1.channels&#x3D;c1 <br>a1.sinks.k1.channel&#x3D;c1 <br>a1.sinks.k2.channel&#x3D;c1</p></blockquote>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe66.html#disqus_thread</comments>
       
     </item>
     
@@ -540,6 +540,34 @@
     </item>
     
     <item>
+      <title>Flume Channel Selectors通道选择器</title>
+      <link>https://bigdata-yx.github.io/posts/fe69.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe69.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Channel-Selectors通道选择器&quot;&gt;&lt;a href=&quot;#Channel-Selectors通道选择器&quot; class=&quot;headerlink&quot; title=&quot;Channel Selectors通道选择器&quot;&gt;&lt;/a&gt;&lt;strong&gt;Channel Sele</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Channel-Selectors通道选择器"><a href="#Channel-Selectors通道选择器" class="headerlink" title="Channel Selectors通道选择器"></a><strong>Channel Selectors通道选择器</strong></h3><h3 id="Channel-Selectors通道选择器-1"><a href="#Channel-Selectors通道选择器-1" class="headerlink" title="Channel Selectors通道选择器"></a><strong>Channel Selectors通道选择器</strong></h3><p>多路复用通道选择器，source是通过event header来决定传输到哪一个channel。source是通过event header来决定传输到哪一个channel</p><p><img src="https://pic1.imgdb.cn/item/6784c37dd0e0a243d4f3d664.png"></p><p><strong>replicating type是复制选择器</strong></p>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe69.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Flume的netcat 监听端口</title>
       <link>https://bigdata-yx.github.io/posts/fe61.html</link>
       <guid>https://bigdata-yx.github.io/posts/fe61.html</guid>
@@ -566,34 +594,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe61.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Flume Channel Selectors通道选择器</title>
-      <link>https://bigdata-yx.github.io/posts/fe69.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe69.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;Channel-Selectors通道选择器&quot;&gt;&lt;a href=&quot;#Channel-Selectors通道选择器&quot; class=&quot;headerlink&quot; title=&quot;Channel Selectors通道选择器&quot;&gt;&lt;/a&gt;&lt;strong&gt;Channel Sele</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Channel-Selectors通道选择器"><a href="#Channel-Selectors通道选择器" class="headerlink" title="Channel Selectors通道选择器"></a><strong>Channel Selectors通道选择器</strong></h3><h3 id="Channel-Selectors通道选择器-1"><a href="#Channel-Selectors通道选择器-1" class="headerlink" title="Channel Selectors通道选择器"></a><strong>Channel Selectors通道选择器</strong></h3><p>多路复用通道选择器，source是通过event header来决定传输到哪一个channel。source是通过event header来决定传输到哪一个channel</p><p><img src="https://pic1.imgdb.cn/item/6784c37dd0e0a243d4f3d664.png"></p><p><strong>replicating type是复制选择器</strong></p>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe69.html#disqus_thread</comments>
       
     </item>
     
@@ -655,35 +655,6 @@
     </item>
     
     <item>
-      <title>案例：将nginx的日志实时传输到hdfs和kafka上</title>
-      <link>https://bigdata-yx.github.io/posts/fe66.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe66.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;案例：将nginx的日志实时传输到hdfs和kafka上&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;s</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>案例：将nginx的日志实时传输到hdfs和kafka上</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">a1.sources = r1</span><br><span class="line">a1.channels = c1 c2</span><br><span class="line">a1.sinks = k1 k2</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type=taildir</span><br><span class="line">a1.sources.r1.filegroups = f1</span><br><span class="line">a1.sources.r1.filegroups.f1=/usr/local/nginx/logs/access.log</span><br><span class="line"></span><br><span class="line">a1.channels.c1.type=memory</span><br><span class="line">a1.channels.c1.capacity=10000</span><br><span class="line">a1.channels.c1.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.channels.c2.type=memory</span><br><span class="line">a1.channels.c2.capacity=10000</span><br><span class="line">a1.channels.c2.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type = hdfs</span><br><span class="line">a1.sinks.k1.hdfs.path=/data/hkjcpdd/%Y%m%d</span><br><span class="line">a1.sinks.k1.hdfs.useLocalTimeStamp=true</span><br><span class="line">a1.sinks.k1.hdfs.rollInterval=10</span><br><span class="line">a1.sinks.k1.hdfs.fileType=DataStream</span><br><span class="line"></span><br><span class="line">a1.sinks.k2.type = org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line">a1.sinks.k2.kafka.bootstrap.servers = master:9092</span><br><span class="line">a1.sinks.k2.kafka.topic = hkjcpdd</span><br><span class="line"></span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br><span class="line">a1.sinks.k2.channel = c1</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe66.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>Flume</title>
       <link>https://bigdata-yx.github.io/posts/fe52.html</link>
       <guid>https://bigdata-yx.github.io/posts/fe52.html</guid>
@@ -709,6 +680,35 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe52.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>案例：将nginx的日志实时传输到hdfs和kafka上</title>
+      <link>https://bigdata-yx.github.io/posts/fe66.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe66.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;案例：将nginx的日志实时传输到hdfs和kafka上&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;s</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>案例：将nginx的日志实时传输到hdfs和kafka上</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">a1.sources = r1</span><br><span class="line">a1.channels = c1 c2</span><br><span class="line">a1.sinks = k1 k2</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type=taildir</span><br><span class="line">a1.sources.r1.filegroups = f1</span><br><span class="line">a1.sources.r1.filegroups.f1=/usr/local/nginx/logs/access.log</span><br><span class="line"></span><br><span class="line">a1.channels.c1.type=memory</span><br><span class="line">a1.channels.c1.capacity=10000</span><br><span class="line">a1.channels.c1.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.channels.c2.type=memory</span><br><span class="line">a1.channels.c2.capacity=10000</span><br><span class="line">a1.channels.c2.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type = hdfs</span><br><span class="line">a1.sinks.k1.hdfs.path=/data/hkjcpdd/%Y%m%d</span><br><span class="line">a1.sinks.k1.hdfs.useLocalTimeStamp=true</span><br><span class="line">a1.sinks.k1.hdfs.rollInterval=10</span><br><span class="line">a1.sinks.k1.hdfs.fileType=DataStream</span><br><span class="line"></span><br><span class="line">a1.sinks.k2.type = org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line">a1.sinks.k2.kafka.bootstrap.servers = master:9092</span><br><span class="line">a1.sinks.k2.kafka.topic = hkjcpdd</span><br><span class="line"></span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br><span class="line">a1.sinks.k2.channel = c1</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe66.html#disqus_thread</comments>
       
     </item>
     
@@ -874,19 +874,19 @@
     </item>
     
     <item>
-      <title>Azkaban定时执行案例</title>
-      <link>https://bigdata-yx.github.io/posts/959.html</link>
-      <guid>https://bigdata-yx.github.io/posts/959.html</guid>
+      <title>Azkaban邮件报警案例</title>
+      <link>https://bigdata-yx.github.io/posts/964.html</link>
+      <guid>https://bigdata-yx.github.io/posts/964.html</guid>
       <pubDate>Mon, 13 Jan 2025 07:24:22 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;定时执行案例&quot;&gt;&lt;a href=&quot;#定时执行案例&quot; class=&quot;headerlink&quot; title=&quot;定时执行案例&quot;&gt;&lt;/a&gt;定时执行案例&lt;/h2&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut</description>
+      <description>&lt;h2 id=&quot;邮件报警案例&quot;&gt;&lt;a href=&quot;#邮件报警案例&quot; class=&quot;headerlink&quot; title=&quot;邮件报警案例&quot;&gt;&lt;/a&gt;邮件报警案例&lt;/h2&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut</description>
         
       
       
       
-      <content:encoded><![CDATA[<h2 id="定时执行案例"><a href="#定时执行案例" class="headerlink" title="定时执行案例"></a>定时执行案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需求：JobA每间隔一分钟执行一次</span></span><br><span class="line">就是执行任务的那个绿色按钮</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="邮件报警案例"><a href="#邮件报警案例" class="headerlink" title="邮件报警案例"></a>邮件报警案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">得先从邮箱那里开启STMP的服务，拿到授权码</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后进入<span class="variable">$azkaban</span>-web/conf/azkaban.properties</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改22和23行</span></span><br><span class="line">mail.sender=邮箱地址</span><br><span class="line">mail.host=smtp.qq.com</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">加上</span></span><br><span class="line">mail.user=邮箱地址</span><br><span class="line">mail.password=授权码</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新启动azkaban-web</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动任务的地方左侧有个Notification（通知）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后将邮箱地址放进那两个框，一个是失败发送给谁，一个是成功发送给谁，可以指定多个</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
       <category domain="https://bigdata-yx.github.io/categories/Azkaban/">Azkaban</category>
@@ -897,7 +897,7 @@
       <category domain="https://bigdata-yx.github.io/tags/Azkaban/">Azkaban</category>
       
       
-      <comments>https://bigdata-yx.github.io/posts/959.html#disqus_thread</comments>
+      <comments>https://bigdata-yx.github.io/posts/964.html#disqus_thread</comments>
       
     </item>
     
