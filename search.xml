@@ -295,11 +295,11 @@
     
     
     <entry>
-      <title>全量导入hive表和增量导入hive表</title>
-      <link href="/posts/3991.html"/>
-      <url>/posts/3991.html</url>
+      <title>Sqoop导出</title>
+      <link href="/posts/3990.html"/>
+      <url>/posts/3990.html</url>
       
-        <content type="html"><![CDATA[<h3 id="全量导入："><a href="#全量导入：" class="headerlink" title="全量导入："></a><strong>全量导入：</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--hive-import \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table hive的库.hive的表</span><br></pre></td></tr></table></figure><h4 id="增量导入："><a href="#增量导入：" class="headerlink" title="增量导入："></a><strong>增量导入：</strong></h4><h5 id="1-append方式"><a href="#1-append方式" class="headerlink" title="1.append方式"></a><strong>1.append方式</strong></h5><h5 id="2-lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）"><a href="#2-lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）" class="headerlink" title="2.lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）"></a>2.lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）</h5><p><img src="https://pic1.imgdb.cn/item/6784fbd6d0e0a243d4f3f0e9.png"></p><h2 id="这个是第一种方式：incremental-append"><a href="#这个是第一种方式：incremental-append" class="headerlink" title="这个是第一种方式：incremental append"></a><strong>这个是第一种方式：incremental append</strong></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306 \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--num-mappers 4 \</span><br><span class="line"></span><br><span class="line">--target-dir hdfs路径 \  这个路径是表的路径可以在hive中show create table city;就可以看到hdfs的位置了</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--incremental append \</span><br><span class="line">--check-column <span class="built_in">id</span> \</span><br><span class="line">--last-value 1  这个就是看你的数字哪一行，如果是1那就从2开始增量数据</span><br></pre></td></tr></table></figure><p>参数解释：</p><p>1)incremental : append或lastmodified，使用lastmodified方式导入数据要指定增量数据是要 –append（追加）还是要 –merge-key（合并）</p><p>2)check-column&lt;字段&gt;: 作为增量导入判断的列名</p><p>3)last-value val : 指定某一个值，用于标记增量导入的位置，这个值的数据不会被导入列表中，只用于标记当前表中最后的值。</p><h3 id="第二种导入方式–incremental-lastmodified-–append（例子：列入按照时间进行增量导入）"><a href="#第二种导入方式–incremental-lastmodified-–append（例子：列入按照时间进行增量导入）" class="headerlink" title="第二种导入方式–incremental lastmodified –append（例子：列入按照时间进行增量导入）"></a><strong>第二种导入方式–incremental lastmodified –append（例子：列入按照时间进行增量导入）</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306 \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--num-mappers 4 \</span><br><span class="line">--target-dir hdfs路径 \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--incremental lastmodified \</span><br><span class="line">--check-column last_time \</span><br><span class="line">--last-value <span class="string">&#x27;2020-10-10 13:00:00&#x27;</span> \</span><br><span class="line">--append</span><br><span class="line"></span><br><span class="line">--注意：last-value的设置把包括2020-10-10 13:00:00 时间的数据做增量导入</span><br></pre></td></tr></table></figure><h3 id="第三种导入方式–incremental-lastmodified-–append-（进行合并的）"><a href="#第三种导入方式–incremental-lastmodified-–append-（进行合并的）" class="headerlink" title="第三种导入方式–incremental lastmodified –append （进行合并的）"></a><strong>第三种导入方式–incremental lastmodified –append （进行合并的）</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306 \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--num-mappers 4 \</span><br><span class="line">--target-dir hdfs路径 \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--incremental lastmodified \</span><br><span class="line">--check-column last_time \</span><br><span class="line">--last-value <span class="string">&#x27;2020-10-10 13:00:00&#x27;</span> \</span><br><span class="line">--merge-key <span class="built_in">id</span> <span class="comment"># 根据id来进行操作</span></span><br><span class="line"></span><br><span class="line">--incremental lastmodified --merge-key的作用：修改过得数据和新增的数据（前提是满足last-value的条件）都会导入尽力啊，并且重复的数据（不需要满足last-value的条件）都会进行合并</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-从hdfs导出到mysql里"><a href="#1-从hdfs导出到mysql里" class="headerlink" title="1.从hdfs导出到mysql里"></a><strong>1.从hdfs导出到mysql里</strong></h3><ol><li><h4 id="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"><a href="#要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表" class="headerlink" title="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"></a>要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表</h4></li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir hdfs路径指定到文件 \  <span class="comment"># 要导出的文件</span></span><br><span class="line">--table emp \    <span class="comment"># 导出到哪张Mysql表</span></span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--input-fields-terminated-by <span class="string">&#x27;|&#x27;</span>  <span class="comment"># 分隔符</span></span><br></pre></td></tr></table></figure><h3 id="2-从hive导出到Mysql中"><a href="#2-从hive导出到Mysql中" class="headerlink" title="2.从hive导出到Mysql中"></a><strong>2.从hive导出到Mysql中</strong></h3><h4 id="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"><a href="#sqoop的export命令支持insert、update到关系型数据库，但是不支持merge" class="headerlink" title="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"></a><strong>sqoop的export命令支持insert、update到关系型数据库，但是不支持merge</strong></h4><h4 id="1-hive表导入Mysql数据库insert（直接写入）"><a href="#1-hive表导入Mysql数据库insert（直接写入）" class="headerlink" title="1.hive表导入Mysql数据库insert（直接写入）"></a><strong>1.hive表导入Mysql数据库insert（直接写入）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--table cityhkjcpdd </span><br><span class="line">--num-mappers 4 </span><br><span class="line">--fields-terminated-by <span class="string">&#x27;,&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="2-从hive表导入mysql数据库update（追加替换相同）"><a href="#2-从hive表导入mysql数据库update（追加替换相同）" class="headerlink" title="2.从hive表导入mysql数据库update（追加替换相同）"></a><strong>2.从hive表导入mysql数据库update（追加替换相同）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--update-key <span class="built_in">id</span> \    <span class="comment"># 根据id来进行去重</span></span><br><span class="line">--fields-terminated-by <span class="string">&#x27;\t&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -322,11 +322,11 @@
     
     
     <entry>
-      <title>Sqoop导出</title>
-      <link href="/posts/3990.html"/>
-      <url>/posts/3990.html</url>
+      <title>全量导入hive表和增量导入hive表</title>
+      <link href="/posts/3991.html"/>
+      <url>/posts/3991.html</url>
       
-        <content type="html"><![CDATA[<h3 id="1-从hdfs导出到mysql里"><a href="#1-从hdfs导出到mysql里" class="headerlink" title="1.从hdfs导出到mysql里"></a><strong>1.从hdfs导出到mysql里</strong></h3><ol><li><h4 id="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"><a href="#要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表" class="headerlink" title="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"></a>要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表</h4></li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir hdfs路径指定到文件 \  <span class="comment"># 要导出的文件</span></span><br><span class="line">--table emp \    <span class="comment"># 导出到哪张Mysql表</span></span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--input-fields-terminated-by <span class="string">&#x27;|&#x27;</span>  <span class="comment"># 分隔符</span></span><br></pre></td></tr></table></figure><h3 id="2-从hive导出到Mysql中"><a href="#2-从hive导出到Mysql中" class="headerlink" title="2.从hive导出到Mysql中"></a><strong>2.从hive导出到Mysql中</strong></h3><h4 id="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"><a href="#sqoop的export命令支持insert、update到关系型数据库，但是不支持merge" class="headerlink" title="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"></a><strong>sqoop的export命令支持insert、update到关系型数据库，但是不支持merge</strong></h4><h4 id="1-hive表导入Mysql数据库insert（直接写入）"><a href="#1-hive表导入Mysql数据库insert（直接写入）" class="headerlink" title="1.hive表导入Mysql数据库insert（直接写入）"></a><strong>1.hive表导入Mysql数据库insert（直接写入）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--table cityhkjcpdd </span><br><span class="line">--num-mappers 4 </span><br><span class="line">--fields-terminated-by <span class="string">&#x27;,&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="2-从hive表导入mysql数据库update（追加替换相同）"><a href="#2-从hive表导入mysql数据库update（追加替换相同）" class="headerlink" title="2.从hive表导入mysql数据库update（追加替换相同）"></a><strong>2.从hive表导入mysql数据库update（追加替换相同）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--update-key <span class="built_in">id</span> \    <span class="comment"># 根据id来进行去重</span></span><br><span class="line">--fields-terminated-by <span class="string">&#x27;\t&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h3 id="全量导入："><a href="#全量导入：" class="headerlink" title="全量导入："></a><strong>全量导入：</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--hive-import \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--hive-table hive的库.hive的表</span><br></pre></td></tr></table></figure><h4 id="增量导入："><a href="#增量导入：" class="headerlink" title="增量导入："></a><strong>增量导入：</strong></h4><h5 id="1-append方式"><a href="#1-append方式" class="headerlink" title="1.append方式"></a><strong>1.append方式</strong></h5><h5 id="2-lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）"><a href="#2-lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）" class="headerlink" title="2.lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）"></a>2.lastmodified方式，必须要加–append（最加）或者–merge-key（合并，一般天主键）</h5><p><img src="https://pic1.imgdb.cn/item/6784fbd6d0e0a243d4f3f0e9.png"></p><h2 id="这个是第一种方式：incremental-append"><a href="#这个是第一种方式：incremental-append" class="headerlink" title="这个是第一种方式：incremental append"></a><strong>这个是第一种方式：incremental append</strong></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306 \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--num-mappers 4 \</span><br><span class="line"></span><br><span class="line">--target-dir hdfs路径 \  这个路径是表的路径可以在hive中show create table city;就可以看到hdfs的位置了</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--incremental append \</span><br><span class="line">--check-column <span class="built_in">id</span> \</span><br><span class="line">--last-value 1  这个就是看你的数字哪一行，如果是1那就从2开始增量数据</span><br></pre></td></tr></table></figure><p>参数解释：</p><p>1)incremental : append或lastmodified，使用lastmodified方式导入数据要指定增量数据是要 –append（追加）还是要 –merge-key（合并）</p><p>2)check-column&lt;字段&gt;: 作为增量导入判断的列名</p><p>3)last-value val : 指定某一个值，用于标记增量导入的位置，这个值的数据不会被导入列表中，只用于标记当前表中最后的值。</p><h3 id="第二种导入方式–incremental-lastmodified-–append（例子：列入按照时间进行增量导入）"><a href="#第二种导入方式–incremental-lastmodified-–append（例子：列入按照时间进行增量导入）" class="headerlink" title="第二种导入方式–incremental lastmodified –append（例子：列入按照时间进行增量导入）"></a><strong>第二种导入方式–incremental lastmodified –append（例子：列入按照时间进行增量导入）</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306 \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--num-mappers 4 \</span><br><span class="line">--target-dir hdfs路径 \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--incremental lastmodified \</span><br><span class="line">--check-column last_time \</span><br><span class="line">--last-value <span class="string">&#x27;2020-10-10 13:00:00&#x27;</span> \</span><br><span class="line">--append</span><br><span class="line"></span><br><span class="line">--注意：last-value的设置把包括2020-10-10 13:00:00 时间的数据做增量导入</span><br></pre></td></tr></table></figure><h3 id="第三种导入方式–incremental-lastmodified-–append-（进行合并的）"><a href="#第三种导入方式–incremental-lastmodified-–append-（进行合并的）" class="headerlink" title="第三种导入方式–incremental lastmodified –append （进行合并的）"></a><strong>第三种导入方式–incremental lastmodified –append （进行合并的）</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306 \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--num-mappers 4 \</span><br><span class="line">--target-dir hdfs路径 \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;,&quot;</span> \</span><br><span class="line">--incremental lastmodified \</span><br><span class="line">--check-column last_time \</span><br><span class="line">--last-value <span class="string">&#x27;2020-10-10 13:00:00&#x27;</span> \</span><br><span class="line">--merge-key <span class="built_in">id</span> <span class="comment"># 根据id来进行操作</span></span><br><span class="line"></span><br><span class="line">--incremental lastmodified --merge-key的作用：修改过得数据和新增的数据（前提是满足last-value的条件）都会导入尽力啊，并且重复的数据（不需要满足last-value的条件）都会进行合并</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -565,11 +565,11 @@
     
     
     <entry>
-      <title>Flume file_roll sink</title>
-      <link href="/posts/fe62.html"/>
-      <url>/posts/fe62.html</url>
+      <title>Flume http source 监听Http</title>
+      <link href="/posts/fe59.html"/>
+      <url>/posts/fe59.html</url>
       
-        <content type="html"><![CDATA[<h2 id="File-roll-sink"><a href="#File-roll-sink" class="headerlink" title="File_roll sink"></a>File_roll sink</h2><p>必须的：type &#x3D; file_roll</p><p>sink.directory 保存在那个目录&amp;#x20;</p><p>非必须：sink.rollInterval &#x3D; 30 就是每过30s就会生成一个新的文件用来存储数据</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; file_roll</p><p>a1.sinks.k1.sink.directory &#x3D; &#x2F;root&#x2F;file_roll&amp;#x20;</p><p>a1.sinks.k1.sink.rollInterval &#x3D; 10</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h2 id="http-source-监听Http"><a href="#http-source-监听Http" class="headerlink" title="http source 监听Http"></a>http source 监听Http</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; http<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>测试办法curl -X POST -d ‘[{“headers”:{“key”:”Flume”},”body”:”TestEvent1”}]’ <a href="http://master:4141/">http://master:4141/</a></p>]]></content>
       
       
       <categories>
@@ -619,11 +619,38 @@
     
     
     <entry>
-      <title>Flume http source 监听Http</title>
-      <link href="/posts/fe59.html"/>
-      <url>/posts/fe59.html</url>
+      <title>Flume kafka channel</title>
+      <link href="/posts/fe58.html"/>
+      <url>/posts/fe58.html</url>
       
-        <content type="html"><![CDATA[<h2 id="http-source-监听Http"><a href="#http-source-监听Http" class="headerlink" title="http source 监听Http"></a>http source 监听Http</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; http<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>测试办法curl -X POST -d ‘[{“headers”:{“key”:”Flume”},”body”:”TestEvent1”}]’ <a href="http://master:4141/">http://master:4141/</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="kafka-channel"><a href="#kafka-channel" class="headerlink" title="kafka channel"></a>kafka channel</h2><p>需要指定的</p><blockquote><p>type &#x3D; org.apache.flume.channel.kafka.KafkaChannel</p><p>kafka.bootstrap.server &#x3D; hostname:port</p><p>kafka.topic &#x3D; hkjcpdd</p></blockquote><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; org.apache.flume.channel.kafka.KafkaChannel <br>a1.channels.c1.kafka.bootstrap.servers &#x3D; master:9092</p><p>a1.channels.c1.kafka.topic&#x3D;hkjmjj</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flume </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> Flume </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Flume file_roll sink</title>
+      <link href="/posts/fe62.html"/>
+      <url>/posts/fe62.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="File-roll-sink"><a href="#File-roll-sink" class="headerlink" title="File_roll sink"></a>File_roll sink</h2><p>必须的：type &#x3D; file_roll</p><p>sink.directory 保存在那个目录&amp;#x20;</p><p>非必须：sink.rollInterval &#x3D; 30 就是每过30s就会生成一个新的文件用来存储数据</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; file_roll</p><p>a1.sinks.k1.sink.directory &#x3D; &#x2F;root&#x2F;file_roll&amp;#x20;</p><p>a1.sinks.k1.sink.rollInterval &#x3D; 10</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
       
       
       <categories>
@@ -673,6 +700,33 @@
     
     
     <entry>
+      <title>Flume source的type</title>
+      <link href="/posts/fe56.html"/>
+      <url>/posts/fe56.html</url>
+      
+        <content type="html"><![CDATA[<p>exec source 在启动时运行给定的unix命令，并期望该进程在标准输出上连续生成数据。</p><p>spooling directory source (spooldir) 这个source允许你把要手机的文件放入磁盘上的某个指定目录。他会监视这个目录中产生的新文件，并在新文件处显示从新文件中解析出来。 与exec source不同，spooling directory source是可靠的， 即使flume重新启动或被kill，也不会丢失数据，同时作为这种可靠的代价，指定目录中的被手机的文件必须是不可变的、唯一命名的。flume会自动检测避免这种情况发生，如果发现问题，则会抛出异常；</p><p>taildir source 监控指定的一些文件，并在检测新的一行数据残生的时候几乎实时的读取他们，如果新的一行数据还没写完，taildir source 等到这行写完后读取</p><p>kafka source 就是一个apache kafka消费者， 他从kafka的topic中读取消息，如果运行了多个Kafka source 则可以把他们配置到同一个消费者组，以便每个source都读取一组唯一的topic分区</p><p>syslog sources 针对系统日志</p><p>http sources 发送get协议请求的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flume </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> Flume </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Flume Sink Processors sink处理器</title>
       <link href="/posts/fe66.html"/>
       <url>/posts/fe66.html</url>
@@ -700,65 +754,11 @@
     
     
     <entry>
-      <title>Flume kafka channel</title>
-      <link href="/posts/fe58.html"/>
-      <url>/posts/fe58.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="kafka-channel"><a href="#kafka-channel" class="headerlink" title="kafka channel"></a>kafka channel</h2><p>需要指定的</p><blockquote><p>type &#x3D; org.apache.flume.channel.kafka.KafkaChannel</p><p>kafka.bootstrap.server &#x3D; hostname:port</p><p>kafka.topic &#x3D; hkjcpdd</p></blockquote><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; org.apache.flume.channel.kafka.KafkaChannel <br>a1.channels.c1.kafka.bootstrap.servers &#x3D; master:9092</p><p>a1.channels.c1.kafka.topic&#x3D;hkjmjj</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Flume </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> Flume </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Flume</title>
       <link href="/posts/fe69.html"/>
       <url>/posts/fe69.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> Flume </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> Flume </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Flume source的type</title>
-      <link href="/posts/fe56.html"/>
-      <url>/posts/fe56.html</url>
-      
-        <content type="html"><![CDATA[<p>exec source 在启动时运行给定的unix命令，并期望该进程在标准输出上连续生成数据。</p><p>spooling directory source (spooldir) 这个source允许你把要手机的文件放入磁盘上的某个指定目录。他会监视这个目录中产生的新文件，并在新文件处显示从新文件中解析出来。 与exec source不同，spooling directory source是可靠的， 即使flume重新启动或被kill，也不会丢失数据，同时作为这种可靠的代价，指定目录中的被手机的文件必须是不可变的、唯一命名的。flume会自动检测避免这种情况发生，如果发现问题，则会抛出异常；</p><p>taildir source 监控指定的一些文件，并在检测新的一行数据残生的时候几乎实时的读取他们，如果新的一行数据还没写完，taildir source 等到这行写完后读取</p><p>kafka source 就是一个apache kafka消费者， 他从kafka的topic中读取消息，如果运行了多个Kafka source 则可以把他们配置到同一个消费者组，以便每个source都读取一组唯一的topic分区</p><p>syslog sources 针对系统日志</p><p>http sources 发送get协议请求的</p>]]></content>
       
       
       <categories>
@@ -808,65 +808,11 @@
     
     
     <entry>
-      <title>Flume taildir agent监听一个或者多个文件</title>
-      <link href="/posts/fe54.html"/>
-      <url>/posts/fe54.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="taildir-agent"><a href="#taildir-agent" class="headerlink" title="taildir agent"></a>taildir agent</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>=&#x3D;a1.sources.r1.type &#x3D; taildir<br># 这个是用于断点续传，确保不被重复消费<br>a1.sources.r1.positionFile&#x3D;&#x2F;data&#x2F;flume&#x2F;position.json<br>a1.sources.r1.filegroups &#x3D; f1 a1.sources.r1.filegroups.f1 &#x3D; &#x2F;root&#x2F;taildir&#x2F;hkjcpdd.log&#x3D;&#x3D;</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>与之exev不同的是，他是监听的是文件内容，而exec是监听命令运行后的结果</p><p>监听多个文件的话那就多写几个</p><p>例如:</p><blockquote></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Flume </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> Flume </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Flume Channel Selectors通道选择器</title>
       <link href="/posts/fe69.html"/>
       <url>/posts/fe69.html</url>
       
         <content type="html"><![CDATA[<h3 id="Channel-Selectors通道选择器"><a href="#Channel-Selectors通道选择器" class="headerlink" title="Channel Selectors通道选择器"></a><strong>Channel Selectors通道选择器</strong></h3><h3 id="Channel-Selectors通道选择器-1"><a href="#Channel-Selectors通道选择器-1" class="headerlink" title="Channel Selectors通道选择器"></a><strong>Channel Selectors通道选择器</strong></h3><p>多路复用通道选择器，source是通过event header来决定传输到哪一个channel。source是通过event header来决定传输到哪一个channel</p><p><img src="https://pic1.imgdb.cn/item/6784c37dd0e0a243d4f3d664.png"></p><p><strong>replicating type是复制选择器</strong></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Flume </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> Flume </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Flume</title>
-      <link href="/posts/fe52.html"/>
-      <url>/posts/fe52.html</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://pic1.imgdb.cn/item/6784c673d0e0a243d4f3d73f.png"></p>]]></content>
       
       
       <categories>
@@ -916,11 +862,11 @@
     
     
     <entry>
-      <title>案例：将nginx的日志实时传输到hdfs和kafka上</title>
-      <link href="/posts/fe66.html"/>
-      <url>/posts/fe66.html</url>
+      <title>Flume</title>
+      <link href="/posts/fe52.html"/>
+      <url>/posts/fe52.html</url>
       
-        <content type="html"><![CDATA[<p>案例：将nginx的日志实时传输到hdfs和kafka上</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">a1.sources = r1</span><br><span class="line">a1.channels = c1 c2</span><br><span class="line">a1.sinks = k1 k2</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type=taildir</span><br><span class="line">a1.sources.r1.filegroups = f1</span><br><span class="line">a1.sources.r1.filegroups.f1=/usr/local/nginx/logs/access.log</span><br><span class="line"></span><br><span class="line">a1.channels.c1.type=memory</span><br><span class="line">a1.channels.c1.capacity=10000</span><br><span class="line">a1.channels.c1.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.channels.c2.type=memory</span><br><span class="line">a1.channels.c2.capacity=10000</span><br><span class="line">a1.channels.c2.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type = hdfs</span><br><span class="line">a1.sinks.k1.hdfs.path=/data/hkjcpdd/%Y%m%d</span><br><span class="line">a1.sinks.k1.hdfs.useLocalTimeStamp=true</span><br><span class="line">a1.sinks.k1.hdfs.rollInterval=10</span><br><span class="line">a1.sinks.k1.hdfs.fileType=DataStream</span><br><span class="line"></span><br><span class="line">a1.sinks.k2.type = org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line">a1.sinks.k2.kafka.bootstrap.servers = master:9092</span><br><span class="line">a1.sinks.k2.kafka.topic = hkjcpdd</span><br><span class="line"></span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br><span class="line">a1.sinks.k2.channel = c1</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://pic1.imgdb.cn/item/6784c673d0e0a243d4f3d73f.png"></p>]]></content>
       
       
       <categories>
@@ -943,16 +889,16 @@
     
     
     <entry>
-      <title>AzkabanAzkaban搭建</title>
-      <link href="/posts/968.html"/>
-      <url>/posts/968.html</url>
+      <title>Flume taildir agent监听一个或者多个文件</title>
+      <link href="/posts/fe54.html"/>
+      <url>/posts/fe54.html</url>
       
-        <content type="html"><![CDATA[<h2 id="1-在搭建之前得有mysql环境-以及my-cnf文件中添加max-allowed-packet-x3D-1024M并重启mysql服务"><a href="#1-在搭建之前得有mysql环境-以及my-cnf文件中添加max-allowed-packet-x3D-1024M并重启mysql服务" class="headerlink" title="1.在搭建之前得有mysql环境,以及my.cnf文件中添加max_allowed_packet&#x3D;1024M并重启mysql服务"></a>1.在搭建之前得有mysql环境,以及my.cnf文件中添加max_allowed_packet&#x3D;1024M并重启mysql服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置mysql相关部分(db)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入Mysql然后创建azkaban库</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入库并<span class="built_in">source</span>进来azkaban-db/create-all-sql-3.84.4.sql</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改以下配置项(<span class="built_in">exec</span>)</span></span><br><span class="line">default.timezone.id=Asia/Shanghai</span><br><span class="line">executor.port=12321</span><br><span class="line">jetty.port=8061</span><br><span class="line">azkaban.webserver.url=http://master:8061</span><br><span class="line"></span><br><span class="line">mysql.host=master</span><br><span class="line">mysql.user=root</span><br><span class="line">mysql.password=123456</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后进行分发到其他机器，然后每台都要启动</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最后进行激活</span></span><br><span class="line">[root@master azkaban-exec-server]# curl -G &quot;master:12321/executor?action=activate&quot; &amp;&amp; echo</span><br><span class="line">&#123;&quot;status&quot;:&quot;success&quot;&#125;</span><br><span class="line">[root@master azkaban-exec-server]# curl -G &quot;slave1:12321/executor?action=activate&quot; &amp;&amp; echo</span><br><span class="line">&#123;&quot;status&quot;:&quot;success&quot;&#125;</span><br><span class="line">[root@master azkaban-exec-server]# curl -G &quot;slave2:12321/executor?action=activate&quot; &amp;&amp; echo</span><br><span class="line">&#123;&quot;status&quot;:&quot;success&quot;&#125;</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改一下配置项(web)</span></span><br><span class="line">default.timezone.id=Asia/Shanghai</span><br><span class="line">jetty.port=8061</span><br><span class="line"></span><br><span class="line">mysql.host=master</span><br><span class="line">mysql.user=root</span><br><span class="line">mysql.password=123456</span><br><span class="line">azkaban.executorselector.filters=StaticRemainingFlowSize,CpuStatus</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置azkaban-users.xml</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加一行即可</span></span><br><span class="line">&lt;user password=&quot;123456&quot; roles=&quot;admin&quot; username=&quot;hkjcpdd&quot;/&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后启动即可</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="taildir-agent"><a href="#taildir-agent" class="headerlink" title="taildir agent"></a>taildir agent</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>=&#x3D;a1.sources.r1.type &#x3D; taildir<br># 这个是用于断点续传，确保不被重复消费<br>a1.sources.r1.positionFile&#x3D;&#x2F;data&#x2F;flume&#x2F;position.json<br>a1.sources.r1.filegroups &#x3D; f1 a1.sources.r1.filegroups.f1 &#x3D; &#x2F;root&#x2F;taildir&#x2F;hkjcpdd.log&#x3D;&#x3D;</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>与之exev不同的是，他是监听的是文件内容，而exec是监听命令运行后的结果</p><p>监听多个文件的话那就多写几个</p><p>例如:</p><blockquote></blockquote>]]></content>
       
       
       <categories>
           
-          <category> Azkaban </category>
+          <category> Flume </category>
           
       </categories>
       
@@ -961,7 +907,34 @@
             
             <tag> 示例 </tag>
             
-            <tag> Azkaban </tag>
+            <tag> Flume </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>案例：将nginx的日志实时传输到hdfs和kafka上</title>
+      <link href="/posts/fe66.html"/>
+      <url>/posts/fe66.html</url>
+      
+        <content type="html"><![CDATA[<p>案例：将nginx的日志实时传输到hdfs和kafka上</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">a1.sources = r1</span><br><span class="line">a1.channels = c1 c2</span><br><span class="line">a1.sinks = k1 k2</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type=taildir</span><br><span class="line">a1.sources.r1.filegroups = f1</span><br><span class="line">a1.sources.r1.filegroups.f1=/usr/local/nginx/logs/access.log</span><br><span class="line"></span><br><span class="line">a1.channels.c1.type=memory</span><br><span class="line">a1.channels.c1.capacity=10000</span><br><span class="line">a1.channels.c1.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.channels.c2.type=memory</span><br><span class="line">a1.channels.c2.capacity=10000</span><br><span class="line">a1.channels.c2.transactionCapacity=100</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type = hdfs</span><br><span class="line">a1.sinks.k1.hdfs.path=/data/hkjcpdd/%Y%m%d</span><br><span class="line">a1.sinks.k1.hdfs.useLocalTimeStamp=true</span><br><span class="line">a1.sinks.k1.hdfs.rollInterval=10</span><br><span class="line">a1.sinks.k1.hdfs.fileType=DataStream</span><br><span class="line"></span><br><span class="line">a1.sinks.k2.type = org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line">a1.sinks.k2.kafka.bootstrap.servers = master:9092</span><br><span class="line">a1.sinks.k2.kafka.topic = hkjcpdd</span><br><span class="line"></span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br><span class="line">a1.sinks.k2.channel = c1</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flume </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> Flume </tag>
             
         </tags>
       
@@ -997,11 +970,11 @@
     
     
     <entry>
-      <title>Azkaban的最简单案例</title>
-      <link href="/posts/967.html"/>
-      <url>/posts/967.html</url>
+      <title>AzkabanAzkaban搭建</title>
+      <link href="/posts/968.html"/>
+      <url>/posts/968.html</url>
       
-        <content type="html"><![CDATA[<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># first.project</span><br><span class="line">azkaban-flow-version: <span class="number">2</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># first.flow</span><br><span class="line"><span class="function">nodes:</span></span><br><span class="line"><span class="function">  - <span class="title">name</span>: <span class="title">jobA</span></span></span><br><span class="line"><span class="function">    <span class="title">type</span>: <span class="title">command</span></span></span><br><span class="line"><span class="function">    <span class="title">config</span>:</span></span><br><span class="line"><span class="function">      <span class="title">command</span>: <span class="title">echo</span> &quot;<span class="title">hkjcpdd</span>&quot;</span></span><br></pre></td></tr></table></figure><p>然后将这两个打包成zip然后上传至webui界面提交即可</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-在搭建之前得有mysql环境-以及my-cnf文件中添加max-allowed-packet-x3D-1024M并重启mysql服务"><a href="#1-在搭建之前得有mysql环境-以及my-cnf文件中添加max-allowed-packet-x3D-1024M并重启mysql服务" class="headerlink" title="1.在搭建之前得有mysql环境,以及my.cnf文件中添加max_allowed_packet&#x3D;1024M并重启mysql服务"></a>1.在搭建之前得有mysql环境,以及my.cnf文件中添加max_allowed_packet&#x3D;1024M并重启mysql服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置mysql相关部分(db)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入Mysql然后创建azkaban库</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入库并<span class="built_in">source</span>进来azkaban-db/create-all-sql-3.84.4.sql</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改以下配置项(<span class="built_in">exec</span>)</span></span><br><span class="line">default.timezone.id=Asia/Shanghai</span><br><span class="line">executor.port=12321</span><br><span class="line">jetty.port=8061</span><br><span class="line">azkaban.webserver.url=http://master:8061</span><br><span class="line"></span><br><span class="line">mysql.host=master</span><br><span class="line">mysql.user=root</span><br><span class="line">mysql.password=123456</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后进行分发到其他机器，然后每台都要启动</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最后进行激活</span></span><br><span class="line">[root@master azkaban-exec-server]# curl -G &quot;master:12321/executor?action=activate&quot; &amp;&amp; echo</span><br><span class="line">&#123;&quot;status&quot;:&quot;success&quot;&#125;</span><br><span class="line">[root@master azkaban-exec-server]# curl -G &quot;slave1:12321/executor?action=activate&quot; &amp;&amp; echo</span><br><span class="line">&#123;&quot;status&quot;:&quot;success&quot;&#125;</span><br><span class="line">[root@master azkaban-exec-server]# curl -G &quot;slave2:12321/executor?action=activate&quot; &amp;&amp; echo</span><br><span class="line">&#123;&quot;status&quot;:&quot;success&quot;&#125;</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改一下配置项(web)</span></span><br><span class="line">default.timezone.id=Asia/Shanghai</span><br><span class="line">jetty.port=8061</span><br><span class="line"></span><br><span class="line">mysql.host=master</span><br><span class="line">mysql.user=root</span><br><span class="line">mysql.password=123456</span><br><span class="line">azkaban.executorselector.filters=StaticRemainingFlowSize,CpuStatus</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置azkaban-users.xml</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加一行即可</span></span><br><span class="line">&lt;user password=&quot;123456&quot; roles=&quot;admin&quot; username=&quot;hkjcpdd&quot;/&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后启动即可</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1024,11 +997,11 @@
     
     
     <entry>
-      <title>Azkaban的JavaProcess作业案例</title>
-      <link href="/posts/966.html"/>
-      <url>/posts/966.html</url>
+      <title>Azkaban的最简单案例</title>
+      <link href="/posts/967.html"/>
+      <url>/posts/967.html</url>
       
-        <content type="html"><![CDATA[<h2 id="JavaProcess作业类型案例"><a href="#JavaProcess作业类型案例" class="headerlink" title="JavaProcess作业类型案例"></a>JavaProcess作业类型案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">JavaProcess类型可以运行一个自定义主类方法，<span class="built_in">type</span>类型为javaprocess,可用的配置为：</span></span><br><span class="line"></span><br><span class="line">​Xms: 最小堆</span><br><span class="line">​Xmx: 最大堆</span><br><span class="line">​classpath: 类路径</span><br><span class="line">​java.class: 要运行的Java对象，其中必须包含Main方法</span><br><span class="line">​main.args: main方法的参数</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">案例：</span></span><br><span class="line"></span><br><span class="line">1)新建一个azkaban的maven工程</span><br><span class="line">2）创建包名：com.hkjcpdd</span><br><span class="line">3)创建AzTest类</span><br><span class="line">4)打包jar包azkaban.jar</span><br><span class="line">5)新建testJava.flow</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">five.flow</span></span><br><span class="line">nodes:</span><br><span class="line">  - name: test_java</span><br><span class="line">    type: javaprocess</span><br><span class="line">    config:</span><br><span class="line">      Xms: 96M</span><br><span class="line">      Xmx: 200M</span><br><span class="line">      java.class: com.hkjcpdd.TestJavaProcess</span><br><span class="line">      </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后将flow和jar和project打包在一起上传即可</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># first.project</span><br><span class="line">azkaban-flow-version: <span class="number">2</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># first.flow</span><br><span class="line"><span class="function">nodes:</span></span><br><span class="line"><span class="function">  - <span class="title">name</span>: <span class="title">jobA</span></span></span><br><span class="line"><span class="function">    <span class="title">type</span>: <span class="title">command</span></span></span><br><span class="line"><span class="function">    <span class="title">config</span>:</span></span><br><span class="line"><span class="function">      <span class="title">command</span>: <span class="title">echo</span> &quot;<span class="title">hkjcpdd</span>&quot;</span></span><br></pre></td></tr></table></figure><p>然后将这两个打包成zip然后上传至webui界面提交即可</p>]]></content>
       
       
       <categories>
@@ -1078,11 +1051,11 @@
     
     
     <entry>
-      <title>Azkaban失败重试</title>
-      <link href="/posts/958.html"/>
-      <url>/posts/958.html</url>
+      <title>Azkaban的JavaProcess作业案例</title>
+      <link href="/posts/966.html"/>
+      <url>/posts/966.html</url>
       
-        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自动失败重试</span></span><br><span class="line">nodes:</span><br><span class="line">  - name: jobA</span><br><span class="line">  type: command</span><br><span class="line">  config:</span><br><span class="line">    command: sh /not exists.sh</span><br><span class="line">    retries: 3</span><br><span class="line">    retry.backoff: 10000</span><br><span class="line">    </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">参数说明：</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retries: 重试次数</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retry.backoff: 重试的时间间隔</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">手动失败重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">理想的就是从成功的地方跳过，失败的地方重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需求：JobA =&gt; JobB(依赖于A) =&gt; JobC =&gt; JobD =&gt; JobE =&gt; JobF。生产环境中，任何Job都有可能挂掉，可以根据需求执行想要的Job</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接从webui操作</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.<span class="built_in">history</span>-&gt;flow-&gt;Prepare execution-&gt;execute</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.就是从头开始，但是把成功的<span class="built_in">disable</span>就可以了</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="JavaProcess作业类型案例"><a href="#JavaProcess作业类型案例" class="headerlink" title="JavaProcess作业类型案例"></a>JavaProcess作业类型案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">JavaProcess类型可以运行一个自定义主类方法，<span class="built_in">type</span>类型为javaprocess,可用的配置为：</span></span><br><span class="line"></span><br><span class="line">​Xms: 最小堆</span><br><span class="line">​Xmx: 最大堆</span><br><span class="line">​classpath: 类路径</span><br><span class="line">​java.class: 要运行的Java对象，其中必须包含Main方法</span><br><span class="line">​main.args: main方法的参数</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">案例：</span></span><br><span class="line"></span><br><span class="line">1)新建一个azkaban的maven工程</span><br><span class="line">2）创建包名：com.hkjcpdd</span><br><span class="line">3)创建AzTest类</span><br><span class="line">4)打包jar包azkaban.jar</span><br><span class="line">5)新建testJava.flow</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">five.flow</span></span><br><span class="line">nodes:</span><br><span class="line">  - name: test_java</span><br><span class="line">    type: javaprocess</span><br><span class="line">    config:</span><br><span class="line">      Xms: 96M</span><br><span class="line">      Xmx: 200M</span><br><span class="line">      java.class: com.hkjcpdd.TestJavaProcess</span><br><span class="line">      </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后将flow和jar和project打包在一起上传即可</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1105,11 +1078,11 @@
     
     
     <entry>
-      <title>Azkaban邮件报警案例</title>
-      <link href="/posts/964.html"/>
-      <url>/posts/964.html</url>
+      <title>Azkaban失败重试</title>
+      <link href="/posts/958.html"/>
+      <url>/posts/958.html</url>
       
-        <content type="html"><![CDATA[<h2 id="邮件报警案例"><a href="#邮件报警案例" class="headerlink" title="邮件报警案例"></a>邮件报警案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">得先从邮箱那里开启STMP的服务，拿到授权码</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后进入<span class="variable">$azkaban</span>-web/conf/azkaban.properties</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改22和23行</span></span><br><span class="line">mail.sender=邮箱地址</span><br><span class="line">mail.host=smtp.qq.com</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">加上</span></span><br><span class="line">mail.user=邮箱地址</span><br><span class="line">mail.password=授权码</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新启动azkaban-web</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动任务的地方左侧有个Notification（通知）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后将邮箱地址放进那两个框，一个是失败发送给谁，一个是成功发送给谁，可以指定多个</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自动失败重试</span></span><br><span class="line">nodes:</span><br><span class="line">  - name: jobA</span><br><span class="line">  type: command</span><br><span class="line">  config:</span><br><span class="line">    command: sh /not exists.sh</span><br><span class="line">    retries: 3</span><br><span class="line">    retry.backoff: 10000</span><br><span class="line">    </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">参数说明：</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retries: 重试次数</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retry.backoff: 重试的时间间隔</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">手动失败重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">理想的就是从成功的地方跳过，失败的地方重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需求：JobA =&gt; JobB(依赖于A) =&gt; JobC =&gt; JobD =&gt; JobE =&gt; JobF。生产环境中，任何Job都有可能挂掉，可以根据需求执行想要的Job</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接从webui操作</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.<span class="built_in">history</span>-&gt;flow-&gt;Prepare execution-&gt;execute</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.就是从头开始，但是把成功的<span class="built_in">disable</span>就可以了</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1164,6 +1137,33 @@
       <url>/posts/962.html</url>
       
         <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.运行时参数案例</span></span><br><span class="line">1) 基本原理</span><br><span class="line">  （1）父Job将参数写入JOB_OUTPUT_PROP_FILE环境变量所指向的文件</span><br><span class="line">  （2）子Job使用$&#123;jobName:param&#125;来获取父Job输出的参数并定义执行条件</span><br><span class="line">2）支持的条件运算符</span><br></pre></td></tr></table></figure><p><img src="https://pic1.imgdb.cn/item/6775fc45d0e0a243d4ed9ee4.png"></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">案例需求：</span></span><br><span class="line">jobA执行一个shell脚本</span><br><span class="line">jobB执行一个shell脚本，但jobBJ不需要每天都执行，而只需要每个周一执行</span><br><span class="line"></span><br><span class="line">(1)新建jobA.sh</span><br><span class="line">(2)新建jobB.sh</span><br><span class="line">(3)condition.flow</span><br><span class="line">nodes:</span><br><span class="line">  - name: JobA</span><br><span class="line">    type: command</span><br><span class="line">    config:</span><br><span class="line">      command: sh JobA.sh  </span><br><span class="line">  - name: JobB</span><br><span class="line">    type: command</span><br><span class="line">    dependsOn:</span><br><span class="line">      - JobA</span><br><span class="line">    config:</span><br><span class="line">      command: sh JobB.sh</span><br><span class="line">    condition: $&#123;JobA:wk&#125;==1</span><br><span class="line">(4)将JobA.sh、JobB.sh、condition.flow和azkaban.project打包成condition.zip</span><br><span class="line">(5)创建condition项目=&gt;上传condition.zip文件=&gt;执行作业=&gt;观察结果</span><br><span class="line">(6)按照我们设定的条件，JobB会根据当日日期决定是否执行</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">预定义宏案例</span></span><br><span class="line"></span><br><span class="line">Azkaban中预置了几个特殊的判断条件，称为预定义宏</span><br><span class="line">预定义宏会根据所有父Job的完成情况进行判断，再决定是否执行。可用的预定义宏如下：</span><br><span class="line"></span><br><span class="line">- (1)all_success:表示父Job全部成功才执行（默认）</span><br><span class="line">- (2)all_done: 表示父Job全部完成才执行</span><br><span class="line">- (3)all_failed:表示父Job全部失败才执行</span><br><span class="line">- (4)one_success:表示父Job至少一个成功才执行</span><br><span class="line">- (5)one_failed: 表示父Job至少一个失败才执行</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">案例 需求：</span></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">JobA执行一个shell脚本</span><br><span class="line">JobB执行一个shell脚本</span><br><span class="line">JobC执行一个shell脚本</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">1.新建JobA.sh</span><br><span class="line">2.新建JobC.sh</span><br><span class="line">3.新建marco.flow</span><br><span class="line">nodes:</span><br><span class="line">  - name: JobA</span><br><span class="line">    type: command</span><br><span class="line">    config:</span><br><span class="line">      command: sh aaa.sh</span><br><span class="line">  - name: JobB</span><br><span class="line">    type: command</span><br><span class="line">    config:</span><br><span class="line">      command: sh jobB.sh</span><br><span class="line">  - name: JobC</span><br><span class="line">    type: command</span><br><span class="line">    dependsOn:</span><br><span class="line">      - JobA</span><br><span class="line">      - JobB</span><br><span class="line">    config:</span><br><span class="line">      command: sh bbb.sh</span><br><span class="line">    condition: one_success</span><br><span class="line">4.打包上传，可以看到只要一个成功就可以执行jobC</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Azkaban </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> Azkaban </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Azkaban邮件报警案例</title>
+      <link href="/posts/964.html"/>
+      <url>/posts/964.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="邮件报警案例"><a href="#邮件报警案例" class="headerlink" title="邮件报警案例"></a>邮件报警案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">得先从邮箱那里开启STMP的服务，拿到授权码</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后进入<span class="variable">$azkaban</span>-web/conf/azkaban.properties</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改22和23行</span></span><br><span class="line">mail.sender=邮箱地址</span><br><span class="line">mail.host=smtp.qq.com</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">加上</span></span><br><span class="line">mail.user=邮箱地址</span><br><span class="line">mail.password=授权码</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新启动azkaban-web</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动任务的地方左侧有个Notification（通知）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后将邮箱地址放进那两个框，一个是失败发送给谁，一个是成功发送给谁，可以指定多个</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1483,33 +1483,6 @@
     
     
     <entry>
-      <title>docker-dockerfile</title>
-      <link href="/posts/d3ce.html"/>
-      <url>/posts/d3ce.html</url>
-      
-        <content type="html"><![CDATA[<p>404</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> demo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>docker-compose</title>
       <link href="/posts/713b.html"/>
       <url>/posts/713b.html</url>
@@ -1564,33 +1537,6 @@
     
     
     <entry>
-      <title>docker保存镜像</title>
-      <link href="/posts/287f.html"/>
-      <url>/posts/287f.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="提交：docker-commit"><a href="#提交：docker-commit" class="headerlink" title="提交：docker commit"></a>提交：docker commit</h3><ul><li>docker commit [option] 名字就是用着的那个镜像的名字 新建镜像的名字:版本号</li><li>docker commit -m “update index.html” mynginx mynginx:1.0</li><li>-m 版本信息之类的</li></ul><h3 id="保存-docker-save"><a href="#保存-docker-save" class="headerlink" title="保存: docker save"></a>保存: docker save</h3><ul><li>docker save -o mynginx.tar mynginx:1.0</li><li>-o 保存出来就是本地</li></ul><h3 id="加载：docker-load"><a href="#加载：docker-load" class="headerlink" title="加载：docker load"></a>加载：docker load</h3><p>docker load -i mynginx.tar</p><p>-i就是读取本地的镜像</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> demo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>docker分享社区</title>
       <link href="/posts/e3ea.html"/>
       <url>/posts/e3ea.html</url>
@@ -1618,11 +1564,11 @@
     
     
     <entry>
-      <title>docker国内镜像源</title>
-      <link href="/posts/ec39.html"/>
-      <url>/posts/ec39.html</url>
+      <title>docker保存镜像</title>
+      <link href="/posts/287f.html"/>
+      <url>/posts/287f.html</url>
       
-        <content type="html"><![CDATA[<h3 id="进入配置文件registry-mirror：需要重启docker服务"><a href="#进入配置文件registry-mirror：需要重启docker服务" class="headerlink" title="进入配置文件registry mirror：需要重启docker服务"></a>进入配置文件registry mirror：需要重启docker服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker</span><br><span class="line">tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot;: [</span><br><span class="line">&quot;https://do.nark.eu.org&quot;,</span><br><span class="line">&quot;https://dc.j8.work&quot;,</span><br><span class="line">&quot;https://docker.m.daocloud.io&quot;,</span><br><span class="line">&quot;https://dockerproxy.com&quot;,</span><br><span class="line">&quot;https://docker.mirrors.ustc.edu.cn&quot;,</span><br><span class="line">&quot;https://docker.nju.edu.cn&quot;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h3 id="提交：docker-commit"><a href="#提交：docker-commit" class="headerlink" title="提交：docker commit"></a>提交：docker commit</h3><ul><li>docker commit [option] 名字就是用着的那个镜像的名字 新建镜像的名字:版本号</li><li>docker commit -m “update index.html” mynginx mynginx:1.0</li><li>-m 版本信息之类的</li></ul><h3 id="保存-docker-save"><a href="#保存-docker-save" class="headerlink" title="保存: docker save"></a>保存: docker save</h3><ul><li>docker save -o mynginx.tar mynginx:1.0</li><li>-o 保存出来就是本地</li></ul><h3 id="加载：docker-load"><a href="#加载：docker-load" class="headerlink" title="加载：docker load"></a>加载：docker load</h3><p>docker load -i mynginx.tar</p><p>-i就是读取本地的镜像</p>]]></content>
       
       
       <categories>
@@ -1699,6 +1645,33 @@
     
     
     <entry>
+      <title>docker国内镜像源</title>
+      <link href="/posts/ec39.html"/>
+      <url>/posts/ec39.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="进入配置文件registry-mirror：需要重启docker服务"><a href="#进入配置文件registry-mirror：需要重启docker服务" class="headerlink" title="进入配置文件registry mirror：需要重启docker服务"></a>进入配置文件registry mirror：需要重启docker服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker</span><br><span class="line">tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot;: [</span><br><span class="line">&quot;https://do.nark.eu.org&quot;,</span><br><span class="line">&quot;https://dc.j8.work&quot;,</span><br><span class="line">&quot;https://docker.m.daocloud.io&quot;,</span><br><span class="line">&quot;https://dockerproxy.com&quot;,</span><br><span class="line">&quot;https://docker.mirrors.ustc.edu.cn&quot;,</span><br><span class="line">&quot;https://docker.nju.edu.cn&quot;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> demo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker网络</title>
       <link href="/posts/5796.html"/>
       <url>/posts/5796.html</url>
@@ -1731,6 +1704,33 @@
       <url>/posts/287f.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> demo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker-dockerfile</title>
+      <link href="/posts/d3ce.html"/>
+      <url>/posts/d3ce.html</url>
+      
+        <content type="html"><![CDATA[<p>404</p>]]></content>
       
       
       <categories>
