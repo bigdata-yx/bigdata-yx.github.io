@@ -19,32 +19,6 @@
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>数据可视化学习路线</title>
-      <link>https://bigdata-yx.github.io/posts/1083.html</link>
-      <guid>https://bigdata-yx.github.io/posts/1083.html</guid>
-      <pubDate>Mon, 13 Jan 2025 08:12:05 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;大数据数据可视化学习路线&quot;&gt;&lt;a href=&quot;#大数据数据可视化学习路线&quot; class=&quot;headerlink&quot; title=&quot;大数据数据可视化学习路线&quot;&gt;&lt;/a&gt;大数据数据可视化学习路线&lt;/h1&gt;&lt;h5 id=&quot;前提：具备一定的Python基础&quot;&gt;&lt;a href</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="大数据数据可视化学习路线"><a href="#大数据数据可视化学习路线" class="headerlink" title="大数据数据可视化学习路线"></a>大数据数据可视化学习路线</h1><h5 id="前提：具备一定的Python基础"><a href="#前提：具备一定的Python基础" class="headerlink" title="前提：具备一定的Python基础"></a>前提：具备一定的Python基础</h5><h2 id="1-python的基础学习，以及进阶学习"><a href="#1-python的基础学习，以及进阶学习" class="headerlink" title="1.python的基础学习，以及进阶学习"></a>1.python的基础学习，以及进阶学习</h2><p>【黑马程序员python教程，8天python从入门到精通，学python看这套就够了】<a href>https://www.bilibili.com/video/BV1qW4y1a7fU?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="2-numpy、pandas的入门学习（先学numpy）"><a href="#2-numpy、pandas的入门学习（先学numpy）" class="headerlink" title="2.numpy、pandas的入门学习（先学numpy）"></a>2.numpy、pandas的入门学习（先学numpy）</h3><p>【【人工智能必备：Python数据分析】AI博士半天就教会我大学一直没学会的利用Python进行数据分析！怎么可以讲的如此通俗，太强了！】<a href>https://www.bilibili.com/video/BV1ru411U772?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="3-数据可视化matplotlib库的基础绘图"><a href="#3-数据可视化matplotlib库的基础绘图" class="headerlink" title="3.数据可视化matplotlib库的基础绘图"></a>3.数据可视化matplotlib库的基础绘图</h3><p>【千锋教育python数据可视化Matplotlib绘图教程，Matplotlib柱状图｜Matplotlib动态图｜Matplotlib散点图】<a href>https://www.bilibili.com/video/BV1nM411m7Cf?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="4-数据可视化进阶绘图基于matplotlib的seaborn库-从p51开始看"><a href="#4-数据可视化进阶绘图基于matplotlib的seaborn库-从p51开始看" class="headerlink" title="4.数据可视化进阶绘图基于matplotlib的seaborn库  (从p51开始看)"></a>4.数据可视化进阶绘图基于matplotlib的seaborn库  (从p51开始看)</h3><p>【【人工智能必备：Python数据分析】AI博士半天就教会我大学一直没学会的利用Python进行数据分析！怎么可以讲的如此通俗，太强了！】<a href>https://www.bilibili.com/video/BV1ru411U772?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="5-数据可视化pyecharts可交互式基础绘图"><a href="#5-数据可视化pyecharts可交互式基础绘图" class="headerlink" title="5.数据可视化pyecharts可交互式基础绘图"></a>5.数据可视化pyecharts可交互式基础绘图</h3><p>【千锋教育PyEcharts数据可视化快速入门教程，大数据分析Python交互绘图实用利器】<a href>https://www.bilibili.com/video/BV1nM411F7GT?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="6-数据可视化tableau图标绘图"><a href="#6-数据可视化tableau图标绘图" class="headerlink" title="6.数据可视化tableau图标绘图"></a>6.数据可视化tableau图标绘图</h3><p>【【Tableau教程】Tableau零基础教程，带你解锁当下最受欢迎的数据可视化软件】<a href>https://www.bilibili.com/video/BV1E4411B7ef?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="7-数据交互式可视化进阶绘图前提基础html"><a href="#7-数据交互式可视化进阶绘图前提基础html" class="headerlink" title="7.数据交互式可视化进阶绘图前提基础html"></a>7.数据交互式可视化进阶绘图前提基础html</h3><p>【黑马程序员pink老师前端入门教程，零基础必看的h5(html5)+css3+移动端前端视频教程】<a href>https://www.bilibili.com/video/BV14J4114768?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="8-数据可视化echarts可交互式进阶绘图"><a href="#8-数据可视化echarts可交互式进阶绘图" class="headerlink" title="8.数据可视化echarts可交互式进阶绘图"></a>8.数据可视化echarts可交互式进阶绘图</h3><p>【电商平台数据可视化实时监控系统-Echarts-vue项目综合练习-pink老师推荐(持续更新)素材已经更新】<a href>https://www.bilibili.com/video/BV1bh41197p8?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="9-使用vue进行数据可视化前提基础Node-js"><a href="#9-使用vue进行数据可视化前提基础Node-js" class="headerlink" title="9.使用vue进行数据可视化前提基础Node.js"></a>9.使用vue进行数据可视化前提基础Node.js</h3><p>【黑马程序员Node.js全套入门教程，nodejs新教程含es6模块化+npm+express+webpack+promise等_Nodejs实战案例详解】<a href>https://www.bilibili.com/video/BV1a34y167AZ?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="10-使用vue进行数据可视化"><a href="#10-使用vue进行数据可视化" class="headerlink" title="10.使用vue进行数据可视化"></a>10.使用vue进行数据可视化</h3><p>【千锋Echarts+Vue3.0数据可视化项目构建_入门必备前端项目实战教程】<a href>https://www.bilibili.com/video/BV14u411D7qK?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">学习路线</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">学习路线</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/1083.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>数据处理学习路线</title>
       <link>https://bigdata-yx.github.io/posts/1082.html</link>
       <guid>https://bigdata-yx.github.io/posts/1082.html</guid>
@@ -68,6 +42,32 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/1082.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据可视化学习路线</title>
+      <link>https://bigdata-yx.github.io/posts/1083.html</link>
+      <guid>https://bigdata-yx.github.io/posts/1083.html</guid>
+      <pubDate>Mon, 13 Jan 2025 08:12:05 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;大数据数据可视化学习路线&quot;&gt;&lt;a href=&quot;#大数据数据可视化学习路线&quot; class=&quot;headerlink&quot; title=&quot;大数据数据可视化学习路线&quot;&gt;&lt;/a&gt;大数据数据可视化学习路线&lt;/h1&gt;&lt;h5 id=&quot;前提：具备一定的Python基础&quot;&gt;&lt;a href</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="大数据数据可视化学习路线"><a href="#大数据数据可视化学习路线" class="headerlink" title="大数据数据可视化学习路线"></a>大数据数据可视化学习路线</h1><h5 id="前提：具备一定的Python基础"><a href="#前提：具备一定的Python基础" class="headerlink" title="前提：具备一定的Python基础"></a>前提：具备一定的Python基础</h5><h2 id="1-python的基础学习，以及进阶学习"><a href="#1-python的基础学习，以及进阶学习" class="headerlink" title="1.python的基础学习，以及进阶学习"></a>1.python的基础学习，以及进阶学习</h2><p>【黑马程序员python教程，8天python从入门到精通，学python看这套就够了】<a href>https://www.bilibili.com/video/BV1qW4y1a7fU?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="2-numpy、pandas的入门学习（先学numpy）"><a href="#2-numpy、pandas的入门学习（先学numpy）" class="headerlink" title="2.numpy、pandas的入门学习（先学numpy）"></a>2.numpy、pandas的入门学习（先学numpy）</h3><p>【【人工智能必备：Python数据分析】AI博士半天就教会我大学一直没学会的利用Python进行数据分析！怎么可以讲的如此通俗，太强了！】<a href>https://www.bilibili.com/video/BV1ru411U772?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="3-数据可视化matplotlib库的基础绘图"><a href="#3-数据可视化matplotlib库的基础绘图" class="headerlink" title="3.数据可视化matplotlib库的基础绘图"></a>3.数据可视化matplotlib库的基础绘图</h3><p>【千锋教育python数据可视化Matplotlib绘图教程，Matplotlib柱状图｜Matplotlib动态图｜Matplotlib散点图】<a href>https://www.bilibili.com/video/BV1nM411m7Cf?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="4-数据可视化进阶绘图基于matplotlib的seaborn库-从p51开始看"><a href="#4-数据可视化进阶绘图基于matplotlib的seaborn库-从p51开始看" class="headerlink" title="4.数据可视化进阶绘图基于matplotlib的seaborn库  (从p51开始看)"></a>4.数据可视化进阶绘图基于matplotlib的seaborn库  (从p51开始看)</h3><p>【【人工智能必备：Python数据分析】AI博士半天就教会我大学一直没学会的利用Python进行数据分析！怎么可以讲的如此通俗，太强了！】<a href>https://www.bilibili.com/video/BV1ru411U772?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="5-数据可视化pyecharts可交互式基础绘图"><a href="#5-数据可视化pyecharts可交互式基础绘图" class="headerlink" title="5.数据可视化pyecharts可交互式基础绘图"></a>5.数据可视化pyecharts可交互式基础绘图</h3><p>【千锋教育PyEcharts数据可视化快速入门教程，大数据分析Python交互绘图实用利器】<a href>https://www.bilibili.com/video/BV1nM411F7GT?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="6-数据可视化tableau图标绘图"><a href="#6-数据可视化tableau图标绘图" class="headerlink" title="6.数据可视化tableau图标绘图"></a>6.数据可视化tableau图标绘图</h3><p>【【Tableau教程】Tableau零基础教程，带你解锁当下最受欢迎的数据可视化软件】<a href>https://www.bilibili.com/video/BV1E4411B7ef?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="7-数据交互式可视化进阶绘图前提基础html"><a href="#7-数据交互式可视化进阶绘图前提基础html" class="headerlink" title="7.数据交互式可视化进阶绘图前提基础html"></a>7.数据交互式可视化进阶绘图前提基础html</h3><p>【黑马程序员pink老师前端入门教程，零基础必看的h5(html5)+css3+移动端前端视频教程】<a href>https://www.bilibili.com/video/BV14J4114768?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="8-数据可视化echarts可交互式进阶绘图"><a href="#8-数据可视化echarts可交互式进阶绘图" class="headerlink" title="8.数据可视化echarts可交互式进阶绘图"></a>8.数据可视化echarts可交互式进阶绘图</h3><p>【电商平台数据可视化实时监控系统-Echarts-vue项目综合练习-pink老师推荐(持续更新)素材已经更新】<a href>https://www.bilibili.com/video/BV1bh41197p8?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="9-使用vue进行数据可视化前提基础Node-js"><a href="#9-使用vue进行数据可视化前提基础Node-js" class="headerlink" title="9.使用vue进行数据可视化前提基础Node.js"></a>9.使用vue进行数据可视化前提基础Node.js</h3><p>【黑马程序员Node.js全套入门教程，nodejs新教程含es6模块化+npm+express+webpack+promise等_Nodejs实战案例详解】<a href>https://www.bilibili.com/video/BV1a34y167AZ?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p><h3 id="10-使用vue进行数据可视化"><a href="#10-使用vue进行数据可视化" class="headerlink" title="10.使用vue进行数据可视化"></a>10.使用vue进行数据可视化</h3><p>【千锋Echarts+Vue3.0数据可视化项目构建_入门必备前端项目实战教程】<a href>https://www.bilibili.com/video/BV14u411D7qK?vd_source&#x3D;90fd85d804fb97442fbceaa1b3402436</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">学习路线</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">学习路线</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/1083.html#disqus_thread</comments>
       
     </item>
     
@@ -239,34 +239,6 @@
     </item>
     
     <item>
-      <title>Sqoop应用案例</title>
-      <link>https://bigdata-yx.github.io/posts/3987.html</link>
-      <guid>https://bigdata-yx.github.io/posts/3987.html</guid>
-      <pubDate>Mon, 13 Jan 2025 08:07:49 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;a href=&quot;#创建一个执行文件然后给予权限然后执行&quot; class=&quot;headerlink&quot; title=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;/a&gt;&lt;strong&gt;创建一个执行文件然后给予权限然后执行&lt;/stro</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="创建一个执行文件然后给予权限然后执行"><a href="#创建一个执行文件然后给予权限然后执行" class="headerlink" title="创建一个执行文件然后给予权限然后执行"></a><strong>创建一个执行文件然后给予权限然后执行</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">batch_date=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--usernmae root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--target-dir hive表hdfs目录 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--split-by <span class="built_in">id</span> \</span><br><span class="line">--query select * from city</span><br><span class="line"></span><br><span class="line">result=$?</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [<span class="variable">$result</span> != 0];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;执行失败&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">else</span>  <span class="string">&quot;执行成功&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd </span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Sqoop/">Sqoop</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Sqoop/">Sqoop</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/3987.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>Sqoop搭建</title>
       <link>https://bigdata-yx.github.io/posts/3984.html</link>
       <guid>https://bigdata-yx.github.io/posts/3984.html</guid>
@@ -291,6 +263,34 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/3984.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Sqoop应用案例</title>
+      <link>https://bigdata-yx.github.io/posts/3987.html</link>
+      <guid>https://bigdata-yx.github.io/posts/3987.html</guid>
+      <pubDate>Mon, 13 Jan 2025 08:07:49 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;a href=&quot;#创建一个执行文件然后给予权限然后执行&quot; class=&quot;headerlink&quot; title=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;/a&gt;&lt;strong&gt;创建一个执行文件然后给予权限然后执行&lt;/stro</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="创建一个执行文件然后给予权限然后执行"><a href="#创建一个执行文件然后给予权限然后执行" class="headerlink" title="创建一个执行文件然后给予权限然后执行"></a><strong>创建一个执行文件然后给予权限然后执行</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">batch_date=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--usernmae root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--target-dir hive表hdfs目录 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--split-by <span class="built_in">id</span> \</span><br><span class="line">--query select * from city</span><br><span class="line"></span><br><span class="line">result=$?</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [<span class="variable">$result</span> != 0];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;执行失败&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">else</span>  <span class="string">&quot;执行成功&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd </span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Sqoop/">Sqoop</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Sqoop/">Sqoop</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/3987.html#disqus_thread</comments>
       
     </item>
     
@@ -325,34 +325,6 @@
     </item>
     
     <item>
-      <title>Sqoop导出</title>
-      <link>https://bigdata-yx.github.io/posts/3990.html</link>
-      <guid>https://bigdata-yx.github.io/posts/3990.html</guid>
-      <pubDate>Mon, 13 Jan 2025 08:07:49 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;1-从hdfs导出到mysql里&quot;&gt;&lt;a href=&quot;#1-从hdfs导出到mysql里&quot; class=&quot;headerlink&quot; title=&quot;1.从hdfs导出到mysql里&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.从hdfs导出到mysql里&lt;/strong&gt;&lt;/h3&gt;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="1-从hdfs导出到mysql里"><a href="#1-从hdfs导出到mysql里" class="headerlink" title="1.从hdfs导出到mysql里"></a><strong>1.从hdfs导出到mysql里</strong></h3><ol><li><h4 id="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"><a href="#要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表" class="headerlink" title="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"></a>要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表</h4></li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir hdfs路径指定到文件 \  <span class="comment"># 要导出的文件</span></span><br><span class="line">--table emp \    <span class="comment"># 导出到哪张Mysql表</span></span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--input-fields-terminated-by <span class="string">&#x27;|&#x27;</span>  <span class="comment"># 分隔符</span></span><br></pre></td></tr></table></figure><h3 id="2-从hive导出到Mysql中"><a href="#2-从hive导出到Mysql中" class="headerlink" title="2.从hive导出到Mysql中"></a><strong>2.从hive导出到Mysql中</strong></h3><h4 id="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"><a href="#sqoop的export命令支持insert、update到关系型数据库，但是不支持merge" class="headerlink" title="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"></a><strong>sqoop的export命令支持insert、update到关系型数据库，但是不支持merge</strong></h4><h4 id="1-hive表导入Mysql数据库insert（直接写入）"><a href="#1-hive表导入Mysql数据库insert（直接写入）" class="headerlink" title="1.hive表导入Mysql数据库insert（直接写入）"></a><strong>1.hive表导入Mysql数据库insert（直接写入）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--table cityhkjcpdd </span><br><span class="line">--num-mappers 4 </span><br><span class="line">--fields-terminated-by <span class="string">&#x27;,&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="2-从hive表导入mysql数据库update（追加替换相同）"><a href="#2-从hive表导入mysql数据库update（追加替换相同）" class="headerlink" title="2.从hive表导入mysql数据库update（追加替换相同）"></a><strong>2.从hive表导入mysql数据库update（追加替换相同）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--update-key <span class="built_in">id</span> \    <span class="comment"># 根据id来进行去重</span></span><br><span class="line">--fields-terminated-by <span class="string">&#x27;\t&#x27;</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Sqoop/">Sqoop</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Sqoop/">Sqoop</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/3990.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>全量导入hive表和增量导入hive表</title>
       <link>https://bigdata-yx.github.io/posts/3991.html</link>
       <guid>https://bigdata-yx.github.io/posts/3991.html</guid>
@@ -377,6 +349,34 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/3991.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Sqoop导出</title>
+      <link>https://bigdata-yx.github.io/posts/3990.html</link>
+      <guid>https://bigdata-yx.github.io/posts/3990.html</guid>
+      <pubDate>Mon, 13 Jan 2025 08:07:49 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-从hdfs导出到mysql里&quot;&gt;&lt;a href=&quot;#1-从hdfs导出到mysql里&quot; class=&quot;headerlink&quot; title=&quot;1.从hdfs导出到mysql里&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.从hdfs导出到mysql里&lt;/strong&gt;&lt;/h3&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="1-从hdfs导出到mysql里"><a href="#1-从hdfs导出到mysql里" class="headerlink" title="1.从hdfs导出到mysql里"></a><strong>1.从hdfs导出到mysql里</strong></h3><ol><li><h4 id="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"><a href="#要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表" class="headerlink" title="要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表"></a>要在mysql中创建相对应的表，因为他不会自动创建表，所以我我们在mysql中，根据hdfs文件中的数据，创建对应的表</h4></li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir hdfs路径指定到文件 \  <span class="comment"># 要导出的文件</span></span><br><span class="line">--table emp \    <span class="comment"># 导出到哪张Mysql表</span></span><br><span class="line">--num-mappers 1 \</span><br><span class="line">--input-fields-terminated-by <span class="string">&#x27;|&#x27;</span>  <span class="comment"># 分隔符</span></span><br></pre></td></tr></table></figure><h3 id="2-从hive导出到Mysql中"><a href="#2-从hive导出到Mysql中" class="headerlink" title="2.从hive导出到Mysql中"></a><strong>2.从hive导出到Mysql中</strong></h3><h4 id="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"><a href="#sqoop的export命令支持insert、update到关系型数据库，但是不支持merge" class="headerlink" title="sqoop的export命令支持insert、update到关系型数据库，但是不支持merge"></a><strong>sqoop的export命令支持insert、update到关系型数据库，但是不支持merge</strong></h4><h4 id="1-hive表导入Mysql数据库insert（直接写入）"><a href="#1-hive表导入Mysql数据库insert（直接写入）" class="headerlink" title="1.hive表导入Mysql数据库insert（直接写入）"></a><strong>1.hive表导入Mysql数据库insert（直接写入）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sqoop <span class="built_in">export</span> \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--table cityhkjcpdd </span><br><span class="line">--num-mappers 4 </span><br><span class="line">--fields-terminated-by <span class="string">&#x27;,&#x27;</span></span><br></pre></td></tr></table></figure><h4 id="2-从hive表导入mysql数据库update（追加替换相同）"><a href="#2-从hive表导入mysql数据库update（追加替换相同）" class="headerlink" title="2.从hive表导入mysql数据库update（追加替换相同）"></a><strong>2.从hive表导入mysql数据库update（追加替换相同）</strong></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--export-dir /user/hive/warehouse/hkjcpdd.db/city1 \</span><br><span class="line">--update-key <span class="built_in">id</span> \    <span class="comment"># 根据id来进行去重</span></span><br><span class="line">--fields-terminated-by <span class="string">&#x27;\t&#x27;</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Sqoop/">Sqoop</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Sqoop/">Sqoop</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/3990.html#disqus_thread</comments>
       
     </item>
     
@@ -608,19 +608,19 @@
     </item>
     
     <item>
-      <title>Flume http source 监听Http</title>
-      <link>https://bigdata-yx.github.io/posts/fe59.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe59.html</guid>
+      <title>Flume file_roll sink</title>
+      <link>https://bigdata-yx.github.io/posts/fe62.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe62.html</guid>
       <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;http-source-监听Http&quot;&gt;&lt;a href=&quot;#http-source-监听Http&quot; class=&quot;headerlink&quot; title=&quot;http source 监听Http&quot;&gt;&lt;/a&gt;http source 监听Http&lt;/h2&gt;&lt;blockquo</description>
+      <description>&lt;h2 id=&quot;File-roll-sink&quot;&gt;&lt;a href=&quot;#File-roll-sink&quot; class=&quot;headerlink&quot; title=&quot;File_roll sink&quot;&gt;&lt;/a&gt;File_roll sink&lt;/h2&gt;&lt;p&gt;必须的：type &amp;#x3D; file_r</description>
         
       
       
       
-      <content:encoded><![CDATA[<h2 id="http-source-监听Http"><a href="#http-source-监听Http" class="headerlink" title="http source 监听Http"></a>http source 监听Http</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; http<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>测试办法curl -X POST -d ‘[{“headers”:{“key”:”Flume”},”body”:”TestEvent1”}]’ <a href="http://master:4141/">http://master:4141/</a></p>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="File-roll-sink"><a href="#File-roll-sink" class="headerlink" title="File_roll sink"></a>File_roll sink</h2><p>必须的：type &#x3D; file_roll</p><p>sink.directory 保存在那个目录&amp;#x20;</p><p>非必须：sink.rollInterval &#x3D; 30 就是每过30s就会生成一个新的文件用来存储数据</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; file_roll</p><p>a1.sinks.k1.sink.directory &#x3D; &#x2F;root&#x2F;file_roll&amp;#x20;</p><p>a1.sinks.k1.sink.rollInterval &#x3D; 10</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content:encoded>
       
       
       <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
@@ -631,7 +631,7 @@
       <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
       
       
-      <comments>https://bigdata-yx.github.io/posts/fe59.html#disqus_thread</comments>
+      <comments>https://bigdata-yx.github.io/posts/fe62.html#disqus_thread</comments>
       
     </item>
     
@@ -664,6 +664,34 @@
     </item>
     
     <item>
+      <title>Flume http source 监听Http</title>
+      <link>https://bigdata-yx.github.io/posts/fe59.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe59.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;http-source-监听Http&quot;&gt;&lt;a href=&quot;#http-source-监听Http&quot; class=&quot;headerlink&quot; title=&quot;http source 监听Http&quot;&gt;&lt;/a&gt;http source 监听Http&lt;/h2&gt;&lt;blockquo</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="http-source-监听Http"><a href="#http-source-监听Http" class="headerlink" title="http source 监听Http"></a>http source 监听Http</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; http<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>测试办法curl -X POST -d ‘[{“headers”:{“key”:”Flume”},”body”:”TestEvent1”}]’ <a href="http://master:4141/">http://master:4141/</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe59.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Flume kafka channel</title>
       <link>https://bigdata-yx.github.io/posts/fe58.html</link>
       <guid>https://bigdata-yx.github.io/posts/fe58.html</guid>
@@ -690,34 +718,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe58.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Flume file_roll sink</title>
-      <link>https://bigdata-yx.github.io/posts/fe62.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe62.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;File-roll-sink&quot;&gt;&lt;a href=&quot;#File-roll-sink&quot; class=&quot;headerlink&quot; title=&quot;File_roll sink&quot;&gt;&lt;/a&gt;File_roll sink&lt;/h2&gt;&lt;p&gt;必须的：type &amp;#x3D; file_r</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="File-roll-sink"><a href="#File-roll-sink" class="headerlink" title="File_roll sink"></a>File_roll sink</h2><p>必须的：type &#x3D; file_roll</p><p>sink.directory 保存在那个目录&amp;#x20;</p><p>非必须：sink.rollInterval &#x3D; 30 就是每过30s就会生成一个新的文件用来存储数据</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; file_roll</p><p>a1.sinks.k1.sink.directory &#x3D; &#x2F;root&#x2F;file_roll&amp;#x20;</p><p>a1.sinks.k1.sink.rollInterval &#x3D; 10</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe62.html#disqus_thread</comments>
       
     </item>
     
