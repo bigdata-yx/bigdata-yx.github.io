@@ -2,16 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/1083.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/pd11.html</loc>
     
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2025-01-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/1082.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/pd13.html</loc>
+    
+    <lastmod>2025-01-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/pd12.html</loc>
+    
+    <lastmod>2025-01-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/pd14.html</loc>
+    
+    <lastmod>2025-01-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/1083.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -29,6 +56,15 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/posts/1082.html</loc>
+    
+    <lastmod>2025-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/posts/3985.html</loc>
     
     <lastmod>2025-01-13</lastmod>
@@ -38,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/3992.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/3986.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -47,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/3986.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/3992.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -74,15 +110,6 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/3984.html</loc>
-    
-    <lastmod>2025-01-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/posts/3987.html</loc>
     
     <lastmod>2025-01-13</lastmod>
@@ -93,6 +120,15 @@
   
   <url>
     <loc>https://bigdata-yx.github.io/posts/3989.html</loc>
+    
+    <lastmod>2025-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/3984.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -164,6 +200,15 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/posts/fe64.html</loc>
+    
+    <lastmod>2025-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/posts/fe63.html</loc>
     
     <lastmod>2025-01-13</lastmod>
@@ -182,15 +227,6 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/fe64.html</loc>
-    
-    <lastmod>2025-01-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/posts/fe62.html</loc>
     
     <lastmod>2025-01-13</lastmod>
@@ -200,25 +236,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/fe60.html</loc>
-    
-    <lastmod>2025-01-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/posts/fe59.html</loc>
-    
-    <lastmod>2025-01-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bigdata-yx.github.io/posts/fe58.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -245,15 +263,6 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/fe69.html</loc>
-    
-    <lastmod>2025-01-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/posts/fe56.html</loc>
     
     <lastmod>2025-01-13</lastmod>
@@ -272,7 +281,34 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/posts/fe58.html</loc>
+    
+    <lastmod>2025-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/posts/fe69.html</loc>
+    
+    <lastmod>2025-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/fe69.html</loc>
+    
+    <lastmod>2025-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bigdata-yx.github.io/posts/fe60.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -290,7 +326,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/fe52.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/fe54.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -299,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/fe54.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/fe52.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -326,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/967.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/969.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -335,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/969.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/967.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -362,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/959.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/958.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -371,7 +407,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/posts/958.html</loc>
+    <loc>https://bigdata-yx.github.io/posts/959.html</loc>
     
     <lastmod>2025-01-13</lastmod>
     
@@ -560,6 +596,15 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/posts/af13.html</loc>
+    
+    <lastmod>2024-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/posts/5796.html</loc>
     
     <lastmod>2024-10-25</lastmod>
@@ -570,15 +615,6 @@
   
   <url>
     <loc>https://bigdata-yx.github.io/posts/287f.html</loc>
-    
-    <lastmod>2024-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bigdata-yx.github.io/posts/af13.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -605,15 +641,6 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/11.json</loc>
-    
-    <lastmod>2024-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://bigdata-yx.github.io/custom/history/json/12.json</loc>
     
     <lastmod>2024-10-25</lastmod>
@@ -623,7 +650,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/02.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/11.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -650,6 +677,15 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/custom/history/json/02.json</loc>
+    
+    <lastmod>2024-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/custom/history/json/03.json</loc>
     
     <lastmod>2024-10-25</lastmod>
@@ -668,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/06.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/07.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -686,7 +722,7 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/custom/history/json/07.json</loc>
+    <loc>https://bigdata-yx.github.io/custom/history/json/06.json</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -1125,6 +1161,13 @@
   </url>
   
   <url>
+    <loc>https://bigdata-yx.github.io/tags/Flink/</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/tags/Azkaban/</loc>
     <lastmod>2025-01-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1183,6 +1226,13 @@
 
   
   <url>
+    <loc>https://bigdata-yx.github.io/categories/Flink/</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bigdata-yx.github.io/categories/Azkaban/</loc>
     <lastmod>2025-01-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1218,14 +1268,14 @@
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/categories/Docker/</loc>
+    <loc>https://bigdata-yx.github.io/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/</loc>
     <lastmod>2025-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bigdata-yx.github.io/categories/%E5%9B%BD%E8%B5%9B%E8%B5%9B%E9%A2%98/</loc>
+    <loc>https://bigdata-yx.github.io/categories/Docker/</loc>
     <lastmod>2025-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
