@@ -183,34 +183,6 @@
     </item>
     
     <item>
-      <title>Sqoop导入到Hbase</title>
-      <link>https://bigdata-yx.github.io/posts/3988.html</link>
-      <guid>https://bigdata-yx.github.io/posts/3988.html</guid>
-      <pubDate>Mon, 13 Jan 2025 08:07:49 GMT</pubDate>
-      
-        
-        
-      <description>&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--hbase-create-table \</span><br><span class="line">--hbase-table hkjcpdd:city \</span><br><span class="line">--column-family cf \</span><br><span class="line">--hbase-row-key <span class="built_in">id</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --hbase-row-key:要求mysql表必须有主见，将主键作为rowkey,表示一行</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Sqoop/">Sqoop</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Sqoop/">Sqoop</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/3988.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>Sqoop导入其他格式文件</title>
       <link>https://bigdata-yx.github.io/posts/3994.html</link>
       <guid>https://bigdata-yx.github.io/posts/3994.html</guid>
@@ -239,19 +211,19 @@
     </item>
     
     <item>
-      <title>Sqoop应用案例</title>
-      <link>https://bigdata-yx.github.io/posts/3987.html</link>
-      <guid>https://bigdata-yx.github.io/posts/3987.html</guid>
+      <title>Sqoop导入到Hbase</title>
+      <link>https://bigdata-yx.github.io/posts/3988.html</link>
+      <guid>https://bigdata-yx.github.io/posts/3988.html</guid>
       <pubDate>Mon, 13 Jan 2025 08:07:49 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;a href=&quot;#创建一个执行文件然后给予权限然后执行&quot; class=&quot;headerlink&quot; title=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;/a&gt;&lt;strong&gt;创建一个执行文件然后给予权限然后执行&lt;/stro</description>
+      <description>&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l</description>
         
       
       
       
-      <content:encoded><![CDATA[<h3 id="创建一个执行文件然后给予权限然后执行"><a href="#创建一个执行文件然后给予权限然后执行" class="headerlink" title="创建一个执行文件然后给予权限然后执行"></a><strong>创建一个执行文件然后给予权限然后执行</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">batch_date=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--usernmae root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--target-dir hive表hdfs目录 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--split-by <span class="built_in">id</span> \</span><br><span class="line">--query select * from city</span><br><span class="line"></span><br><span class="line">result=$?</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [<span class="variable">$result</span> != 0];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;执行失败&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">else</span>  <span class="string">&quot;执行成功&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd </span><br></pre></td></tr></table></figure>]]></content:encoded>
+      <content:encoded><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--hbase-create-table \</span><br><span class="line">--hbase-table hkjcpdd:city \</span><br><span class="line">--column-family cf \</span><br><span class="line">--hbase-row-key <span class="built_in">id</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --hbase-row-key:要求mysql表必须有主见，将主键作为rowkey,表示一行</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
       <category domain="https://bigdata-yx.github.io/categories/Sqoop/">Sqoop</category>
@@ -262,7 +234,7 @@
       <category domain="https://bigdata-yx.github.io/tags/Sqoop/">Sqoop</category>
       
       
-      <comments>https://bigdata-yx.github.io/posts/3987.html#disqus_thread</comments>
+      <comments>https://bigdata-yx.github.io/posts/3988.html#disqus_thread</comments>
       
     </item>
     
@@ -291,6 +263,34 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/3984.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Sqoop应用案例</title>
+      <link>https://bigdata-yx.github.io/posts/3987.html</link>
+      <guid>https://bigdata-yx.github.io/posts/3987.html</guid>
+      <pubDate>Mon, 13 Jan 2025 08:07:49 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;a href=&quot;#创建一个执行文件然后给予权限然后执行&quot; class=&quot;headerlink&quot; title=&quot;创建一个执行文件然后给予权限然后执行&quot;&gt;&lt;/a&gt;&lt;strong&gt;创建一个执行文件然后给予权限然后执行&lt;/stro</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="创建一个执行文件然后给予权限然后执行"><a href="#创建一个执行文件然后给予权限然后执行" class="headerlink" title="创建一个执行文件然后给予权限然后执行"></a><strong>创建一个执行文件然后给予权限然后执行</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">batch_date=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--usernmae root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--target-dir hive表hdfs目录 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--split-by <span class="built_in">id</span> \</span><br><span class="line">--query select * from city</span><br><span class="line"></span><br><span class="line">result=$?</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [<span class="variable">$result</span> != 0];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;执行失败&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">else</span>  <span class="string">&quot;执行成功&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd </span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Sqoop/">Sqoop</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Sqoop/">Sqoop</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/3987.html#disqus_thread</comments>
       
     </item>
     
@@ -521,6 +521,35 @@
     </item>
     
     <item>
+      <title>案例：Flume file channel</title>
+      <link>https://bigdata-yx.github.io/posts/fe63.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe63.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;file-channel&quot;&gt;&lt;a href=&quot;#file-channel&quot; class=&quot;headerlink&quot; title=&quot;file channel&quot;&gt;&lt;/a&gt;file channel&lt;/h2&gt;&lt;p&gt;需要的参数 type &amp;#x3D; file&lt;/p&gt;
+&lt;p&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="file-channel"><a href="#file-channel" class="headerlink" title="file channel"></a>file channel</h2><p>需要的参数 type &#x3D; file</p><p>dataDirs &#x3D; &#x2F;roort</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>=&#x3D;a1.channels.c1.type &#x3D; file&#x3D;&#x3D;<br>a1.channels.c1.capaciry&#x3D;10000<br>a1.channels.c1.transactioncapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe63.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>案例：Flume avro sink</title>
       <link>https://bigdata-yx.github.io/posts/fe65.html</link>
       <guid>https://bigdata-yx.github.io/posts/fe65.html</guid>
@@ -575,35 +604,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe64.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>案例：Flume file channel</title>
-      <link>https://bigdata-yx.github.io/posts/fe63.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe63.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;file-channel&quot;&gt;&lt;a href=&quot;#file-channel&quot; class=&quot;headerlink&quot; title=&quot;file channel&quot;&gt;&lt;/a&gt;file channel&lt;/h2&gt;&lt;p&gt;需要的参数 type &amp;#x3D; file&lt;/p&gt;
-&lt;p&gt;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="file-channel"><a href="#file-channel" class="headerlink" title="file channel"></a>file channel</h2><p>需要的参数 type &#x3D; file</p><p>dataDirs &#x3D; &#x2F;roort</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>=&#x3D;a1.channels.c1.type &#x3D; file&#x3D;&#x3D;<br>a1.channels.c1.capaciry&#x3D;10000<br>a1.channels.c1.transactioncapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content:encoded>
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe63.html#disqus_thread</comments>
       
     </item>
     
@@ -722,6 +722,34 @@
     </item>
     
     <item>
+      <title>Flume Sink Processors sink处理器</title>
+      <link>https://bigdata-yx.github.io/posts/fe66.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe66.html</guid>
+      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Sink-Processors-sink处理器&quot;&gt;&lt;a href=&quot;#Sink-Processors-sink处理器&quot; class=&quot;headerlink&quot; title=&quot;Sink Processors sink处理器&quot;&gt;&lt;/a&gt;Sink Processors s</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Sink-Processors-sink处理器"><a href="#Sink-Processors-sink处理器" class="headerlink" title="Sink Processors sink处理器"></a>Sink Processors sink处理器</h2><h3 id="failover-sink-Processor故障转移处理器"><a href="#failover-sink-Processor故障转移处理器" class="headerlink" title="failover sink Processor故障转移处理器"></a><em><strong>failover sink Processor故障转移处</strong>理器</em></h3><h4 id="amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"><a href="#amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力" class="headerlink" title="&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"></a>&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力</h4><p>&amp;#x9;2)需要指定: processor.type  &#x3D; failover</p><p>&amp;#x9;processor.priority.&lt;sinkName&gt; &#x3D; 数字（就是优先级，数字越大优先级越高）</p><p>&amp;#x9;processor.maxpenalty &#x3D; 10000（就是允许你宕机以后给你重连的时间）</p><h3 id="Load-balancing-Sink-Processor"><a href="#Load-balancing-Sink-Processor" class="headerlink" title="Load balancing Sink Processor"></a>Load balancing Sink Processor</h3><p>负载平衡处理器提供了在多个sink负载平衡流量的能力。支持两种模式：round<em>robin and random。round</em>_robin可以将数据负载均衡到多个sink上，random支持随机分发到不同的sink上</p><p>第一种就是随机给你发送（random随机）</p><p>第二种就是负载均衡（robin负载均衡）</p><blockquote><p>a1.sources&#x3D;r1 <br>a1.sinks&#x3D;k1 k2 <br>a1.channels&#x3D;c1 <br><br>a1.sources.r1.type&#x3D;netcat <br>a1.sources.r1.bind&#x3D;worker-1 <br>a1.sources.r1.port&#x3D;44444 <br><br>a1.channels.c1.type&#x3D;memory <br>a1.channels.c1.capacity&#x3D;100000 <br>a1.channels.c1.transactionCapacity&#x3D;100 <br><br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-1<br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-2 <br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinkgroups &#x3D; g1 <br>a1.sinkgroups.g1.sinks &#x3D; k1 k2 <br>a1.sinkgroups.g1.processor.type &#x3D; failover(故障转移)   or    load_<em>balance(随机)<br>a1.sinkgroups.g1.processor.selector &#x3D; random or    round</em>_<em>robin# 默认是故障转移的不写就是故障转移，写了就是随机random是随机的意思，而round</em>_robin是轮询的意思<br><br>a1.sources.r1.channels&#x3D;c1 <br>a1.sinks.k1.channel&#x3D;c1 <br>a1.sinks.k2.channel&#x3D;c1</p></blockquote>]]></content:encoded>
+      
+      
+      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
+      
+      
+      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
+      
+      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
+      
+      
+      <comments>https://bigdata-yx.github.io/posts/fe66.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Flume kafka sink</title>
       <link>https://bigdata-yx.github.io/posts/fe57.html</link>
       <guid>https://bigdata-yx.github.io/posts/fe57.html</guid>
@@ -751,19 +779,12 @@
     </item>
     
     <item>
-      <title>Flume Sink Processors sink处理器</title>
-      <link>https://bigdata-yx.github.io/posts/fe66.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe66.html</guid>
+      <title>Flume</title>
+      <link>https://bigdata-yx.github.io/posts/fe69.html</link>
+      <guid>https://bigdata-yx.github.io/posts/fe69.html</guid>
       <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
       
-        
-        
-      <description>&lt;h2 id=&quot;Sink-Processors-sink处理器&quot;&gt;&lt;a href=&quot;#Sink-Processors-sink处理器&quot; class=&quot;headerlink&quot; title=&quot;Sink Processors sink处理器&quot;&gt;&lt;/a&gt;Sink Processors s</description>
-        
       
-      
-      
-      <content:encoded><![CDATA[<h2 id="Sink-Processors-sink处理器"><a href="#Sink-Processors-sink处理器" class="headerlink" title="Sink Processors sink处理器"></a>Sink Processors sink处理器</h2><h3 id="failover-sink-Processor故障转移处理器"><a href="#failover-sink-Processor故障转移处理器" class="headerlink" title="failover sink Processor故障转移处理器"></a><em><strong>failover sink Processor故障转移处</strong>理器</em></h3><h4 id="amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"><a href="#amp-x9-1-可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力" class="headerlink" title="&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力"></a>&amp;#x9;1)可以同时指定多个sink输出，按照优先级高低进行数据的分发，并具有故障转移能力</h4><p>&amp;#x9;2)需要指定: processor.type  &#x3D; failover</p><p>&amp;#x9;processor.priority.&lt;sinkName&gt; &#x3D; 数字（就是优先级，数字越大优先级越高）</p><p>&amp;#x9;processor.maxpenalty &#x3D; 10000（就是允许你宕机以后给你重连的时间）</p><h3 id="Load-balancing-Sink-Processor"><a href="#Load-balancing-Sink-Processor" class="headerlink" title="Load balancing Sink Processor"></a>Load balancing Sink Processor</h3><p>负载平衡处理器提供了在多个sink负载平衡流量的能力。支持两种模式：round<em>robin and random。round</em>_robin可以将数据负载均衡到多个sink上，random支持随机分发到不同的sink上</p><p>第一种就是随机给你发送（random随机）</p><p>第二种就是负载均衡（robin负载均衡）</p><blockquote><p>a1.sources&#x3D;r1 <br>a1.sinks&#x3D;k1 k2 <br>a1.channels&#x3D;c1 <br><br>a1.sources.r1.type&#x3D;netcat <br>a1.sources.r1.bind&#x3D;worker-1 <br>a1.sources.r1.port&#x3D;44444 <br><br>a1.channels.c1.type&#x3D;memory <br>a1.channels.c1.capacity&#x3D;100000 <br>a1.channels.c1.transactionCapacity&#x3D;100 <br><br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-1<br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinks.k1.type&#x3D;avro <br>a1.sinks.k1.hostname &#x3D; worke-2 <br>a1.sinks.k1.port &#x3D; 55555 <br>a1.sinkgroups &#x3D; g1 <br>a1.sinkgroups.g1.sinks &#x3D; k1 k2 <br>a1.sinkgroups.g1.processor.type &#x3D; failover(故障转移)   or    load_<em>balance(随机)<br>a1.sinkgroups.g1.processor.selector &#x3D; random or    round</em>_<em>robin# 默认是故障转移的不写就是故障转移，写了就是随机random是随机的意思，而round</em>_robin是轮询的意思<br><br>a1.sources.r1.channels&#x3D;c1 <br>a1.sinks.k1.channel&#x3D;c1 <br>a1.sinks.k2.channel&#x3D;c1</p></blockquote>]]></content:encoded>
       
       
       <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
@@ -774,7 +795,7 @@
       <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
       
       
-      <comments>https://bigdata-yx.github.io/posts/fe66.html#disqus_thread</comments>
+      <comments>https://bigdata-yx.github.io/posts/fe69.html#disqus_thread</comments>
       
     </item>
     
@@ -804,27 +825,6 @@
       
       
       <comments>https://bigdata-yx.github.io/posts/fe56.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Flume</title>
-      <link>https://bigdata-yx.github.io/posts/fe69.html</link>
-      <guid>https://bigdata-yx.github.io/posts/fe69.html</guid>
-      <pubDate>Mon, 13 Jan 2025 07:37:07 GMT</pubDate>
-      
-      
-      
-      
-      <category domain="https://bigdata-yx.github.io/categories/Flume/">Flume</category>
-      
-      
-      <category domain="https://bigdata-yx.github.io/tags/%E7%A4%BA%E4%BE%8B/">示例</category>
-      
-      <category domain="https://bigdata-yx.github.io/tags/Flume/">Flume</category>
-      
-      
-      <comments>https://bigdata-yx.github.io/posts/fe69.html#disqus_thread</comments>
       
     </item>
     

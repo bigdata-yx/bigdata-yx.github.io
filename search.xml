@@ -160,33 +160,6 @@
     
     
     <entry>
-      <title>Sqoop导入到Hbase</title>
-      <link href="/posts/3988.html"/>
-      <url>/posts/3988.html</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--hbase-create-table \</span><br><span class="line">--hbase-table hkjcpdd:city \</span><br><span class="line">--column-family cf \</span><br><span class="line">--hbase-row-key <span class="built_in">id</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --hbase-row-key:要求mysql表必须有主见，将主键作为rowkey,表示一行</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Sqoop </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> Sqoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Sqoop导入其他格式文件</title>
       <link href="/posts/3994.html"/>
       <url>/posts/3994.html</url>
@@ -214,11 +187,11 @@
     
     
     <entry>
-      <title>Sqoop应用案例</title>
-      <link href="/posts/3987.html"/>
-      <url>/posts/3987.html</url>
+      <title>Sqoop导入到Hbase</title>
+      <link href="/posts/3988.html"/>
+      <url>/posts/3988.html</url>
       
-        <content type="html"><![CDATA[<h3 id="创建一个执行文件然后给予权限然后执行"><a href="#创建一个执行文件然后给予权限然后执行" class="headerlink" title="创建一个执行文件然后给予权限然后执行"></a><strong>创建一个执行文件然后给予权限然后执行</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">batch_date=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--usernmae root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--target-dir hive表hdfs目录 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--split-by <span class="built_in">id</span> \</span><br><span class="line">--query select * from city</span><br><span class="line"></span><br><span class="line">result=$?</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [<span class="variable">$result</span> != 0];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;执行失败&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">else</span>  <span class="string">&quot;执行成功&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd </span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--table city \</span><br><span class="line">--hbase-create-table \</span><br><span class="line">--hbase-table hkjcpdd:city \</span><br><span class="line">--column-family cf \</span><br><span class="line">--hbase-row-key <span class="built_in">id</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --hbase-row-key:要求mysql表必须有主见，将主键作为rowkey,表示一行</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -246,6 +219,33 @@
       <url>/posts/3984.html</url>
       
         <content type="html"><![CDATA[<h2 id="Sqoop搭建"><a href="#Sqoop搭建" class="headerlink" title="Sqoop搭建"></a>Sqoop搭建</h2><h3 id="1-解压"><a href="#1-解压" class="headerlink" title="1.解压"></a>1.解压</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz -C /root/software</span><br></pre></td></tr></table></figure><h3 id="更改名字"><a href="#更改名字" class="headerlink" title="更改名字"></a>更改名字</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/software</span><br><span class="line"><span class="built_in">mv</span> sqoop-1.4.7.bin__hadoop-2.6.0/ sqoop</span><br></pre></td></tr></table></figure><h3 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2.添加环境变量"></a>2.添加环境变量</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加</span></span><br><span class="line"><span class="built_in">export</span> SQOOP_HOME=/root/software/sqoop</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SQOOP_HOME</span>/bin</span><br></pre></td></tr></table></figure><h3 id="3-配置-Sqoop-环境变量文件"><a href="#3-配置-Sqoop-环境变量文件" class="headerlink" title="3.配置 Sqoop 环境变量文件"></a>3.配置 Sqoop 环境变量文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换到 Sqoop 配置文件目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$SQOOP_HOME</span>/conf</span><br><span class="line"><span class="comment"># 复制 Sqoop 环境变量模板文件</span></span><br><span class="line"><span class="built_in">cp</span> sqoop-env-template.sh sqoop-env.sh </span><br><span class="line"><span class="comment"># 编辑文件，指定相关路径</span></span><br><span class="line">vi sqoop-env.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将最底下的配置加上，没有装的就不用去掉#号</span></span><br></pre></td></tr></table></figure><h3 id="4-MySQL-驱动"><a href="#4-MySQL-驱动" class="headerlink" title="4. MySQL 驱动"></a>4. MySQL 驱动</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拷贝 MySQL 驱动到 Sqoop 中的 lib 目录中</span></span><br><span class="line"><span class="built_in">cp</span> /opt/software/mysql-connector-java-5.1.37-bin.jar <span class="variable">$SQOOP_HOME</span>/lib</span><br></pre></td></tr></table></figure><h3 id="5-拷贝-Hive-文件"><a href="#5-拷贝-Hive-文件" class="headerlink" title="5. 拷贝 Hive 文件"></a>5. 拷贝 Hive 文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为了后续方便操作 Hive，我们需要将 Hive 的驱动放入 Sqoop 的 lib 目录中</span></span><br><span class="line"><span class="built_in">cp</span> hive/lib/hive-common-3.1.2.jar sqoop/lib/</span><br></pre></td></tr></table></figure><h3 id="6-验证（输入-sqoop-version，出现如下版本信息表示安装成功）"><a href="#6-验证（输入-sqoop-version，出现如下版本信息表示安装成功）" class="headerlink" title="6.验证（输入 sqoop version，出现如下版本信息表示安装成功）"></a>6.验证（输入 <code>sqoop version</code>，出现如下版本信息表示安装成功）</h3><h3 id="7-展示Mysql中sys库下的所有表"><a href="#7-展示Mysql中sys库下的所有表" class="headerlink" title="7.展示Mysql中sys库下的所有表"></a>7.展示Mysql中sys库下的所有表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqoop list<span class="operator">-</span>tables \</span><br><span class="line"><span class="comment">--connect jdbc:mysql://localhost:3306/sys \</span></span><br><span class="line"><span class="comment">--username root \</span></span><br><span class="line"><span class="comment">--password 123456</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Sqoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> Sqoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Sqoop应用案例</title>
+      <link href="/posts/3987.html"/>
+      <url>/posts/3987.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="创建一个执行文件然后给予权限然后执行"><a href="#创建一个执行文件然后给予权限然后执行" class="headerlink" title="创建一个执行文件然后给予权限然后执行"></a><strong>创建一个执行文件然后给予权限然后执行</strong></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">batch_date=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://master:3306/sqoop_db \</span><br><span class="line">--usernmae root \</span><br><span class="line">--password 123456 \</span><br><span class="line">--target-dir hive表hdfs目录 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--fields-terminated-by <span class="string">&quot;\t&quot;</span> \</span><br><span class="line">--split-by <span class="built_in">id</span> \</span><br><span class="line">--query select * from city</span><br><span class="line"></span><br><span class="line">result=$?</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [<span class="variable">$result</span> != 0];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;执行失败&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">else</span>  <span class="string">&quot;执行成功&quot;</span> `<span class="built_in">date</span>` &gt;&gt; /home/hadoop/hkjcpdd </span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -484,6 +484,33 @@
     
     
     <entry>
+      <title>案例：Flume file channel</title>
+      <link href="/posts/fe63.html"/>
+      <url>/posts/fe63.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="file-channel"><a href="#file-channel" class="headerlink" title="file channel"></a>file channel</h2><p>需要的参数 type &#x3D; file</p><p>dataDirs &#x3D; &#x2F;roort</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>=&#x3D;a1.channels.c1.type &#x3D; file&#x3D;&#x3D;<br>a1.channels.c1.capaciry&#x3D;10000<br>a1.channels.c1.transactioncapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flume </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> Flume </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>案例：Flume avro sink</title>
       <link href="/posts/fe65.html"/>
       <url>/posts/fe65.html</url>
@@ -516,33 +543,6 @@
       <url>/posts/fe64.html</url>
       
         <content type="html"><![CDATA[<h2 id="exec-sources"><a href="#exec-sources" class="headerlink" title="exec sources"></a>exec sources</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; exec</p><p>a1.sources.r1.command &#x3D; tail -f &#x2F;root&#x2F;exec.log</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>那个命令就是需要监听的命令</p><p>他是不断的去监听你文件添加了什么</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Flume </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> Flume </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>案例：Flume file channel</title>
-      <link href="/posts/fe63.html"/>
-      <url>/posts/fe63.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="file-channel"><a href="#file-channel" class="headerlink" title="file channel"></a>file channel</h2><p>需要的参数 type &#x3D; file</p><p>dataDirs &#x3D; &#x2F;roort</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; localhost<br>a1.sources.r1.port &#x3D; 44444</p><p>=&#x3D;a1.channels.c1.type &#x3D; file&#x3D;&#x3D;<br>a1.channels.c1.capaciry&#x3D;10000<br>a1.channels.c1.transactioncapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
       
       
       <categories>
@@ -673,33 +673,6 @@
     
     
     <entry>
-      <title>Flume kafka sink</title>
-      <link href="/posts/fe57.html"/>
-      <url>/posts/fe57.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="kafka-sink"><a href="#kafka-sink" class="headerlink" title="kafka sink"></a>kafka sink</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>=&#x3D;a1.sinks.k1.type &#x3D; org.apache.flume.kafka.KafkaSink<br>a1.sinks.k1.kafka.bootstrap.server &#x3D; master<br>a1.sinks.k1.kafka.topic &#x3D; hkjcpdd&#x3D;&#x3D;</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>flume监听nginx的access.log文件给kafka消费</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; taildir<br>a1.sources.r1.filegroups &#x3D; f1<br>a1.sources.r1.filegroups.f1 &#x3D; &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;access.log</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; org.apache.flume.sink.kafka.KafkaSink<br>a1.sinks.k1.kafka.bootstrap.servers &#x3D; master:9092<br>a1.sinks.k1.kafka.topic&#x3D;hkjcpdd</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Flume </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> Flume </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Flume Sink Processors sink处理器</title>
       <link href="/posts/fe66.html"/>
       <url>/posts/fe66.html</url>
@@ -727,11 +700,11 @@
     
     
     <entry>
-      <title>Flume source的type</title>
-      <link href="/posts/fe56.html"/>
-      <url>/posts/fe56.html</url>
+      <title>Flume kafka sink</title>
+      <link href="/posts/fe57.html"/>
+      <url>/posts/fe57.html</url>
       
-        <content type="html"><![CDATA[<p>exec source 在启动时运行给定的unix命令，并期望该进程在标准输出上连续生成数据。</p><p>spooling directory source (spooldir) 这个source允许你把要手机的文件放入磁盘上的某个指定目录。他会监视这个目录中产生的新文件，并在新文件处显示从新文件中解析出来。 与exec source不同，spooling directory source是可靠的， 即使flume重新启动或被kill，也不会丢失数据，同时作为这种可靠的代价，指定目录中的被手机的文件必须是不可变的、唯一命名的。flume会自动检测避免这种情况发生，如果发现问题，则会抛出异常；</p><p>taildir source 监控指定的一些文件，并在检测新的一行数据残生的时候几乎实时的读取他们，如果新的一行数据还没写完，taildir source 等到这行写完后读取</p><p>kafka source 就是一个apache kafka消费者， 他从kafka的topic中读取消息，如果运行了多个Kafka source 则可以把他们配置到同一个消费者组，以便每个source都读取一组唯一的topic分区</p><p>syslog sources 针对系统日志</p><p>http sources 发送get协议请求的</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="kafka-sink"><a href="#kafka-sink" class="headerlink" title="kafka sink"></a>kafka sink</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; netcat<br>a1.sources.r1.bind &#x3D; master<br>a1.sources.r1.port &#x3D; 44444</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>=&#x3D;a1.sinks.k1.type &#x3D; org.apache.flume.kafka.KafkaSink<br>a1.sinks.k1.kafka.bootstrap.server &#x3D; master<br>a1.sinks.k1.kafka.topic &#x3D; hkjcpdd&#x3D;&#x3D;</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>flume监听nginx的access.log文件给kafka消费</p><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>a1.sources.r1.type &#x3D; taildir<br>a1.sources.r1.filegroups &#x3D; f1<br>a1.sources.r1.filegroups.f1 &#x3D; &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;access.log</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; org.apache.flume.sink.kafka.KafkaSink<br>a1.sinks.k1.kafka.bootstrap.servers &#x3D; master:9092<br>a1.sinks.k1.kafka.topic&#x3D;hkjcpdd</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote>]]></content>
       
       
       <categories>
@@ -759,6 +732,33 @@
       <url>/posts/fe69.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Flume </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> Flume </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Flume source的type</title>
+      <link href="/posts/fe56.html"/>
+      <url>/posts/fe56.html</url>
+      
+        <content type="html"><![CDATA[<p>exec source 在启动时运行给定的unix命令，并期望该进程在标准输出上连续生成数据。</p><p>spooling directory source (spooldir) 这个source允许你把要手机的文件放入磁盘上的某个指定目录。他会监视这个目录中产生的新文件，并在新文件处显示从新文件中解析出来。 与exec source不同，spooling directory source是可靠的， 即使flume重新启动或被kill，也不会丢失数据，同时作为这种可靠的代价，指定目录中的被手机的文件必须是不可变的、唯一命名的。flume会自动检测避免这种情况发生，如果发现问题，则会抛出异常；</p><p>taildir source 监控指定的一些文件，并在检测新的一行数据残生的时候几乎实时的读取他们，如果新的一行数据还没写完，taildir source 等到这行写完后读取</p><p>kafka source 就是一个apache kafka消费者， 他从kafka的topic中读取消息，如果运行了多个Kafka source 则可以把他们配置到同一个消费者组，以便每个source都读取一组唯一的topic分区</p><p>syslog sources 针对系统日志</p><p>http sources 发送get协议请求的</p>]]></content>
       
       
       <categories>
@@ -862,11 +862,11 @@
     
     
     <entry>
-      <title>Flume taildir agent监听一个或者多个文件</title>
-      <link href="/posts/fe54.html"/>
-      <url>/posts/fe54.html</url>
+      <title>Flume</title>
+      <link href="/posts/fe52.html"/>
+      <url>/posts/fe52.html</url>
       
-        <content type="html"><![CDATA[<h2 id="taildir-agent"><a href="#taildir-agent" class="headerlink" title="taildir agent"></a>taildir agent</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>=&#x3D;a1.sources.r1.type &#x3D; taildir<br># 这个是用于断点续传，确保不被重复消费<br>a1.sources.r1.positionFile&#x3D;&#x2F;data&#x2F;flume&#x2F;position.json<br>a1.sources.r1.filegroups &#x3D; f1 a1.sources.r1.filegroups.f1 &#x3D; &#x2F;root&#x2F;taildir&#x2F;hkjcpdd.log&#x3D;&#x3D;</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>与之exev不同的是，他是监听的是文件内容，而exec是监听命令运行后的结果</p><p>监听多个文件的话那就多写几个</p><p>例如:</p><blockquote></blockquote>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://pic1.imgdb.cn/item/6784c673d0e0a243d4f3d73f.png"></p>]]></content>
       
       
       <categories>
@@ -889,11 +889,11 @@
     
     
     <entry>
-      <title>Flume</title>
-      <link href="/posts/fe52.html"/>
-      <url>/posts/fe52.html</url>
+      <title>Flume taildir agent监听一个或者多个文件</title>
+      <link href="/posts/fe54.html"/>
+      <url>/posts/fe54.html</url>
       
-        <content type="html"><![CDATA[<p><img src="https://pic1.imgdb.cn/item/6784c673d0e0a243d4f3d73f.png"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="taildir-agent"><a href="#taildir-agent" class="headerlink" title="taildir agent"></a>taildir agent</h2><blockquote><p>a1.sources &#x3D; r1<br>a1.channels &#x3D; c1<br>a1.sinks &#x3D; k1</p><p>=&#x3D;a1.sources.r1.type &#x3D; taildir<br># 这个是用于断点续传，确保不被重复消费<br>a1.sources.r1.positionFile&#x3D;&#x2F;data&#x2F;flume&#x2F;position.json<br>a1.sources.r1.filegroups &#x3D; f1 a1.sources.r1.filegroups.f1 &#x3D; &#x2F;root&#x2F;taildir&#x2F;hkjcpdd.log&#x3D;&#x3D;</p><p>a1.channels.c1.type &#x3D; memory<br>a1.channels.c1.capacity &#x3D; 10000<br>a1.channels.c1.transactionCapacity &#x3D; 100</p><p>a1.sinks.k1.type &#x3D; logger</p><p>a1.sources.r1.channels &#x3D; c1<br>a1.sinks.k1.channel &#x3D; c1</p></blockquote><p>与之exev不同的是，他是监听的是文件内容，而exec是监听命令运行后的结果</p><p>监听多个文件的话那就多写几个</p><p>例如:</p><blockquote></blockquote>]]></content>
       
       
       <categories>
@@ -935,33 +935,6 @@
             <tag> 示例 </tag>
             
             <tag> Flume </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Azkaban</title>
-      <link href="/posts/969.html"/>
-      <url>/posts/969.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> demo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 示例 </tag>
-            
-            <tag> demo </tag>
             
         </tags>
       
@@ -1024,6 +997,33 @@
     
     
     <entry>
+      <title>Azkaban</title>
+      <link href="/posts/969.html"/>
+      <url>/posts/969.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> demo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 示例 </tag>
+            
+            <tag> demo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Azkaban的JavaProcess作业案例</title>
       <link href="/posts/966.html"/>
       <url>/posts/966.html</url>
@@ -1078,11 +1078,11 @@
     
     
     <entry>
-      <title>Azkaban失败重试</title>
-      <link href="/posts/958.html"/>
-      <url>/posts/958.html</url>
+      <title>Azkaban定时执行案例</title>
+      <link href="/posts/959.html"/>
+      <url>/posts/959.html</url>
       
-        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自动失败重试</span></span><br><span class="line">nodes:</span><br><span class="line">  - name: jobA</span><br><span class="line">  type: command</span><br><span class="line">  config:</span><br><span class="line">    command: sh /not exists.sh</span><br><span class="line">    retries: 3</span><br><span class="line">    retry.backoff: 10000</span><br><span class="line">    </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">参数说明：</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retries: 重试次数</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retry.backoff: 重试的时间间隔</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">手动失败重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">理想的就是从成功的地方跳过，失败的地方重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需求：JobA =&gt; JobB(依赖于A) =&gt; JobC =&gt; JobD =&gt; JobE =&gt; JobF。生产环境中，任何Job都有可能挂掉，可以根据需求执行想要的Job</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接从webui操作</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.<span class="built_in">history</span>-&gt;flow-&gt;Prepare execution-&gt;execute</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.就是从头开始，但是把成功的<span class="built_in">disable</span>就可以了</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="定时执行案例"><a href="#定时执行案例" class="headerlink" title="定时执行案例"></a>定时执行案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需求：JobA每间隔一分钟执行一次</span></span><br><span class="line">就是执行任务的那个绿色按钮</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1105,11 +1105,11 @@
     
     
     <entry>
-      <title>Azkaban定时执行案例</title>
-      <link href="/posts/959.html"/>
-      <url>/posts/959.html</url>
+      <title>Azkaban失败重试</title>
+      <link href="/posts/958.html"/>
+      <url>/posts/958.html</url>
       
-        <content type="html"><![CDATA[<h2 id="定时执行案例"><a href="#定时执行案例" class="headerlink" title="定时执行案例"></a>定时执行案例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需求：JobA每间隔一分钟执行一次</span></span><br><span class="line">就是执行任务的那个绿色按钮</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自动失败重试</span></span><br><span class="line">nodes:</span><br><span class="line">  - name: jobA</span><br><span class="line">  type: command</span><br><span class="line">  config:</span><br><span class="line">    command: sh /not exists.sh</span><br><span class="line">    retries: 3</span><br><span class="line">    retry.backoff: 10000</span><br><span class="line">    </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">参数说明：</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retries: 重试次数</span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">retry.backoff: 重试的时间间隔</span></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">手动失败重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">理想的就是从成功的地方跳过，失败的地方重试</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需求：JobA =&gt; JobB(依赖于A) =&gt; JobC =&gt; JobD =&gt; JobE =&gt; JobF。生产环境中，任何Job都有可能挂掉，可以根据需求执行想要的Job</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接从webui操作</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.<span class="built_in">history</span>-&gt;flow-&gt;Prepare execution-&gt;execute</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.就是从头开始，但是把成功的<span class="built_in">disable</span>就可以了</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1483,11 +1483,11 @@
     
     
     <entry>
-      <title>docker-compose</title>
-      <link href="/posts/713b.html"/>
-      <url>/posts/713b.html</url>
+      <title>docker-dockerfile</title>
+      <link href="/posts/d3ce.html"/>
+      <url>/posts/d3ce.html</url>
       
-        <content type="html"><![CDATA[<ul><li>首先需要compose,yaml文件</li><li>上线：docker compose up -d</li><li>下线：docker compse down </li><li>启动：docker compose start x1 x2 x3</li><li>停止：docker compose stop x1 x3</li><li>扩容：docker compose scale x2&#x3D;3</li></ul><h4 id="compose-yaml例子："><a href="#compose-yaml例子：" class="headerlink" title="compose.yaml例子："></a>compose.yaml例子：</h4><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">name: myblog</span><br><span class="line">services:</span><br><span class="line">  mysql:</span><br><span class="line">    container_name: mysql</span><br><span class="line">    image: mysql:<span class="number">8.0</span></span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_ROOT_PASSWORD: <span class="string">&quot;123456&quot;</span></span><br><span class="line">      MYSQL_DATABASE: wordpress</span><br><span class="line">    volumes:</span><br><span class="line">      - mysql-data:/var/lib/mysql</span><br><span class="line">      - ./myconf:/etc/mysql/conf.d </span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - blog</span><br><span class="line"></span><br><span class="line">  wordpress:</span><br><span class="line">    image: wordpress</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;8080:80&quot;</span></span><br><span class="line">    environment: </span><br><span class="line">      WORDPRESS_DB_HOST: mysql</span><br><span class="line">      WORDPRESS_DB_USER: root</span><br><span class="line">      WORDPRESS_DB_PASSWORD: <span class="string">&quot;123456&quot;</span> </span><br><span class="line">      WORDPRESS_DB_NAME: wordpress </span><br><span class="line">    volumes:</span><br><span class="line">      - wordpress:/var/www/html</span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - blog</span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  mysql-data:</span><br><span class="line">  wordpress:</span><br><span class="line"></span><br><span class="line">networks:</span><br><span class="line">  blog:</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>404</p>]]></content>
       
       
       <categories>
@@ -1510,11 +1510,11 @@
     
     
     <entry>
-      <title>docker-dockerfile</title>
-      <link href="/posts/d3ce.html"/>
-      <url>/posts/d3ce.html</url>
+      <title>docker-compose</title>
+      <link href="/posts/713b.html"/>
+      <url>/posts/713b.html</url>
       
-        <content type="html"><![CDATA[<p>404</p>]]></content>
+        <content type="html"><![CDATA[<ul><li>首先需要compose,yaml文件</li><li>上线：docker compose up -d</li><li>下线：docker compse down </li><li>启动：docker compose start x1 x2 x3</li><li>停止：docker compose stop x1 x3</li><li>扩容：docker compose scale x2&#x3D;3</li></ul><h4 id="compose-yaml例子："><a href="#compose-yaml例子：" class="headerlink" title="compose.yaml例子："></a>compose.yaml例子：</h4><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">name: myblog</span><br><span class="line">services:</span><br><span class="line">  mysql:</span><br><span class="line">    container_name: mysql</span><br><span class="line">    image: mysql:<span class="number">8.0</span></span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_ROOT_PASSWORD: <span class="string">&quot;123456&quot;</span></span><br><span class="line">      MYSQL_DATABASE: wordpress</span><br><span class="line">    volumes:</span><br><span class="line">      - mysql-data:/var/lib/mysql</span><br><span class="line">      - ./myconf:/etc/mysql/conf.d </span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - blog</span><br><span class="line"></span><br><span class="line">  wordpress:</span><br><span class="line">    image: wordpress</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;8080:80&quot;</span></span><br><span class="line">    environment: </span><br><span class="line">      WORDPRESS_DB_HOST: mysql</span><br><span class="line">      WORDPRESS_DB_USER: root</span><br><span class="line">      WORDPRESS_DB_PASSWORD: <span class="string">&quot;123456&quot;</span> </span><br><span class="line">      WORDPRESS_DB_NAME: wordpress </span><br><span class="line">    volumes:</span><br><span class="line">      - wordpress:/var/www/html</span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - blog</span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  mysql-data:</span><br><span class="line">  wordpress:</span><br><span class="line"></span><br><span class="line">networks:</span><br><span class="line">  blog:</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1672,11 +1672,11 @@
     
     
     <entry>
-      <title>docker架构</title>
-      <link href="/posts/af13.html"/>
-      <url>/posts/af13.html</url>
+      <title>docker网络</title>
+      <link href="/posts/5796.html"/>
+      <url>/posts/5796.html</url>
       
-        <content type="html"><![CDATA[<h3 id="下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新"><a href="#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新" class="headerlink" title="下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新"></a>下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新</h3><ul><li>下载别的版本的话就是去dockerhub上看</li><li>检索docker search + 名字</li><li>列表：docker images</li><li>删除：docker rmi + 完整标签或者id 如：docker rmi nginx:latest</li></ul><h3 id="运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"><a href="#运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加" class="headerlink" title="运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"></a>运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加</h3><ul><li>后台运行-d</li><li>起个名字 –name</li><li>端口映射 -p 80:80</li></ul><ol><li><p>查看docker ps</p></li><li><p>停止 docker stop</p></li><li><p>启动docker start</p></li><li><p>重启 docker restart </p></li><li><p>状态 docker stats</p></li><li><p>日志 docker logs</p></li><li><p>进入 docker exec</p><p>docker exec -it mynginx &#x2F;bin&#x2F;bash</p><p>-it是交互模式</p><p>后面的路径是让他在控制台上显示</p></li><li><p>删除 docker rm</p></li><li><p>用docker构建自己的软件包，docker build + 镜像</p></li><li><p>发给应用市场让dock保存的话就是，dock push + 镜像</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>查看容器的细节</p><p>docker inspect app2</p><p>docker network + 功能</p><p><img src="/posts/5796.htm/Users\LHX\AppData\Roaming\Typora\typora-user-images\image-20241025120003627.png" alt="image-20241025120003627"></p><h4 id="环境变量就用-e"><a href="#环境变量就用-e" class="headerlink" title="环境变量就用-e"></a>环境变量就用-e</h4>]]></content>
       
       
       <categories>
@@ -1726,11 +1726,11 @@
     
     
     <entry>
-      <title>docker网络</title>
-      <link href="/posts/5796.html"/>
-      <url>/posts/5796.html</url>
+      <title>docker架构</title>
+      <link href="/posts/af13.html"/>
+      <url>/posts/af13.html</url>
       
-        <content type="html"><![CDATA[<p>查看容器的细节</p><p>docker inspect app2</p><p>docker network + 功能</p><p><img src="/posts/5796.htm/Users\LHX\AppData\Roaming\Typora\typora-user-images\image-20241025120003627.png" alt="image-20241025120003627"></p><h4 id="环境变量就用-e"><a href="#环境变量就用-e" class="headerlink" title="环境变量就用-e"></a>环境变量就用-e</h4>]]></content>
+        <content type="html"><![CDATA[<h3 id="下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新"><a href="#下载镜像的话就是，docker-pull-镜像-镜像-x3D-标签-版本-latest为最新" class="headerlink" title="下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新"></a>下载镜像的话就是，docker pull + 镜像  镜像&#x3D;标签+版本  latest为最新</h3><ul><li>下载别的版本的话就是去dockerhub上看</li><li>检索docker search + 名字</li><li>列表：docker images</li><li>删除：docker rmi + 完整标签或者id 如：docker rmi nginx:latest</li></ul><h3 id="运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"><a href="#运行镜像的话就是，docker-run-options-image-commend-arg…-后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加" class="headerlink" title="运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加"></a>运行镜像的话就是，docker run [options] image [commend] [arg…] 后面是启动命令但是一般的镜像都有自己的启动命令个所以可不加</h3><ul><li>后台运行-d</li><li>起个名字 –name</li><li>端口映射 -p 80:80</li></ul><ol><li><p>查看docker ps</p></li><li><p>停止 docker stop</p></li><li><p>启动docker start</p></li><li><p>重启 docker restart </p></li><li><p>状态 docker stats</p></li><li><p>日志 docker logs</p></li><li><p>进入 docker exec</p><p>docker exec -it mynginx &#x2F;bin&#x2F;bash</p><p>-it是交互模式</p><p>后面的路径是让他在控制台上显示</p></li><li><p>删除 docker rm</p></li><li><p>用docker构建自己的软件包，docker build + 镜像</p></li><li><p>发给应用市场让dock保存的话就是，dock push + 镜像</p></li></ol>]]></content>
       
       
       <categories>
